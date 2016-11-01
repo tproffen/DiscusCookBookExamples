@@ -20,12 +20,3 @@ Macros/
 
 Exercises/
   Contains solution macro files to most exercises.
-  
-#-------------------------------------------------------
-# Fixes
-#-------------------------------------------------------
-
-Feb 29, 2008: Initial release
-Mar 31, 2008: Chapter 10, Exercise 3
-              Small overflow problem fixed.
-              

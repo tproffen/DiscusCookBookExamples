@@ -1,0 +1,9 @@
+#
+#
+shear
+    matrix 1,0,0, 0,1,0, 0,0,0.5
+    orig   0,0,0,crystal
+    sel    all
+    incl   all
+    run
+exit

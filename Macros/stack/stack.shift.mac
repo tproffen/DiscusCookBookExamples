@@ -1,0 +1,16 @@
+#
+# shift.mac
+#
+symmetry
+   uvw    0,0,1
+   angle  0.0
+   trans  $1,$2,0.0
+   type   proper
+   mode   repl
+   power  1
+   des    all
+   sel    all
+   incl   all
+   show
+   run
+exit

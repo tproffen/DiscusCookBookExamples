@@ -1,0 +1,12 @@
+four
+  xray
+  wvle moa1
+  ll 0.0,0.0,0.0
+  lr 4.0,0.0,0.0
+  ul 0.0,4.0,0.0
+  na 181
+  no 181
+  set aver,50.0
+  run
+exit
+@output aver.scat

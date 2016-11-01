@@ -1,0 +1,38 @@
+#
+#  k_h0l.mac
+#
+############################################################
+#
+#  Plots the intensity distribution calculated by 
+#  stack.h0l.mac
+#
+############################################################
+#
+variable real,prob
+echo Give stacking fault probability
+wait input
+prob = res[1]
+#
+############################################################
+rese
+buff 0.12,0.0,0.12,0.12
+load ni, "stack.h0l.%4.2F.inte",prob
+aver 0.5303
+hart 1,2
+hlin 1,1e9,1e9,20
+mark 0.5,1
+fnam off
+achx [H 0 0]
+achy [0 0 L]
+tit1 "Growth fault model; Probability %4.2f",prob
+tit2 Intensity in the h0l layer
+font size,1,18
+font size,2,18
+font size,3,18
+font size,4,18
+plot
+#
+############################################################
+# To obtain a postscript file remove the leading '#' from 
+# the next line
+# save ps, "stack.h0l.%4.2F.inte.ps",prob

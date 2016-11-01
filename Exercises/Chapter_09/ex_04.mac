@@ -1,0 +1,139 @@
+############################################################
+# EXERCISE NANOPARTICLES  4
+#
+#    Simulate the unit cell of a single walled nanotube.
+#
+############################################################
+#
+if($0.ne.3) then
+  echo
+  echo " Usage:"
+  echo " @ex_04.mac <m>, <n>, <length>"
+  echo
+  wait return
+  continue discus
+endif
+#
+############################################################
+#
+#    dimx     Dimension of hexagonal graphene sheet in unit cells
+#    dimy
+#    eqx      m-komponent of (m,n)
+#    eqy      n-komponent of (m,n)
+#    axisx    x-komponent of vector along axis
+#    axisy    y-komponent of vector along axis
+#    height   height of one unit cell along the axis in Angstroem
+#    circum   circumference of nanotube
+#    radius   radius if nanotube
+#    length   length of nanotube
+#    tpi      2*3.1415
+#
+variable  integer,dimx
+variable  integer,dimy
+variable  real,eqx
+variable  real,eqy
+variable  real,axisx
+variable  real,axisy
+variable  real,height
+variable  real,circum
+variable  real,radius
+variable  real,length
+variable  real,tpi
+#
+############################################################
+#  The $* variables are stored into nicer variable names
+#  The sign of eqy is inverted to correspond to the hexagonal
+#  graphene metric used here.
+#
+tpi = 8.*atan(1.0)
+eqx     = $1
+eqy     = $2
+eqy     = -1.*eqy
+length  = $3
+############################################################
+#
+# In ex_04.get.dimen the unit cell vector along the nanotube
+# axis is determined from (m,n)=(eqx,-eqy). Also the size
+# of the graphene sheet that must be read is determined
+#
+@ex_04.get.dimen hexagonal
+############################################################
+#
+# The simulation starts by expanding the grahene unit cell
+# to a crystal of size DIMX*DIMX*1
+#
+read
+cell hexagonal.cell,dimx,dimy,1
+############################################################
+#
+#  For convenience, we calculate the nanotube circumference, 
+#  the nanotube radius, and the height of one unit cell
+#  along the nanotube axis.
+#
+circum = blen(eqx,eqy,0.0)
+radius = circum/tpi
+height = blen(axisx,axisy,0.0)
+############################################################
+#
+# Here live is easier, if we convert the graphen sheet 
+# into cartesian coordinate system
+#
+@ex_04.trans2cart
+############################################################
+#
+# Within the cartesian space, atoms outside the (100) 
+# plane must be removed at a distance +- half the circumference
+# and outside the (010) plane at +- half the height
+#
+boundary  hkl, 1, 0, 0, circum*0.5+0.1
+boundary  hkl,-1, 0, 0, circum*0.5-0.1
+boundary  hkl, 0, 1, 0, height*0.5+0.1
+boundary  hkl, 0,-1, 0, height*0.5-0.1
+purge
+############################################################
+#
+#  Macro ex_04.wrap.single wraps the graphen sheet around to
+#  obtain a miniature tube that is just one unit cell high.
+#  The cartesian space is transformed into a rectangular
+#  unit cell. The a and c axis are choosen a bit larger 
+#  than the nanotube diameter, the b axis is exactly the 
+#  length of the nanotube periodicity along the axis.
+#
+@ex_04.wrap.single
+@ex_04.trans2unit
+############################################################
+#
+#  This unit cell is saved so that we can read it and expand 
+#  the unit cell to a long tube 
+#
+save
+  omit ncell
+  omit gener
+  omit symm
+  outf nano.cell
+  run
+exit
+############################################################
+#
+#  Since there are many atoms in the unit cell, all of them
+#  identical carbon atoms, keyword 'lcell' is used to read
+#  the cell.
+#
+i[0] = max(1,int(length/height))
+read
+  lcell nano.cell,1,i[0],1
+@ex_04.center.mac
+############################################################
+#
+#  Finally the nanotube can be plotted, saved, the powder 
+#  pattern and PDF be calculated....
+#
+@ex_04.powder       single,eqx,-1*eqy,length
+@ex_04.pdf          single,eqx,-1*eqy,length
+@ex_04.plot.xbs     single,eqx,-1*eqy,length
+#
+#  For the kuplot plot we go back to cartesian axes
+#
+@ex_04.ortho2cart
+@ex_04.plot.kuplot  single,eqx,-1*eqy,length
+############################################################

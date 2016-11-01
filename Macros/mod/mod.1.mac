@@ -1,0 +1,14 @@
+read
+cell cell.cll,100,100,1
+#
+wave
+  dens
+  func sinus
+  len 35.0
+  plow 0.0
+  phigh 1.0
+  vect 1,1,0
+  phase 90.0
+  repl zr,void
+  run
+exit

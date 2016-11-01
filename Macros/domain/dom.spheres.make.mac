@@ -1,0 +1,10 @@
+read
+cell dom.host.cube.cell, 50,50,1
+#
+replace Al,$1,all,1.0
+boundary sphere,10*lat[1]
+purge
+save
+  outf dom.sph.$2.stru
+  run
+exit

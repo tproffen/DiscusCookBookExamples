@@ -1,0 +1,21 @@
+# stack.h0l.individual.mac
+#
+four
+  ll   $2 ,   $3, -0.5
+  lr   $2 ,   $3,  2.5
+  ul   $2 ,   $3, -0.5
+  na   901
+  no     1
+  abs    l
+  ord    h
+exit
+#
+stack
+  four
+exit
+#
+output
+  outfile "INDIVIDUAL/stack.$1.%1D%1Dl_%4.2F_%4D",$2,$3,$4,$5
+  value   inte
+  run
+exit

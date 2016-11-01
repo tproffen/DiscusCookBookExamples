@@ -1,0 +1,67 @@
+#  k.spheres.mac
+#
+############################################################
+#
+#  Plots the domain structures that are produced by
+#  dom.spheres.mac
+#
+############################################################
+#
+rese
+load cr, dom.sph.sorted.plot
+aver  1
+angle 90
+msiz  1,0.4
+fnam  off
+fset  0
+skal -25,25,-25,25
+plot
+#
+############################################################
+# To obtain a postscript file remove the leading '#' from 
+#save ps, dom_sph_s.ps
+wait return
+#
+############################################################
+#
+rese
+load cr, dom.sph.replaced.plot
+aver  1
+angle 90
+msiz  1,0.2
+fnam  off
+fset  0
+skal -25,25,-25,25
+plot
+#
+############################################################
+# To obtain a postscript file remove the leading '#' from 
+#save ps, dom_sph_r.ps
+wait return
+#
+############################################################
+#
+rese
+load ni, dom.sph.replaced.inte
+buff 0.05,0.05,0.12,0.05
+#
+skal
+hlin 1,0.1e6,0.1e6,20
+aver 1
+mark 1,1
+hart 1,2
+cmap gray
+tit1
+tit2 Intensity distribution for two spherical domain types
+achx [H 0 0]
+achy [0 K 0]
+font size,3,18
+font size,4,18
+fnam off
+fset 3
+plot
+#
+############################################################
+# To obtain a postscript file remove the leading '#' from 
+# the next line
+#save ps, dom_sph_rf.ps

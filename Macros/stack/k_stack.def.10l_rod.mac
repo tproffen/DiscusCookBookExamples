@@ -1,0 +1,105 @@
+# k_stack.def.10l_rod.mac
+#
+############################################################
+#
+#  Plots the intensity along the 10L rod that was calculated
+#  by stack.def.mac  for deformation faults.
+#
+############################################################
+#
+if($0.ne.1) then
+  echo
+  echo  "Usage:"
+  echo  "@k_h0l {hexa | cub}"
+  echo
+  wait return
+  continue kuplot
+endif
+#
+############################################################
+#
+rese
+variable integer,number
+variable real,prob
+number =  200
+#
+echo Give stacking fault probability
+wait input
+prob = res[1]
+#
+############################################################
+#
+# First we show a single simulation
+#
+############################################################
+#
+load xy, "INDIVIDUAL/stack.$1.10l_%4.2F_0001",prob
+skal xmin[1],xmax[1],0.1,ymax[1]*1.02
+mark 1, 4*ymax[1]
+aver
+lcol 1,6
+buff 0.12,0.10,0.12,0.12
+fnam off
+font size,1,18
+font size,2,18
+font size,3,18
+font size,4,18
+tit1 "Deformation faults with probability %4.2f; 10L rod",prob
+tit2 Single simulation; 4000 layers; Base: $1
+achx [0 0 l]
+achy Intensity
+plot
+############################################################
+# To obtain a postscript file remove the leading '#' from
+# the next line
+# save ps,"stack_$1_10l_%4.2F.ps",prob
+#
+#
+wait return
+#
+############################################################
+#
+# Now the average is calculated and displayed
+#
+############################################################
+#
+load xy, "INDIVIDUAL/stack.$1.10l_%4.2F_0002",prob
+kcal add, 1, 2
+ksav 3
+  outf "INDIVIDUAL/stack.$1.10l_%4.2F",prob
+  run
+#
+do i[0]=3,number
+  rese
+  load xy, "INDIVIDUAL/stack.$1.10l_%4.2F",prob
+  load xy, "INDIVIDUAL/stack.$1.10l_%4.2F_%4D",prob,i[0]
+  kcal add, 1, 2
+  ksav 3
+    outf "INDIVIDUAL/stack.$1.10l_%4.2F",prob
+    run
+enddo
+#
+rese
+load xy, "INDIVIDUAL/stack.$1.10l_%4.2F",prob
+buff 0.12,0.10,0.12,0.12
+ccal mul, wy,1,1./number
+#
+skal xmin[1],xmax[1],0.1,ymax[1]*1.02
+mark 1,4*ymax[1]
+lcol 1,6
+aver 
+angle 90.0
+fnam off
+font size,1,18
+font size,2,18
+font size,3,18
+font size,4,18
+tit1 "Deformation faults with probability %4.2f; 10L rod",prob
+tit2 "Average of %d simulations; 4000 layers; Base: $1",number
+achx [0 0 l]
+achy Intensity
+plot
+############################################################
+# To obtain a postscript file remove the leading '#' from
+# the next line
+# save ps,    "stack.$1.%4.2F.ps",prob

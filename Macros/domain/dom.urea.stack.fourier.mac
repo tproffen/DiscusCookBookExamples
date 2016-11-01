@@ -1,0 +1,21 @@
+#
+fourier
+  ll -6,0,-11
+  lr  6,0,-11
+  ul -6,0, 11
+  na 121
+  no 181
+  abs h
+  ord l
+  temp  use
+  disp  off
+  show
+  run
+exit
+outp
+  outf $1.h0l
+  value inte
+  form stan
+  run
+exit
+#

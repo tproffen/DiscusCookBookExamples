@@ -1,0 +1,9 @@
+trans
+  anew  1, 0, 0
+  bnew  0, 1, 0
+  cnew  0, 0, 11.017/lat[3]
+  onew  0, 0, 0
+  sel   all
+  incl  all
+  run
+exit

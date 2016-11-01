@@ -1,0 +1,9 @@
+#
+#  removes all output creates by the solution
+#  Use with caution!
+#
+system rm -f DATA/*
+system rm -f PLOT/*
+system rm -f dummy.cell
+system rm -f nano.cell
+system rm -f nano.spiral.cell

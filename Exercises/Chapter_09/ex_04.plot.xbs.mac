@@ -1,0 +1,18 @@
+plot
+  prog   xbs
+  outf   "PLOT/$1_%4D_%4D_%6.1F.bs",nint($2),nint($3),$4
+  uvw    0, 0, 1
+  ord    0, 1, 0
+  abs    1, 0, 0
+  ext    all
+  ext    x,-100,100
+  ext    y,-100,100
+  ext    z,-100,100
+  vect   0.0,0.0,0.0
+  thick  0.2  
+  sel    all
+  set    1, 3, 0.8,0.8,0.8, 0.3
+  bond   1, 1, 1.40, 1.45, 0.05, 0,0,0
+  show 
+  run
+exit

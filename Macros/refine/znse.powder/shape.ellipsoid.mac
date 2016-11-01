@@ -1,0 +1,22 @@
+read
+cell STRU/$1.cell
+@stack $1,p_stack
+@shift p_cc
+#
+@trans2cart
+@shear p_ab,p_cc
+boundary sphere,p_ab
+@shear p_cc,p_ab
+#
+purge
+#
+save
+  outf "STRU/$1.%4D.%4D.particle",kid,indiv
+  omit  ncell
+  omit  gene
+  omit  scat
+  omit  adp
+  run
+exit
+#
+@plot.xbs single_particle.bs

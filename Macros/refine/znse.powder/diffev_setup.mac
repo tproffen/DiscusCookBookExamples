@@ -1,0 +1,213 @@
+#set prompt,redirect
+#
+variable  integer,generation
+variable  integer,member
+variable  integer,children
+variable  integer,parameter
+variable  integer,ipar
+#
+pop_gen[1]  =   0
+#
+pop_n[1]    =  10
+pop_c[1]    =  10
+pop_dimx[1] =  13
+#
+# lattice constant a
+#
+ipar =  1
+pop_name    ipar,lata
+pop_xmin[ipar] =     3.900
+pop_xmax[ipar] =     4.020
+pop_smin[ipar] =     3.98000
+pop_smax[ipar] =     3.99000
+pop_sig[ipar]  =     0.001
+pop_lsig[ipar] =     0.0001
+type real,ipar
+adapt   sigma,  1,0.2
+adapt   lsig ,  1,0.02
+#
+# lattice constant c
+#
+ipar =  2
+pop_name    ipar,latc
+pop_xmin[ipar] =     6.490
+pop_xmax[ipar] =     6.570
+pop_smin[ipar] =     6.49000
+pop_smax[ipar] =     6.51000
+pop_sig[ipar]  =     0.001
+pop_lsig[ipar] =     0.0001
+type real,ipar
+adapt   sigma,  2,0.2
+adapt   lsig ,  2,0.02
+#
+# z value Zn
+#
+ipar =  3
+pop_name    ipar,z_zn
+pop_xmin[ipar] =     0.360
+pop_xmax[ipar] =     0.450
+pop_smin[ipar] =     0.3730
+pop_smax[ipar] =     0.3800
+pop_sig[ipar]  =     0.0002
+pop_lsig[ipar] =     0.00002
+type real,ipar
+adapt   sigma,  ipar,0.2
+adapt   lsig ,  ipar,0.02
+#
+# B value   
+#
+ipar =  4
+pop_name    ipar,bval
+pop_xmin[ipar] =     0.010
+pop_xmax[ipar] =     2.500
+pop_smin[ipar] =     0.4500
+pop_smax[ipar] =     0.5500
+pop_sig[ipar]  =     0.0020
+pop_lsig[ipar] =     0.0002
+type real,ipar
+adapt   sigma,  ipar,0.2
+adapt   lsig ,  ipar,0.02
+#
+# stacking fault property
+#
+ipar =  5
+pop_name    ipar,stack
+pop_xmin[ipar] =    0.000
+pop_xmax[ipar] =    1.000
+pop_smin[ipar] =    0.55000
+pop_smax[ipar] =    0.70000
+pop_sig[ipar]  =    0.002
+pop_lsig[ipar] =    0.0002
+type real   ,5
+adapt   sigma,  5,0.2
+adapt   lsig ,  5,0.02
+#
+# size in ab plane
+#
+ipar =  6
+pop_name    ipar,ab_size
+pop_xmin[ipar] =    5.000
+pop_xmax[ipar] =   50.000
+pop_smin[ipar] =   12.00000
+pop_smax[ipar] =   15.00000
+pop_sig[ipar]  =    0.2
+pop_lsig[ipar] =    0.02
+type real   ,ipar
+adapt   sigma,  ipar,0.2
+adapt   lsig ,  ipar,0.02
+#
+# size along c-axis
+#
+ipar =  7
+pop_name    ipar,cc_size
+pop_xmin[ipar] =   15.000
+pop_xmax[ipar] =   50.000
+pop_smin[ipar] =   13.00000
+pop_smax[ipar] =   18.00000
+pop_sig[ipar]  =    0.2
+pop_lsig[ipar] =    0.02
+type real   ,ipar
+adapt   sigma,  7,0.2
+adapt   lsig ,  7,0.02
+#
+# Scale factor for Background fit
+#
+ipar =  8
+pop_name    ipar,ba_scale
+pop_xmin[ipar] =    0.000
+pop_xmax[ipar] = 1000.000
+pop_smin[ipar] =    7.0E-3
+pop_smax[ipar] =    7.0E-3
+pop_sig[ipar]  =    0.0002
+pop_lsig[ipar] =    0.00002
+type real   ,ipar
+adapt   sigma,  ipar,no
+adapt   lsig ,  ipar,no
+#
+# constant Background
+#
+ipar =  9
+pop_name    ipar,ba_const
+pop_xmin[ipar] =    0.000
+pop_xmax[ipar] = 2000.000
+pop_smin[ipar] =  200.00000
+pop_smax[ipar] =  400.00
+pop_sig[ipar]  =    0.2
+pop_lsig[ipar] =    0.02
+type real   ,ipar
+adapt   sigma,  ipar,no
+adapt   lsig ,  ipar,no
+#
+# linear Background
+#
+ipar =  10
+pop_name    ipar,ba_linear
+pop_xmin[ipar] =-9999.000
+pop_xmax[ipar] = 9999.000
+pop_smin[ipar] = -10.0000
+pop_smax[ipar] =  10.0000
+pop_sig[ipar]  =    0.2
+pop_lsig[ipar] =    0.02
+type real   ,ipar
+adapt   sigma,  ipar,no
+adapt   lsig ,  ipar,no
+#
+# square background
+#
+ipar =  11
+pop_name    ipar,ba_square
+pop_xmin[ipar] =-9999.000
+pop_xmax[ipar] = 9999.000
+pop_smin[ipar] =   0.00000
+pop_smax[ipar] =   0.20000
+pop_sig[ipar]  =    0.2
+pop_lsig[ipar] =    0.02
+type real   ,ipar
+adapt   sigma,  ipar,no
+adapt   lsig ,  ipar,no
+#
+# cubed background
+#
+ipar =  12
+pop_name    ipar,ba_cube
+pop_xmin[ipar] =-9999.000
+pop_xmax[ipar] = 9999.000
+pop_smin[ipar] =    0.000
+pop_smax[ipar] =    0.010
+pop_sig[ipar]  =    0.002
+pop_lsig[ipar] =    0.0002
+type real   ,ipar
+adapt   sigma,  ipar,0.2
+adapt   lsig ,  ipar,0.02
+#
+# background x**4
+#
+ipar =  13
+pop_name   ipar,ba_fourth
+pop_xmin[ipar] =-9999.000
+pop_xmax[ipar] = 9999.000
+pop_smin[ipar] =    0.000
+pop_smax[ipar] =    0.000
+pop_sig[ipar]  =    0.200
+pop_lsig[ipar] =    0.0200
+type real   ,ipar
+adapt   sigma,  ipar,no
+adapt   lsig ,  ipar,no
+#
+diff_cr[1]  = 0.9
+diff_f[1]   = 0.81
+diff_lo[1]  = 0.0
+diff_k[1]   = 1.0
+#
+refine      none
+refine      1,2,3,4,5,6,7
+#
+donor      random
+#selection  compare
+selection  best,all
+#
+trialfile  DIFFEV/Trials
+restrial   DIFFEV/Results
+logfile    DIFFEV/Parameter
+summary    DIFFEV/Summary
+#

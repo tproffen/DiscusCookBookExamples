@@ -1,0 +1,6 @@
+load cr,sro_100.plot
+#
+aver 1.0
+angl 90.0
+#
+plot

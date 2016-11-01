@@ -1,0 +1,13 @@
+i[2]=$1
+#
+alloc x,nx[i[2]]
+#
+do i[1]=1,nx[i[2]]
+x[n[1],i[1]]=x[i[2],i[1]]
+y[n[1],i[1]]=z[i[2],i[1],i[1]]
+enddo
+#
+ksav n[1]
+outfile dens.xy
+run
+#

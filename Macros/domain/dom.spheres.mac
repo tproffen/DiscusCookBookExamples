@@ -1,0 +1,45 @@
+# dom.spheres.mac
+# 
+variable integer, dimen
+variable integer, number
+variable integer, weiter
+variable real, xx
+variable real, yy
+dimen  = 50
+number = 0.08 * dimen**2
+#
+@dom.spheres.make Si,AA
+@dom.spheres.make Be,BB
+#
+read
+  free 2.5, 2.5, 2.5, 90,90,90
+#
+do i[0]=1,number
+  xx = 2*dimen*(ran(0)-0.5)
+  yy = 2*dimen*(ran(0)-0.5)
+  insert AA, xx, yy, 0.0, 1.0
+  xx = 2*dimen*(ran(0)-0.5)
+  yy = 2*dimen*(ran(0)-0.5)
+  insert BB, xx, yy, 0.0, 1.0
+enddo
+#
+@plot.d dom.sph.random
+@dom.spheres.sort
+@plot.d dom.sph.sorted
+@dom.spheres.fourier dom.sph.sorted
+@dom.spheres.togrid
+save
+  outfile dom.sph.domains.list
+  run
+exit
+#
+read
+cell dom.host.cube.cell,dimen,dimen,1
+#
+@dom.spheres.replace
+boundary hkl,  1, 0, 0,  0.5*dimen*lat[1]
+boundary hkl, -1, 0, 0,  0.5*dimen*lat[1]
+boundary hkl,  0, 1, 0,  0.5*dimen*lat[1]
+boundary hkl,  0,-1, 0,  0.5*dimen*lat[1]
+@plot.s dom.sph.replaced
+@dom.spheres.fourier.r dom.sph.replaced

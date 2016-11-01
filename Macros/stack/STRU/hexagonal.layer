@@ -1,0 +1,5 @@
+title Primitive hexagonal cell
+spcgr P6              
+cell    1.000000    1.000000    1.632993   90.000000   90.000000  120.000000
+atoms 
+CO          0.000000        0.000000        0.000000       0.2000

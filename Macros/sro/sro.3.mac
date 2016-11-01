@@ -1,0 +1,25 @@
+@ran2 50,0.3
+#
+variable real,eCC
+variable real,eCA
+variable real,eAA
+#
+eCC= 1.0        *lat[1]
+eCA=(1.0+$1)    *lat[1]
+eAA=(1.0+2.0*$1)*lat[1]
+#
+mmc
+  set cyc, 50*n[1]
+  set feed,10*n[1]
+#
+  reset
+  @neig
+  set targ,1,lennard,cu,au,eCA,100.,12,6
+  set targ,1,lennard,cu,cu,eCC,100.,12,6
+  set targ,1,lennard,au,au,eAA,100.,12,6
+  set mode,1.0,shift,all
+  set move,cu,0.02,0.02,0.02
+  set move,au,0.02,0.02,0.02
+  set temp,0.1
+  run
+exit

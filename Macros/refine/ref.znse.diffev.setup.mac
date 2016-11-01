@@ -1,0 +1,103 @@
+#
+pop_gen[1]  =   0
+#
+pop_n[1]    =  70
+pop_c[1]    =  70
+pop_dimx[1] =  13
+#
+# lattice constant a
+#
+pop_name    1,lata
+pop_xmin[1] =     3.900
+pop_xmax[1] =     4.020
+pop_smin[1] =     3.97500
+pop_smax[1] =     3.98000
+pop_sig[1]  =     0.001
+pop_lsig[1] =     0.0001
+type real,1
+adapt   sigma,  1,0.2
+adapt   lsig ,  1,0.02
+#
+# Structural parameter omitted
+#
+# Scale factor for Background fit 
+#
+pop_name    8,ba_scale
+pop_xmin[8] =    0.000
+pop_xmax[8] = 1000.000
+pop_smin[8] =    7.0E-3   
+pop_smax[8] =    7.0E-3   
+pop_sig[8]  =    0.0
+pop_lsig[8] =    0.0
+type real   ,8
+adapt   sigma,  8,no  
+adapt   lsig ,  8,no  
+#
+# constant Background 
+#
+pop_name    9,ba_const
+pop_xmin[9] =    0.000
+pop_xmax[9] = 2000.000   
+pop_smin[9] =  200.00000
+pop_smax[9] =  400.00
+pop_sig[9]  =    0.0
+pop_lsig[9] =    0.0
+type real   ,9
+adapt   sigma,  9,no  
+adapt   lsig ,  9,no  
+#
+# linear Background
+#
+pop_name    10,ba_linear
+pop_xmin[10] =-9999.000
+pop_xmax[10] = 9999.000
+pop_smin[10] = -10.0000
+pop_smax[10] =  10.0000
+pop_sig[10]  =    0.0
+pop_lsig[10] =    0.0
+type real   ,10
+adapt   sigma,  10,no  
+adapt   lsig ,  10,no  
+#
+# square background
+#
+pop_name    11,ba_square
+pop_xmin[11] =-9999.000
+pop_xmax[11] = 9999.000
+pop_smin[11] =   0.00000
+pop_smax[11] =   0.20000
+pop_sig[11]  =    0.0
+pop_lsig[11] =    0.0
+type real   ,11
+adapt   sigma,  11,no
+adapt   lsig ,  11,no
+#
+# cubed background 
+#
+pop_name    12,ba_cube 
+pop_xmin[12] =-9999.000
+pop_xmax[12] = 9999.000
+pop_smin[12] =    0.000
+pop_smax[12] =    0.010
+pop_sig[12]  =    0.0
+pop_lsig[12] =    0.0
+type real   ,12
+adapt   sigma,  12,no
+adapt   lsig ,  12,no
+# parameter 13 omitted!
+diff_cr[1]  = 0.9
+diff_f[1]   = 0.81
+diff_lo[1]  = 0.2
+diff_k[1]   = 1.0
+#
+refine      none
+refine      1,2,3,4,5,6,7
+#
+donor      random
+selection  compare
+#selection  best,all
+#
+trialfile  DIFFEV/Trials
+restrial   DIFFEV/Results
+logfile    DIFFEV/Parameter
+summary    DIFFEV/Summary

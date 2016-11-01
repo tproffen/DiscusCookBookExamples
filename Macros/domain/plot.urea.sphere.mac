@@ -1,0 +1,19 @@
+plot
+   prog  kuplot
+   outf  $1.plot
+   ext   all
+   uvw   0,0,1
+   abs   1,0,0
+   ord   0,1,0
+   thick 100.00
+   vect  0,0,0
+   sel   all
+   des   void
+   set    A10, 7, 6, 1.0
+   set    A11, 2, 6, 1.0
+   set    B10,12, 6, 1.0
+   set    B01, 4, 6, 1.0
+   set    C11, 3, 6, 1.0
+   set    C01, 5, 6, 1.0
+   run
+exit

@@ -1,0 +1,9 @@
+  boundary hkl, 1, 1, 0, p_ab
+  boundary hkl,-1, 2, 0, p_ab
+  boundary hkl,-2, 1, 0, p_ab
+  boundary hkl,-1,-1, 0, p_ab
+  boundary hkl, 1,-2, 0, p_ab
+  boundary hkl, 2,-1, 0, p_ab
+#
+  boundary hkl, 0, 0, 1, p_cc
+  boundary hkl, 0, 0,-1, p_cc

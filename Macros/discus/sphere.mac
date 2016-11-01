@@ -1,0 +1,9 @@
+variable integer,atom
+variable real,distance
+#
+do atom=1,n[1]
+  distance=sqrt(x[atom]**2+y[atom]**2)
+  if (distance.gt.$1) then
+    remove atom
+  endif
+enddo

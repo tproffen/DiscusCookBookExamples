@@ -1,0 +1,30 @@
+# dom.spheres.replace.mac
+#
+domain
+#
+rese
+mode   pseudo
+input  dom.sph.domains.list
+assign char,  AA, sphere
+assign fuzzy, AA, 2.0
+assign cont,  AA, dom.sph.AA.stru
+assign shape ,AA,1, 2.4, 0. , 0. , 0.
+assign shape ,AA,2, 0. , 2.4, 0. , 0.
+assign shape ,AA,3, 0. , 0. , 2.4, 0.
+assign orient,AA,1, 1. , 0. , 0. , 0.
+assign orient,AA,2, 0. , 1. , 0. , 0.
+assign orient,AA,3, 0. , 0. , 1. , 0.
+
+assign char,  BB, sphere
+assign fuzzy, BB, 2.0
+assign cont,  BB, dom.sph.BB.stru
+assign shape ,BB,1, 1.4, 0. , 0. , 0.
+assign shape ,BB,2, 0. , 1.4, 0. , 0.
+assign shape ,BB,3, 0. , 0. , 1.4, 0.
+assign orient,BB,1, 1. , 0. , 0. , 0.
+assign orient,BB,2, 0. , 1. , 0. , 0.
+assign orient,BB,3, 0. , 0. , 1. , 0.
+
+show
+run
+exit

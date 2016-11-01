@@ -1,0 +1,94 @@
+# k_sort.mac
+#
+############################################################
+#
+#  lots the intensity along the 10L rod for the simulation
+#  of 4H structures that was calculated by stack.sort.mac
+#
+############################################################
+# 
+rese
+variable integer,start
+variable integer,number
+start  =   01
+number =  200
+#
+############################################################
+#
+#  First the result of an individual simulation is shown
+#
+############################################################
+#
+load xy, "stack.sort.%4D",start
+skal
+aver
+mark 1, 4*ymax[1]
+lcol 1,6
+buff 0.12,0.10,0.12,0.12
+fnam off
+font size,1,18
+font size,2,18
+font size,3,18
+font size,4,18
+tit1 Simulation of 4H structure; 10L rod
+tit2 Individual simulation
+achx [0 0 l]
+achy Intensity
+plot
+#
+############################################################
+# To obtain a postscript file remove the leading '#' from 
+# the next line
+# save ps,     stack.sort.0001.ps
+#
+############################################################
+#
+wait return
+#
+############################################################
+#
+#  Now the averaged result of 100 simulations is shown
+#
+############################################################
+#
+load xy, "stack.sort.%4D",start+1
+kcal add, 1, 2
+ksav 3
+  outf SUM/stack.sort.inte
+  run
+#
+do i[0]=start+2,number
+  rese
+  load xy,  SUM/stack.sort.inte
+  load xy, "stack.sort.%4D",i[0]
+  kcal add, 1, 2
+  ksav 3
+    outf SUM/stack.sort.inte
+    run
+enddo
+#
+rese
+load xy, SUM/stack.sort.inte
+buff 0.12,0.10,0.12,0.12
+ccal mul, wy,1,1./number
+#
+skal xmin[1],xmax[1],0.1,ymax[1]*1.05
+mark 1,4*ymax[1]
+lcol 1,6
+aver 
+angle 90.0
+fnam off
+font size,1,18
+font size,2,18
+font size,3,18
+font size,4,18
+tit1 Simulation of 4H structure; 10L rod
+tit2 "Average of %d simulations",number
+achx l
+achy Intensity
+plot
+#
+############################################################
+# To obtain a postscript file remove the leading '#' from 
+# the next line
+# save ps,     stack.sort.ps

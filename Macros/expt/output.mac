@@ -1,0 +1,5 @@
+output
+  format stand
+  outfile $1
+  run
+exit

@@ -1,0 +1,27 @@
+pdf
+#
+    ides all
+    jdes all
+    isel all
+    jsel all
+#
+    set bound, crystal,3D
+    set dens,  p_density
+    set delta, p_delta
+    set gamma, p_gamma
+    set qalp,  p_qalp
+    set qsig,  p_qsig
+    set qmax,  p_qmax
+    set rad,   xray
+    set range, 32.08,0.02
+    set srat,  p_srat,3.5
+    set therm, gauss    
+#
+    set weig,  p_scale
+    set finite,poly
+    set poly  ,p_b1,p_b2,p_b3
+#
+    show
+    calc
+    save pdf,"INDI/indi.%4D.%4D"  ,$1, $2
+exit

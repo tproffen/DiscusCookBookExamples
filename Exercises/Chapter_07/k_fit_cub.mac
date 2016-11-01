@@ -1,0 +1,46 @@
+smooth 1,15
+#
+i[33] = (2./3.-xmin[1])/(xmax[1]-xmin[1])*(np[1]-1)+1
+r[1] = y[1,i[33]]
+i[33] = (4./3.-xmin[1])/(xmax[1]-xmin[1])*(np[1]-1)+1
+r[2] = y[1,i[33]]
+#
+fit 1
+  mfen 30
+  func lore,2
+  para 1,1, 0.0
+  para 2,1, 0.0
+#
+  para  3,1, r[1]
+  para  4,1, 0.666666666
+  para  5,1, 0.05
+  para  6,0, 1.0
+#
+  para  7,1, r[2]
+  para  8,1, 1.333333333
+  para  9,1, 0.05
+  para 10,0, 1.0
+#
+  urf  10
+  run
+  run
+  run
+  run
+  run
+  run
+  run
+  run
+  save
+exit
+skal
+plot
+wait return
+#
+skal 2./3. - 0.1, 2./3. + 0.1
+mark
+plot
+wait return
+#
+skal 4./3. - 0.1, 4./3.+ 0.1
+mark
+plot

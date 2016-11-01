@@ -1,0 +1,31 @@
+# k.alkane.mac
+#
+############################################################
+#
+#  Plots the Fouriertransform of a single alkane chain
+#
+############################################################
+rese
+load ni, dom.alk.h0l
+buff 0.05,0.05,0.12,0.05
+aver 0.646
+angle 90.0
+hlin 1,100,100,20
+hart 1,2
+cmap gray
+mark 2,2
+achx [ H 0 0 ]
+achy [ 0 0 L ]
+fnam off
+tit1
+tit2 Fourier transform of a single alkane chain
+font size,1,18
+font size,2,18
+font size,3,18
+font size,4,18
+plot
+#
+############################################################
+# To obtain a postscript file remove the leading '#' from 
+# the next line
+#save ps, dom_alkane_h0l.ps

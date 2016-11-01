@@ -1,0 +1,33 @@
+############################################################
+# Plot simulation results of Exercise  3:
+############################################################
+#
+# After the macro has finished, use one of the following
+# commands to continue (there is no need to *understand*
+# the plot macro unless you want to alter it ...) :
+#
+# 'plot'            : To view plot on the screen
+# 'save ps,plot.ps' : To save plot to POSTSCRIPT file
+# 'exit'            : To quit the KUPLOT program
+#
+# Run: @kex_03 ni or @kex_03 lmo
+#
+############################################################
+#
+#
+reset
+load xy,$1_xray.pdf
+load xy,$1_neutron.pdf
+#
+achx r(\A)
+achy G(r)
+tit1
+tit2 PDF
+#
+fnam off
+sleg 1,$1 - X-rays
+sleg 2,$1 - Neutrons
+#
+############################################################
+#
+# Enter your commands now :

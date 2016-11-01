@@ -1,0 +1,19 @@
+set prompt,redirect
+set error,exit
+#
+variable integer,generation
+variable integer,member
+variable integer,children
+variable integer,parameters
+variable integer,kid
+variable integer,indiv
+#
+fopen 1,GENERATION
+fget 1,generation,member,children,parameters
+fclose 1
+#
+do kid =1,children
+  @ref.ex0.discus.main 
+enddo
+#
+exit

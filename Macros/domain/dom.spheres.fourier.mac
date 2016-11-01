@@ -1,0 +1,27 @@
+fourier
+  ll -2, -2,  0
+  lr  2, -2,  0
+  ul -2,  2,  0
+  na 201
+  no 201 
+  abs h
+  ord k
+  scat AA,void
+  scat BB,Zr
+  run
+exit
+output
+  outf $1.BB.inte
+  value inte
+  run
+exit
+four
+  scat AA,Zr
+  scat BB,void
+  run
+exit
+output
+  outf $1.AA.inte
+  value inte
+  run
+exit

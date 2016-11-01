@@ -1,0 +1,11 @@
+plot
+  prog kuplot
+  uvw 0,0,1
+  abs 1,0,0
+  ord 0,1,0
+  ext all
+  thick 1.0
+  sel all
+  outf x.plot
+  run
+exit

@@ -1,0 +1,27 @@
+#stack.sort.create.mac
+#
+stack
+    layer  STRU/hexagonal.layer
+    layer  STRU/hexagonal.layer
+    trans  1,1, 1./3., -1./3., 0.5
+    trans  1,2,-1./3.,  1./3., 0.5
+    trans  2,1, 1./3., -1./3., 0.5
+    trans  2,2,-1./3.,  1./3., 0.5
+#
+    distr  file,"STRU/stack.sorted.%4D.stru",$1
+    number dimen
+#
+    aver   0.00, 0.00, 1.00
+    modul  1.00, 0.00, 0.00, 0.00, 1.00, 0.00
+    set    modulus,on
+    set    trans,fixed
+#
+    create
+    four
+  exit
+#
+output
+  outfile "INDIVIDUAL/stack.sort.%4D",$1
+  value   inte
+  run
+exit

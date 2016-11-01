@@ -1,0 +1,42 @@
+# stack.sortvec.mac
+#
+variable integer, indiv
+variable integer, width
+variable integer, dimen
+variable real, en_1
+variable real, en_2
+variable real, en_3
+variable real, en_4
+#
+width = 1
+dimen = 999
+#
+read
+  cell CELL/hexagonal.cell, 1,1, 1
+save
+  outf STRU/hexagonal.layer
+  omit ncell
+  run
+exit
+#
+en_1 = 0.0
+en_2 = 1.0
+#
+do indiv=  1,200
+  read
+    cell CELL/hexagonal.cell,1,1,dimen
+#
+  replace co,al,all,1./2.
+#
+  @stack.sortvec.sort en_1,en_2,en_3,en_4
+  save 
+    outf "STRU/stack.sorted.%4D.stru",indiv
+    write scat
+    write adp
+    run
+  exit
+#
+  @stack.sort.fourier.setup
+#
+  @stack.sortvec.create indiv
+enddo

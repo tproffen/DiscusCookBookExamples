@@ -1,0 +1,67 @@
+reset
+#
+load cr,ex_04_occ.plot
+load ni,ex_04_occ.four
+#
+load xy,ex_04_disp_cc.blen
+load xy,ex_04_disp_ca.blen
+load xy,ex_04_disp_aa.blen
+load ni,ex_04_disp.four
+#
+fnam off
+font size,0.8
+fset 2
+font just,center
+buff 0.08,0.02,0.08,0.08
+cmap fire
+#
+nfra 4
+#
+sfra 1,0.0,0.0,0.4,0.5
+sfra 2,0.4,0.0,0.8,0.5
+sfra 3,0.0,0.5,0.4,1.0
+sfra 4,0.4,0.5,0.8,1.0
+#
+kfra 1,3,4,5
+kfra 2,6
+kfra 3,1
+kfra 4,2
+#
+afra 1
+achx Bond length (\A)
+achy Number
+skal 2.0,3.5,0.0,1.25*ymax[3]
+mark 0.25,250
+tit2 Bond lengths
+sleg 3,Cu-Cu
+sleg 4,Cu-Au
+sleg 5,Au-Au
+#
+afra 4
+aver 1.0
+hart 2,2
+glat 2,3
+hlin 1,0,0.2,1,%
+achx h (r.l.u)
+achy k (r.l.u)
+achz Intensity
+tit1 Neutron diffraction
+tit2 Chemical SRO
+mark 1,1
+#
+afra 2
+cfra 4,2
+hart 6,2
+glat 6,3
+hlin 1,0,0.2,1,%
+tit2 CSRO & Distortions
+#
+afra 3
+aver 1.0
+skal -10.5,9.5,-10.5,9.5
+achx x (l.u.)
+achy y (l.u.)
+tit1 Structure
+tit2 Cross section
+#
+plot

@@ -1,0 +1,38 @@
+# k_4h.mac
+#
+############################################################
+#
+#  Plots the intensity along the 10L rod for the perfect
+#  4H structure that was calculated by 4h.mac
+#
+#  The finite size effect ripples are taken into account 
+#  on purpose to give the main reflections a finite width.
+#
+############################################################
+# 
+rese
+#
+############################################################
+#
+load xy, 4h.10l_01.inte
+skal
+aver
+mark 1, 4*ymax[1]
+lcol 1,6
+buff 0.12,0.10,0.12,0.12
+fnam off
+font size,1,18
+font size,2,18
+font size,3,18
+font size,4,18
+tit1 Simulation of 4H structure; 10L rod
+tit2 Perfect structure
+achx [0 0 l]
+achy Intensity
+plot
+#
+############################################################
+# To obtain a postscript file remove the leading '#' from 
+# the next line
+# save ps,     4h.10l.inte.eps
+#

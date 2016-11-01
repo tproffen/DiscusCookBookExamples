@@ -1,0 +1,14 @@
+find env, O, 0,0,0, 0.0,2.0
+#
+symm
+  uvw 0,0,1
+  type proper
+  angl 10
+  trans 0,0,0
+  origin 0,0,0
+  power 1.
+  mode repl
+  sel o
+  incl env
+  run
+exit

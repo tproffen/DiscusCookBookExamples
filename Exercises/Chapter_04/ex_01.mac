@@ -1,0 +1,59 @@
+############################################################
+# EXERCISE 1
+#
+# Creating diffraction patterns for different modl sizes.
+############################################################
+#
+############################################################
+# Enter the size of the model crystal in unit cells:
+############################################################
+#
+wait input
+#
+variable integer,size
+size=res[1]
+#
+if (size.lt.2 .or. size.gt.1000) then
+  echo "Invalid model size, try again !
+  exit
+endif
+#
+############################################################
+# Now we read the cell and expand it to the desired
+# size.
+############################################################
+#
+read
+  cell p.cll,size,1,1
+#
+############################################################
+# Now we calculate the scattering intensity
+############################################################
+#
+four
+  neut
+  wvle 1.0
+#
+  ll -4.0, 0.0, 0.0
+  lr  4.0, 0.0, 0.0
+  ul -4.0, 0.0, 0.0
+  na 801
+  no 1
+  run
+exit
+#
+output
+  value inten
+  outfile "ex_01_%d.four",size
+  run
+exit
+############################################################
+# Plotting the structure
+############################################################
+#
+@plot1 size
+#
+############################################################
+# That's it. Use the macro 'kex_01.mac size' to display the
+# results of the simulation.
+############################################################

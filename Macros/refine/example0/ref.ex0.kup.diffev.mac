@@ -1,0 +1,32 @@
+set prompt,redirect
+set error,exit
+#
+rese
+#
+#
+variable integer,generation
+variable integer,member
+variable integer,children
+variable integer,params
+variable integer,kid
+#
+fclose all
+#
+fopen 1,GENERATION
+fget 1,generation,member,children,params
+fclose 1
+#
+#
+do kid=1,children
+  rese
+  load ni, DATA/experimental.inte
+  load ni, "CALC/calc.%4D",kid
+  match all,1,2
+  rval 1,2,ONE
+  fopen 1, "DIFFEV/Results.%4D",kid
+  fformat 1,i5
+  fformat 2,f15.9
+  fput 1,kid,res[2]
+  fclose all
+enddo
+exit

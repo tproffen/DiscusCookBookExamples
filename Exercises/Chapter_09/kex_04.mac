@@ -1,0 +1,98 @@
+############################################################
+# Plot simulation results of Exercise  8.4 :
+############################################################
+#
+if($0.ne.3) then
+  echo
+  echo "usage:"
+  echo "@kex_04.mac <m>, <n>, <length>"
+  echo
+  wait return
+  continue kuplot
+endif
+############################################################
+#
+# After the macro has finished, use one of the following
+# commands to continue (there is no need to *understand*
+# the plot macro unless you want to alter it ...) :
+# 
+#
+# 'plot'            : To view plot on the screen
+# 'save ps,plot.ps' : To save plot to POSTSCRIPT file
+# 'exit'            : To quit the KUPLOT program
+#
+############################################################
+#
+# Ready ??
+#
+wait return
+#
+fset 3
+rese
+load xy, "DATA/single_%4D_%4D_%6.1F.tth",$1,$2,$3
+skal  4,xmax[1]
+mark
+aver 
+achx 2\gH
+achy Intensity
+mark 10
+fnam off
+fset 3
+grid off
+font just,cent
+tit1 Carbon nanotube
+tit2 "(%4d %4d); length %6.1f",$1,$2,$3
+plot
+wait return
+#
+rese
+load xy, "DATA/single_%4D_%4D_%6.1F.gr",$1,$2,$3
+skal
+mark
+aver 
+achx r [\A]
+achy G(r)
+mark 
+fnam off
+fset 3
+grid off
+font just,cent
+tit1 Carbon nanotube
+tit2 "(%4d %4d); length %6.1f",$1,$2,$3
+plot
+wait return
+#
+skal 0,10
+plot
+wait return
+#
+rese
+load cr, "PLOT/single_%4D_%4D_%6.1F_010.plot",$1,$2,$3
+skal
+aver 1
+tit1 Carbon nanotube
+tit2 "(%4d %4d); length %6.1f",$1,$2,$3
+achx [1 0 0]
+achy [0 0 1]
+mark 1,1
+bond 1,1.05,0.7, 1, 6, 0.2
+msiz 1,0.8
+grid on
+plot
+#
+wait return
+rese
+load cr, "PLOT/single_%4D_%4D_%6.1F_001.plot",$1,$2,$3
+skal
+aver 1
+achx [0 1 0]
+achy [1 0 0]
+plot
+wait return
+fset 0
+plot
+fset 3
+#
+############################################################
+#
+echo Enter your commands now :

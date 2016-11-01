@@ -1,0 +1,29 @@
+The macros for chapter "Creating nanoparticles"
+are organised into subdirctories.
+
+The lines underneath the short description of the refinement topic give
+the main macro that should be used to start the simulation and the macro
+that should be used to display the simulation results.
+
+The ZnSE simulation has been split into two parts, since both are part 
+of the refinement of experimental data.
+
+================================================================================
+
+ZNSE.POWDER  Simulation of ZnSe nanoparticles and calculation of the
+             X-ray powder data
+             discus: nano.znse.mac
+             kuplot: k.nano.znse.mac
+
+ZNSE.PDF     Simulation of ZnSe nanoparticle and calculation of the
+             X-ray PDF data
+             discus: nano.znse.mac
+             kuplot: k.nano.znse.mac
+
+CORE.SHELL   Simulation of CdSe/ZnS core shell nanoparticles
+             discus: nano.coreshell.mac
+             kuplot: k.nano.coreshell.mac
+
+NANOTUBE     Simulation of single walled carbon nanotubes
+             discus: nano.single.wall.mac
+             kuplot: k.nanotube.mac 

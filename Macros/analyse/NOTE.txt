@@ -1,0 +1,3 @@
+All the macro files in this section require a structure with the 
+appropriate atom types top be read before execution. See book 
+chapter for details.

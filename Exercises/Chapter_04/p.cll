@@ -1,0 +1,5 @@
+title Dummy structure
+spcgr P1
+cell  3.00  3.00  3002  90.0 90.0 90.0
+atoms 
+ZR    0.00  0.00  0.00  0.4

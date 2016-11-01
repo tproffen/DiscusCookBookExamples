@@ -1,0 +1,41 @@
+############################################################
+# Plot simulation results of Exercise  4.1 :
+############################################################
+#
+# After the macro has finished, use one of the following
+# commands to continue (there is no need to *understand*
+# the plot macro unless you want to alter it ...) :
+#
+# 'plot'            : To view plot on the screen
+# 'save ps,plot.ps' : To save plot to POSTSCRIPT file
+# 'exit'            : To quit the KUPLOT program
+#
+############################################################
+#
+# Ready ??
+#
+wait return
+#
+rese
+buff 0.03,0.00,0.08,0.08
+load cr,ex_03_xy.plot
+#
+msiz 1,0.05
+#
+skal -60,50,-25,25
+mark 20,10
+fset 2
+aver 50.0/110.0
+achx
+achy
+fnam off
+grid on
+font just,cent
+tit1 Exercise 3
+tit2 xy plane
+#
+plot
+#
+############################################################
+#
+# Enter your commands now :

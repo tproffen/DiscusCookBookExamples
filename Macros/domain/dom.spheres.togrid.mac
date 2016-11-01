@@ -1,0 +1,6 @@
+do i[10]=1,n[1]
+  x[i[10]] = nint(x[i[10]])
+  y[i[10]] = nint(y[i[10]])
+  z[i[10]] = nint(z[i[10]])
+enddo
+

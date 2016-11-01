@@ -1,0 +1,48 @@
+# 4h.mac
+#
+#  Creates a perfect 4H sequence in the metric of the 
+#  disordered layer structures.
+#  File hexagonal.cell is expanded along the c-axis to a 
+#  stack of 1000 atoms. The Co atoms in this structure are 
+#  randomly replaced by Al and Be atoms. The actual relative 
+#  proportion does not matter at all. This is done just to
+#  create atoms of type Al and Be in the first place.
+#  In the loops atoms are renamed to create a 
+#  strict Al, Be, Co, Be sequence.
+#  Since the atoms are all at 0,0,z, the Be and Co layers are 
+#  shifted by 1./3.,2./3.,0 and 2./3.,1./3.,0.
+#  To obtain the same metric, the structure is shrunk 
+#  along the c-axis by a factor of 1/2.
+#
+############################################################
+#
+read
+  cell hexagonal.cell,1,1,1000
+#
+replace CO,AL,all,1./3.
+replace CO,BE,all,1./2.
+#
+do i[0]=1,n[1],4
+  m[i[0]] = 2
+  x[i[0]] = 0.0
+  y[i[0]] = 0.0
+enddo
+do i[0]=2,n[1],4
+  m[i[0]] = 3
+  x[i[0]] = 0.0
+  y[i[0]] = 0.0
+enddo
+do i[0]=3,n[1],4
+  m[i[0]] = 1
+  x[i[0]] = 0.0
+  y[i[0]] = 0.0
+enddo
+do i[0]=4,n[1],4
+  m[i[0]] = 3
+  x[i[0]] = 0.0
+  y[i[0]] = 0.0
+enddo
+@4h.shift be,1./3.,2./3.
+@4h.shift co,2./3.,1./3.
+@4h.shrink
+@4h.fourier 1,0,01

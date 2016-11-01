@@ -1,0 +1,6 @@
+title Exercise 3 unit cell file
+spcgr P2/c
+cell  7.00, 3.50, 12.00, 90.0, 105.0, 90.0
+atoms
+C     0.00,0.00,0.00,  0.1
+O     0.23,0.56,0.27,  0.1

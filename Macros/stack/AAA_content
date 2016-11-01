@@ -1,0 +1,36 @@
+List of the main macros to run simulations described in chapter 7,
+Stacking faults 
+################################################################################
+
+Macros k_*.mac are the corresponding KUPLOT macros to create a plot of 
+the structure and/or intensity distribution
+
+################################################################################
+
+
+stack.01.mac              Simulates a simple sequence of stacking faults
+
+stack.h0l.mac             Simulates growth faults and caclulates the 
+                          intensity in the h0l layer
+                          k_h0l.mac
+
+stack.growth.h0l_rod.mac  Simulates growth faults and caclulates the
+                          intensity along the 10L rod
+                          k_stack.growth.10l_rod.mac
+
+stack.def.mac             Simulates deformation faults and caclulates the
+                          intensity along the 10L rod
+                          k_stack.def.10l_rod.mac
+
+4h.mac                    Creates a perfect 4H structure
+                          k_4h.mac
+
+stack.sort.mac            Simulates a disordered 4H sequence Primary algorithm
+                          k_sort.mac
+
+stack.sortvec.mac         Simulates a disordered 4H sequence, Sorting of 
+                          interlayer vectors
+                          k_sortvec.mac 
+
+cleanup.mac               Removes ALL simulated structure, plotfiles,
+                          intensites etc.

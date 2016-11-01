@@ -1,0 +1,22 @@
+read
+  cell $1.cell
+#
+space = lat[3]
+factor = (1.+ layers/2.*tpi*space/blen(eqx,eqy,0.0))*layers
+#vprod eqx,eqy,0.0, 0,0,-1
+#r[0] = blen(res[1],res[2],0.0)
+#axisx = res[1]/r[0]*length
+#axisy = res[2]/r[0]*length
+axisx = 1
+axisy = (eqx-eqy/2.)/(eqx/2.-eqy)*axisx
+do while(abs(axisy-nint(axisy)).gt.0.01)
+  axisx = axisx + 1
+  axisy = (eqx-eqy/2.)/(eqx/2.-eqy)*axisx
+enddo
+#
+r[1] = max(    eqx*factor+axisx,    eqx*factor-axisx)
+r[2] = max(-1.*eqx*factor+axisx,-1.*eqx*factor-axisx)
+dimx = int(max(r[1],r[2])+1)
+r[1] = max(    eqy*factor+axisy,    eqy*factor-axisy)
+r[2] = max(-1.*eqy*factor+axisy,-1.*eqy*factor-axisy)
+dimy = int(max(r[1],r[2])+1)

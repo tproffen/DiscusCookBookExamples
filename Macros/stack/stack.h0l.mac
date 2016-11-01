@@ -1,0 +1,51 @@
+# stack.h0l.mac
+#
+variable real,prob
+prob = 0.15
+#
+read
+  cell  hexagonal.cell,100,100, 1
+#
+save
+  outf hexagonal.layer
+  run
+exit
+#
+fourier
+  ll -0.5,-3.0,-0.5
+  lr  3.5,-3.0,-0.5
+  ul -0.5,-3.0, 4.5
+  na 201
+  no 251
+  abs h
+  ord l
+  neut
+  temp ignore
+exit
+#
+stack
+  layer  hexagonal.layer
+  layer  hexagonal.layer
+  trans  1,1, 1./3.,-1./3., 1./2
+  trans  1,2,-1./3., 1./3., 1./2
+  trans  2,1, 1./3.,-1./3., 1./2
+  trans  2,2,-1./3., 1./3., 1./2
+#
+  crow   1,    prob, 1.-prob
+  crow   2, 1.-prob,    prob
+  number 4000
+#
+  aver   0.00, 0.00, 1.00
+  modul  1.00, 0.00, 0.00, 0.00, 1.00, 0.00
+  set    modulus,on
+  set    trans,fixed
+exit
+#
+stack
+  create
+  four
+exit
+outp
+  outfil "stack.h0l.%4.2F.inte",prob
+  run
+exit

@@ -1,0 +1,5 @@
+title Primitive cubic structure - Host
+spcgr P1
+cell  5.0, 5.0, 5.0,  90.0, 90.0, 90.0
+atoms
+Zr    0.0  0.0  0.0   0.10

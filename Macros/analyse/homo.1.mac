@@ -1,0 +1,5 @@
+chem
+  set lots,eli,4,4,1,500,y
+  set bin,11
+  homo occ,cu,homo.dat
+exit

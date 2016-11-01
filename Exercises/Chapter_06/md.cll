@@ -1,0 +1,5 @@
+title Zr test primitiv
+spcgr P1
+cell  5.0  5.0   5.0   90.0   90.0   90.0
+atoms
+ZR  0.0 0.0 0.0 0.2

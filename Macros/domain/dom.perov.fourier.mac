@@ -1,0 +1,23 @@
+i[0] = nint(8.*dimen/2.) + 1
+fourier
+  ll -4.0, 0.0,0.0
+  lr  4.0, 0.0,0.0
+  ul -4.0, 8.0,0.0
+  na i[0]
+  no i[0]
+  abs  h
+  ord  k
+  temp ign
+  disp off
+  scat d100,zr
+  scat d010,zr
+  scat d001,zr
+  show
+  run
+exit
+output
+  outfile $1.inte
+  value   inte
+  form    stan
+  run
+exit

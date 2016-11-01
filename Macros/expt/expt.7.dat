@@ -1,0 +1,26 @@
+Setting up PDF segment ...                                    
+Current PDF calculation settings :                            
+ Maximum r [A]              :   6.6429                       
+ Grid size DR [A]           :   0.0200    (     332 pts)
+ Radiation                  :   X-Rays    (at 0.0 A**-1)
+                                                               
+ Applied corrections        :                                
+  Q termination (SINC)     : applied, Qmax = 35.0 A**-1 
+  Instrument resolution    : not applied                    
+  Periodic boundaries      : applied - 3D                   
+  Convolution therm. Gauss.: applied                        
+  Resolution broadening    :   0.0000                       
+  Quad. correlation fac.   :   0.0000                       
+  Linear correlation fac.  :   0.0000                       
+  PDF peak width ratio     :   1.0000 below   0.0000 A      
+  Number density (0=auto)  :   0.0000                       
+  Correction for RHO0      :   1.0000                       
+                                                               
+Refinement settings        :                                
+  Fit minimum r [A]        :   0.0200   (pt.    1)          
+  Fit maximum r [A]        :   5.5000   (pt.  275)          
+  Current scale factor     :   1.0000   (refined = F)       
+                                                               
+Selected atoms for PDF calculation :                        
+  Atoms (i)                : NI(1)                          
+  Atoms (j)                : NI(1)                          

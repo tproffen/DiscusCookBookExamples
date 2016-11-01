@@ -1,0 +1,19 @@
+#
+# Transforms the structure into a cartesian coordinate system
+#
+###############################################################################
+#
+r[1] =  1.00/blen(eqx  ,eqy  ,0.0)
+r[2] =  1.00/blen(axisx,axisy,0.0)
+r[3] =  1.00/lat[3]
+trans
+  anew  eqx  *r[1], eqy  *r[1],  0.0
+  bnew  axisx*r[2], axisy*r[2],  0.0
+  cnew  0.0       , 0.0       ,  r[3]
+  onew   0.0, 0.0, 0.0
+  sel all
+  incl all
+  show
+  run
+exit
+

@@ -1,0 +1,60 @@
+# stack.sort.sort.mac
+#
+mmc
+  rese
+  set neig, rese
+  set vec,  1,  1,1,  0, 0, 1
+  set vec,  2,  1,1,  0, 0,-1
+  set vec,  3,  1,1,  0, 0, 2
+  set vec,  4,  1,1,  0, 0,-2
+  set vec,  5,  1,1,  0, 0, 3
+  set vec,  6,  1,1,  0, 0,-3
+  set vec,  7,  1,1,  0, 0, 4
+  set vec,  8,  1,1,  0, 0,-4
+#
+  set neig, vec,  1, 2
+  set neig, add
+  set neig, vec,  1, 2
+  set neig, add
+  set neig, vec,  1, 2
+  set neig, add
+  set neig, vec,  3, 4
+  set neig, add
+  set neig, vec,  3, 4
+  set neig, add
+  set neig, vec,  3, 4
+  set neig, add
+  set neig, vec,  5, 6
+  set neig, add
+  set neig, vec,  5, 6
+  set neig, add
+  set neig, vec,  5, 6
+  set neig, add
+  set neig, vec,  7, 8
+  set neig, add
+  set neig, vec,  7, 8
+  set neig, add
+  set neig, vec,  7, 8
+#
+  set mode, 1.0, swchem,local
+#
+  set target, 1,corr,al,be, -1.*$1,$1,ENER
+  set target, 2,corr,al,co, -1.*$1,$1,ENER
+  set target, 3,corr,co,be, -1.*$1,$1,ENER
+  set target, 4,corr,al,be, -1.*$2,$2,ENER
+  set target, 5,corr,al,co, -1.*$2,$2,ENER
+  set target, 6,corr,co,be, -1.*$2,$2,ENER
+  set target, 7,corr,al,be, -1.*$3,$3,ENER
+  set target, 8,corr,al,co, -1.*$3,$3,ENER
+  set target, 9,corr,co,be, -1.*$3,$3,ENER
+  set target,10,corr,al,be, -1.*$4,$4,ENER
+  set target,11,corr,al,co, -1.*$4,$4,ENER
+  set target,12,corr,co,be, -1.*$4,$4,ENER
+#
+  set temp, 0.1
+  set cycl, n[1]*20 
+  set feed, n[1]*  1
+  show
+  run
+exit
+#

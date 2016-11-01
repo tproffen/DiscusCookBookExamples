@@ -1,0 +1,16 @@
+#
+# Transforms the graphene sheet into the nanotube unit cell 
+#
+############################################################
+#
+trans
+  anew  radius*2.1, 0.0       ,  0.0
+  bnew  0.0       , height    ,  0.0
+  cnew  0.0       , 0.0       ,  radius*2.1
+  oold   0.5, 0.5, 0.5
+  sel all
+  incl all
+  show
+  run
+exit
+

@@ -1,0 +1,7 @@
+#!/bin/csh
+#
+cd /home/neder/refine/example0
+/usr/local/bin/discus << EOF > /dev/null
+set prompt,redirect
+@ref.ex0.dis.diffev $1
+EOF

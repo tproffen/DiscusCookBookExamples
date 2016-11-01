@@ -1,0 +1,18 @@
+rese
+orient port
+#
+load cr,ex_05.plot
+#
+msiz 1,0.15
+#
+fnam off
+fset 2
+font just,center
+skal -10.5,9.5,-10.5,9.5
+mark 1,1
+achx x (l.u.)
+achy y (l.u.)
+aver 1.0
+grid on
+#
+plot

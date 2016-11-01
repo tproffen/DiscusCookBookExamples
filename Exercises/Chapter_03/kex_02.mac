@@ -1,0 +1,34 @@
+############################################################
+# Plot simulation results of Exercise  4.2 :
+############################################################
+#
+# After the macro has finished, use one of the following
+# commands to continue (there is no need to *understand*
+# the plot macro unless you want to alter it ...) :
+#
+# 'plot'            : To view plot on the screen
+# 'save ps,plot.ps' : To save plot to POSTSCRIPT file
+# 'exit'            : To quit the KUPLOT program
+#
+############################################################
+#
+# Ready ??
+#
+wait return
+#
+rese
+load cr,ex_02.plot
+skal -6,80,-40,40
+aver 1
+achx x (\A)
+achy y (\A)
+mark 6,10
+fnam off
+fset 2
+grid on
+font just,cent
+tit2 Sinusoidal row of atoms
+#
+############################################################
+#
+# Enter your commands now :

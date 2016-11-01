@@ -1,0 +1,9 @@
+set error,live
+#
+system rm -f *.hk0
+system rm -f *.h0l
+system rm -f *.0kl
+system rm -f *.inte
+system rm -f *.list
+system rm -f *.plot
+system rm -f *.stru

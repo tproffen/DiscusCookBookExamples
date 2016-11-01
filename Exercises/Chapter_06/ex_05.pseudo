@@ -1,0 +1,6 @@
+title Distribution of domains
+spcgr P1              
+cell    5.000000    5.000000    5.000000   90.000000   90.000000   90.000000
+ncell        1,       1,       1,         1
+atoms 
+D1          0.000000        0.000000        0.000000       0.1000

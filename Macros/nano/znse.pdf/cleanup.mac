@@ -1,0 +1,10 @@
+#
+#  cleanup.mac
+#
+################################################################################
+#
+# deletes all files from a previous run USE with caution
+#
+sys rm -f INDI/*
+sys rm -f STRU/*
+sys rm -f *.bs

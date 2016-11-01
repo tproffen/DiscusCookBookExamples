@@ -1,0 +1,48 @@
+############################################################
+# EXERCISE 3
+#
+# Compare X-ray and neutron PDFs
+############################################################
+#
+if ($0.le.0) then
+  echo "Specify structure: "
+  echo "  @ex_03 ni for @ex_03 lmo"
+else
+#
+############################################################
+# Now we read the cell and expand it to the desired
+# size.
+############################################################
+#
+read
+  cell $1.cll,1,1,1
+#
+############################################################
+# Now we calculate the scattering intensity
+############################################################
+#
+pdf
+  set qmax,0.0
+  set qsig,0.0
+  set range,14.5,0.01
+  set therm,gauss
+  set delta,0.0
+  set srat,0.0,0.0
+  set bound,periodic
+#
+  set rad,xray
+  calc
+  save pdf,$1_xray.pdf
+#
+  set rad,neut
+  calc
+  save pdf,$1_neutron.pdf
+#
+  exit
+#
+endif
+#
+############################################################
+# That's it. Use the macro 'kex_03.mac file' to display the
+# results of the simulation.
+############################################################

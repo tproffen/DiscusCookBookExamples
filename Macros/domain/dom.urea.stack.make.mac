@@ -1,0 +1,18 @@
+# dom.urea.stack.make.mac
+#
+height = -1. + ran(0)
+#
+do i[2]=1,$3
+  delta  = gran(sigma)
+  delta  = max(-3.*sigma,sigma)
+  delta  = min( 3.*sigma,sigma)
+  height = height + 1.0 + delta
+  r[0]= ran(0)
+  if(r[0].lt.2./6.) then
+    insert C1,$1,$2,height, 2.5
+  elseif(r[0].lt.4./6.) then
+    insert C2,$1,$2,height, 2.5
+  else
+    insert C3,$1,$2,height, 2.5
+  endif
+enddo

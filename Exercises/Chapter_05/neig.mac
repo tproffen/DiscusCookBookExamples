@@ -1,0 +1,24 @@
+set neig,rese
+#
+set vec, 1,1,1, 1, 0, 0
+set vec, 2,1,1, 0, 1, 0
+set vec, 3,1,1,-1, 0, 0
+set vec, 4,1,1, 0,-1, 0
+set vec, 5,1,1, 0, 0, 1
+set vec, 6,1,1, 0, 0,-1
+set neig,vec,1,2,3,4,5,6
+set neig,add
+#
+set vec, 7,1,1, 1, 1, 0
+set vec, 8,1,1,-1, 1, 0
+set vec, 9,1,1, 1,-1, 0
+set vec,10,1,1,-1,-1, 0
+set vec,11,1,1, 1, 0, 1
+set vec,12,1,1,-1, 0, 1
+set vec,13,1,1, 1, 0,-1
+set vec,14,1,1,-1, 0,-1
+set vec,15,1,1, 0, 1, 1
+set vec,16,1,1, 0,-1, 1
+set vec,17,1,1, 0, 1,-1
+set vec,18,1,1, 0,-1,-1
+set neig,vec,7,8,9,10,11,12,13,14,15,16,17,18

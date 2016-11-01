@@ -1,0 +1,12 @@
+#
+# Create plot file
+#
+plot
+ext all
+thick 9999.
+sel zr
+set 1,2,6,1.0
+set 2,3,6,1.0
+outfile $1.plot
+run
+exit

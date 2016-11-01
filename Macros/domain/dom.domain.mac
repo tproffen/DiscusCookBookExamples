@@ -1,0 +1,19 @@
+# dom.domain.mac
+#
+read
+cell dom.guest.cube.cell,7,7,1
+save
+  outf dom.guest.cube.stru
+  run
+exit
+#
+read
+cell dom.host.cube.cell,7,7,1
+#
+domain
+  mode   domain
+  input  dom.domain.domain
+  run
+exit
+#
+@plot.two dom.domain

@@ -1,0 +1,24 @@
+rese
+load ni, stack.h0l
+buff 0.05,0.05,0.12,0.12
+#
+aver 0.6460
+angle 90
+hlin 1,2000,2000,10
+mark 1,3
+hart 1,2
+cmap gray
+fnam off
+achx [H 0 0]
+achy [0 0 L]
+tit1
+tit2
+tit1 Fourier transform of Urea/Alkane
+tit2 host guest structure stacked in single channel
+font size,1,18
+font size,2,18
+font size,3,18
+font size,4,18
+plot
+#save ps,dom_urea_stack.ps
+

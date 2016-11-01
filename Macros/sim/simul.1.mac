@@ -1,0 +1,6 @@
+read
+  free 1.0,1.0,1.0,90.0,90.0,90.0
+#
+insert zr,0,0,0,0.1
+save atom.stru
+

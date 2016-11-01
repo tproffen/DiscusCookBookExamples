@@ -1,0 +1,38 @@
+#  dom.urea.mac
+#
+variable integer,dimen
+#
+dimen= 100
+#
+read
+  cell urea.dummy.cell,dimen,dimen,1
+#
+replace a10,a11,all,1./2.
+replace a10,b10,all,1./3.
+replace a10,b01,all,1./2.
+replace a11,c01,all,1./3.
+replace a11,c11,all,1./2.
+#
+save
+  outfile dom.urea.random.list
+  write ncell
+  write scat
+  write adp
+  run
+exit
+#
+read
+  stru dom.urea.random.list
+#
+@dom.urea.order dom.urea.final
+#
+@plot.urea.sphere dom.urea.ordered
+#
+read
+  cell urea.host.cell,dimen,dimen,3
+@dom.urea.shift
+@dom.urea.replace  dom.urea.final
+#
+@plot.urea.kuplot dom.urea.final
+#
+@dom.urea.f.domain dom.urea.final

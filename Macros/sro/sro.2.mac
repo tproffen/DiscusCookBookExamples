@@ -1,0 +1,48 @@
+@ran 50,0.2
+#
+mmc
+  set neig,rese
+#
+  set vec, 1,1,1, 1, 0, 0
+  set vec, 2,1,1,-1, 0, 0
+  set neig,vec,1,2
+  set neig,add
+#
+  set vec, 3,1,1, 0, 1, 0
+  set vec, 4,1,1, 0,-1, 0
+  set neig,vec,3,4
+  set neig,add
+#
+  set vec, 5,1,1, 1, 1, 0
+  set vec, 6,1,1,-1,-1, 0
+  set neig,vec,5,6
+  set neig,add
+#
+  set vec, 7,1,1, 1,-1, 0
+  set vec, 8,1,1,-1, 1, 0
+  set neig,vec,7,8
+  set neig,add
+#
+  set vec, 9,1,1, 4, 0, 0
+  set vec,10,1,1,-4, 0, 0
+  set neig,vec,9,10
+  set neig,add
+#
+  set vec,11,1,1, 0, 4, 0
+  set vec,12,1,1, 0,-4, 0
+  set neig,vec,11,12
+#
+  set mode, 1.0, swchem,all
+  set targ,1,corr,cu,void,0.0,$1,ENER
+  set targ,2,corr,cu,void,0.0,$2,ENER
+  set targ,3,corr,cu,void,0.0,$3,ENER
+  set targ,4,corr,cu,void,0.0,$4,ENER
+  set targ,5,corr,cu,void,0.0,$5,ENER
+  set targ,6,corr,cu,void,0.0,$6,ENER
+  set cyc, 100*n[1]
+  set feed,  5*n[1]
+  set temp,0.001
+  run
+exit
+#
+save example.stru

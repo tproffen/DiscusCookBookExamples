@@ -1,0 +1,10 @@
+reset
+load xy,ex_03_kT*_cc.blen
+#
+achx Bond length (\A)
+achy Probability
+skal 2.0,3.0
+mark 0.25,250
+#
+plot
+

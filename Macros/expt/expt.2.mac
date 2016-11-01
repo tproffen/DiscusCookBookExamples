@@ -1,0 +1,11 @@
+four
+  xray
+  wvle moa1
+  ll 0.0,0.0,0.0
+  lr 4.0,0.0,0.0
+  ul 0.0,4.0,0.0
+  na 201
+  no 201
+  run
+exit
+@output period.scat

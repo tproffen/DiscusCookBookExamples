@@ -1,0 +1,7 @@
+Calculating correlations
+ Atom types : A = CU   and B = VOID
+
+ Neig.   AA       AB        BB        # pairs  correlation
+ ---------------------------------------------------------
+    1   40.32 %  59.68 %   0.00 %      10000    -0.4253
+    2   56.48 %  27.36 %  16.16 %      10000     0.3466

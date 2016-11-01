@@ -1,0 +1,36 @@
+# dom.tilt.mac
+#
+variable real,rho
+variable real,scale
+#
+rho   = atand(0.5)
+scale =1./sqrt(5.)
+#
+read
+cell dom.guest.tilt.cell,20,20,1
+save
+  outf dom.guest.tilt.stru
+  run
+exit
+#
+read
+cell dom.host.cube.cell, 7, 7,1
+#
+domain
+  rese
+  mode   pseudo
+  input  dom.cube.pseudo
+  assign char,si,cube
+  assign fuzzy,si,1.20
+  assign cont, si,dom.guest.tilt.stru
+  assign shape ,si,1,  1.50, 0.00, 0.00,  0.00
+  assign shape ,si,2,  0.00, 1.50, 0.00,  0.00
+  assign shape ,si,3,  0.00, 0.00, 1.00,  0.00
+  assign orient,si,1, scale* cosd(rho), scale*sind(rho), 0.00,  0.50
+  assign orient,si,2, scale*-sind(rho), scale*cosd(rho), 0.00,  0.50
+  assign orient,si,3,  0.00       , 0.00       , 1.00,  0.00
+  show
+  run
+exit
+#
+@plot.three dom.tilt

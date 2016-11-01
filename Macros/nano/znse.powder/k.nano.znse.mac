@@ -1,0 +1,19 @@
+# k.nano.znse.mac
+#
+############################################################
+#
+#  Shows the powder pattern of the ZnSe nanoparticles
+#
+############################################################
+#
+rese
+load xy, INDI/indi.0001.0001
+#
+skal xmin[1],xmax[1],0,ymax[1]*1.02
+mark
+achx 2\gH
+achy Intensity
+tit1 ZnSe Nanoparticle
+tit2 X-ray powder pattern
+fnam off
+plot

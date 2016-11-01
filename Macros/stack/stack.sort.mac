@@ -1,0 +1,45 @@
+# stack.sort.mac
+#
+variable integer, indiv
+variable integer, width
+variable integer, dimen
+variable real, en_1
+variable real, en_2
+variable real, en_3
+variable real, en_4
+#
+width = 1
+dimen = 999
+#
+@stack.sort.make.abc 
+#
+en_1 = 1.0
+en_2 = 0.0
+en_3 = 1.0
+en_4 =-1.0
+#
+do indiv=1,200
+  read
+    cell hexagonal.cell,1,1,dimen
+#
+  replace co,al,all,1./3.
+  replace co,be,all,1./2.
+#
+  @stack.sort.sort en_1,en_2,en_3,en_4
+  @plot.three sorted,i[0]
+  chem
+    corr occ,al,be
+    corr occ,al,co
+    corr occ,be,co
+  exit
+  save 
+    outf stack.sorted.stru
+    write scat
+    write adp
+    run
+  exit
+#
+  @stack.sort.fourier.setup
+#
+  @stack.sort.create indiv
+enddo

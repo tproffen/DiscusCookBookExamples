@@ -1,0 +1,72 @@
+# ksingle.mac
+#
+#  Plots the current best results
+#
+rese
+#
+#
+variable integer,generation
+variable integer,member
+variable integer,children
+variable integer,parameters
+variable integer,kid
+#
+@setup
+#
+fclose all
+#
+fopen 1,GENERATION
+fget  1,generation,member,children,parameters
+fclose 1
+#
+# Basic error handling 
+#
+if($0.ne.1) then
+  echo
+  echo "Usage:"
+  echo "@ksingle <member>"
+  echo
+  wait return
+  continue kuplot
+endif
+if($1.lt.1 .or. member .lt.$1) then
+  echo
+  echo "Usage:"
+  echo "@ksingle <member>"
+  echo
+  echo "Member must be > 0 and less than %d",member+1
+  echo
+  wait return
+  continue kuplot
+endif
+#
+kid = $1
+#
+# calculate all R-values;
+#
+load xy,DATA/PD32ZS56.DAT
+load xy,"FINAL/final.%4D",kid
+#
+skal
+#
+kcal sub,1,2
+ccal add,wy,3,-7
+#
+mtyp 1,0
+mtyp 2,0
+mtyp 3,0
+ltyp 1,1
+ltyp 2,1
+ltyp 3,1
+lcol 1,3
+lcol 2,1
+lcol 3,6
+etyp 1,0
+skal
+mark
+achx R [\A]
+achy G(r)
+tit1 Refinement of ZnSe PDF data
+tit2 "Current member no. %d",$1
+plot
+rval 1,2,one

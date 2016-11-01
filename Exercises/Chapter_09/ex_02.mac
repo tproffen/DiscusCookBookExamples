@@ -1,0 +1,133 @@
+############################################################
+# EXERCISE NANOPARTICLES  2
+#
+#    Simulate a simple spherical nanoparticle, calculate the
+#    PDF and the powder pattern.
+#
+############################################################
+#  echo " @ex_02.mac <diameter>, { xray | neutron }, 
+#  <thickness>, <relaxation>, { constant | linear }"
+#
+if($0.ne.5) then
+  echo
+  echo " Usage:"
+  echo " @ex_02.mac <diameter>, { xray | neutron }, <thickness>, <relaxation>, { constant | linear }"
+  echo
+  wait return
+  continue discus
+endif
+#
+############################################################
+#
+#  The effect of a surface relaxation is very subtle for 
+#  reasonable relaxations. In the powder pattern you will
+#  see small shoulders next to the main reflections.
+#  The relections at higher 2Theta will shift more clearely
+#  and will become much broader for larger relaxation rates.
+#  In the PDF, the peaks will become smaller and
+#  asymmetric with a shoulder at low r is the
+#  relaxation is less than 1. This effect increases with r.
+#  In the structure plot atoms outside the core are shifted
+#  away from the ideal position.
+#
+#  Besides the plot macro kex_02.mac, it will be instructive
+#  to plot the powder pattern / PDF of an original and a
+#  relaxed particle on top of each other.
+#
+############################################################
+# First we read just a single unit cell, in order to know
+# the lattice constants. This allows us to determine the 
+# dimension of the crystal that we need to create. 
+# Then the content of the unit cell from 'silicon.cell' is
+# read and expanded into a crystal of dimen*dimen*dimen 
+# unit cells. 
+############################################################
+#
+variable real,diameter
+variable real,rcore
+variable real,relax
+variable real,shift
+variable integer,dimen
+#
+# Define values for the
+# Particle diameter,
+# radius of the core = diameter/2 - thickness
+# relaxation ratio (relax = 1 == normal interatomic distance)
+diameter = $1
+rcore    = $1/2. - $3
+relax    = $4
+read
+  cell silicon.cell
+dimen = int(diameter/lat[1]) + 2
+#
+read
+  cell silicon.cell,dimen,dimen,dimen
+############################################################
+#
+# DISCUS provides a tool that can remove all atoms outside
+# a sphere with given radius. All excess atoms are removed
+# by the purge command.
+#
+boundary sphere, diameter/2.
+purge
+############################################################
+#
+# Now we relax the particle according to model:
+# (1) constant relaxation 
+# (2) linearly increasing relaxation
+#
+i[201] = 0
+if('$5'.eq.'constant') then
+  do i[0]=1,n[1]
+    r[0] = blen(x[i[0]],y[i[0]],z[i[0]])
+    if(r[0].gt.rcore) then
+      r[1] = rcore + (r[0]-rcore)*relax
+      x[i[0]] = x[i[0]]/r[0]*r[1]
+      y[i[0]] = y[i[0]]/r[0]*r[1]
+      z[i[0]] = z[i[0]]/r[0]*r[1]
+i[201] = i[201] + 1
+    endif
+  enddo
+elseif('$5'.eq.'linear') then
+ do i[0]=1,n[1]
+    r[0] = blen(x[i[0]],y[i[0]],z[i[0]])
+    if(r[0].gt.rcore) then
+      shift   = 1.0-(r[0]-rcore)/(diameter/2-rcore)*(1.-relax)
+      r[1]    = rcore + (r[0]-rcore)*shift
+      x[i[0]] = x[i[0]]/r[0]*r[1]
+      y[i[0]] = y[i[0]]/r[0]*r[1]
+      z[i[0]] = z[i[0]]/r[0]*r[1]
+i[201] = i[201] + 1
+    endif
+  enddo
+else
+  echo
+  echo "Last parameter must be string: constant"
+  echo "                    or string: linear"
+  echo
+  wait return
+  continue discus
+endif
+############################################################
+#
+# The powder pattern is calculated for CuKa, Bragg-Brentano
+# geometry.
+#
+@ex_02.powder   relaxed,diameter,$2,$3,$4,$5
+############################################################
+#
+# Macro pdf.mac calculates the Pair distribution function
+#
+@ex_02.pdf      relaxed,diameter,$2,$3,$4,$5
+#
+###########################################################
+#
+# Finally we plot the particle 
+#
+@ex_02.plot.xbs relaxed,diameter,$3,$4,$5
+@ex_02.plot.kuplot relaxed,diameter,$3,$4,$5
+#
+############################################################
+# That's it. Use the macro 'kex_02.mac' to display the
+# results of the simulation.
+############################################################

@@ -1,0 +1,5 @@
+system  rm -f STRU/*
+system rm -f DOMAIN/*
+system rm -f INDI/*
+system rm -f PLOT/*
+system rm -f *.bs

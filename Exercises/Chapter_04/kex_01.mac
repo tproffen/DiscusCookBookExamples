@@ -1,0 +1,59 @@
+############################################################
+# Plot simulation results of Exercise  1:
+############################################################
+#
+# After the macro has finished, use one of the following
+# commands to continue (there is no need to *understand*
+# the plot macro unless you want to alter it ...) :
+#
+# 'plot'            : To view plot on the screen
+# 'save ps,plot.ps' : To save plot to POSTSCRIPT file
+# 'exit'            : To quit the KUPLOT program
+#
+############################################################
+#
+# Enter the model size at the prompt
+#
+wait input
+#
+variable real,atoms
+atoms=res[1]
+#
+rese
+load cr,"ex_01_%d.plot",atoms
+load xy,"ex_01_%d.four",atoms
+#
+buff 0.08
+#
+nfra 3
+sfra 1,0.0,0.8,1.0,1.0
+sfra 2,0.0,0.4,1.0,0.8
+sfra 3,0.0,0.0,1.0,0.4
+#
+afra 1
+kfra 1,1
+skal xmin[1]-0.5,xmax[1]+0.5,-2,2
+achx x (\A)
+achy y (\A)
+mark 3,2
+fnam off
+fset 2
+grid on
+font just,cent
+tit2 "Chain of %d atoms",atoms
+#
+afra 2
+kfra 2,2
+achx [h 0 0] (r.l.u.)
+achy Intensity
+#
+afra 3
+kfra 3,2
+achx [h 0 0] (r.l.u.)
+achy Intensity
+skal xmin[2],xmax[2],ymin[2],0.2*ymax[2]
+tit2 Enlarged y-scale (x 5)
+#
+############################################################
+#
+# Enter your commands now :

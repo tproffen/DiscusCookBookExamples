@@ -1,0 +1,16 @@
+--- Final multiple energy configuration ---
+
+Gen: 593926 try:  250000 acc: (good/bad):  4610 /  4308  MC moves
+
+                                          Correlations/
+Neig.- Energy-       Atoms     Target  Distance/  Diff    Number
+Def.   Type    central  Neig.           Angle            of pairs
+
+  1   Occupancy VOID    CU     0.500     0.370    0.130    10000
+  2   Occupancy VOID    CU    -0.200    -0.141   -0.059    10000
+
+--- Average energy changes ---
+
+Energy type             number           number  number
+                        E < 0     <E>    E = 0   E > 0     <E>
+Occupation correlation   4610   -0.807   2475    242915   7.332

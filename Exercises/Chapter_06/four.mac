@@ -1,0 +1,18 @@
+four
+  neut
+  wvle 1.0
+#
+  ll -0.2,-0.2,0.0
+  lr  3.3,-0.2,0.0
+  ul -0.2, 3.3,0.0
+  na 176
+  no 176
+  show
+  run
+exit
+#
+output
+  value inten
+  outfile $1.four
+  run
+exit

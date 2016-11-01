@@ -1,0 +1,19 @@
+# stack.sort.make.abc.mac
+#
+read
+  cell hexagonal.cell, width,width,1
+save
+  outf layer.a
+  run
+exit
+#
+@stack.shift 1./3.,2./3.
+save
+  outf layer.b
+  run
+exit
+@stack.shift 1./3.,2./3.
+save
+  outf layer.c
+  run
+exit

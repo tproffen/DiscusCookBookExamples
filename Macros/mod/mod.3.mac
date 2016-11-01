@@ -1,0 +1,41 @@
+read
+  cell wave.cll,100,100,1
+#
+wave
+  func sinus
+  acco
+  trans
+  vect 1,0,0
+  osci 0,1,0
+  len  25.0
+  amp   0.5
+  phase 0.0
+  sel zr
+  run
+exit
+#
+save domain_wave.stru
+#
+read
+  cell cell.cll,100,100,1
+#
+domain
+  reset
+  mode pseudo
+  input domain_origin.pseudo
+  assign char,d1,sphere
+  assign fuzzy,d1,0.5
+  assign content,d1,domain_wave.stru
+  assign shape ,d1,1,15.0, 0.0, 0.0,  0.0
+  assign shape ,d1,2, 0.0,15.0, 0.0,  0.0
+  assign shape ,d1,3, 0.0, 0.0, 1.0,  0.0
+  assign orient,d1,1, 1.0, 0.0, 0.0,  0.0
+  assign orient,d1,2, 0.0, 1.0, 0.0,  0.0
+  assign orient,d1,3, 0.0, 0.0, 1.0,  0.0
+  show
+  run
+exit
+#
+save domain_single.stru
+@four domain_single
+@plot domain_single

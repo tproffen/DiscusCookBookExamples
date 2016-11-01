@@ -1,0 +1,42 @@
+#
+#  replace.mac
+#
+################################################################################
+#
+domain
+  rese
+  mode    pseudo
+  input   dom.urea.stack.list
+  assign  char,  c1, fuzzy
+  assign  fuzzy, c1, 0.5
+  assign  cont,  c1, dom.alk.a.stru
+  assign  shape ,c1, 1,  1., 0., 0.,  0.
+  assign  shape ,c1, 2,  0., 1., 0.,  0.
+  assign  shape ,c1, 3,  0., 0., 1.,  0.
+  assign  orient,c1, 1,  1., 0., 0.,  0.
+  assign  orient,c1, 2,  0., 1., 0.,  0.
+  assign  orient,c1, 3,  0., 0., 1.,  0.
+
+  assign  char,  c2, fuzzy
+  assign  fuzzy, c2, 0.5
+  assign  cont,  c2, dom.alk.b.stru
+  assign  shape ,c2, 1,  1., 0., 0.,  0.
+  assign  shape ,c2, 2,  0., 1., 0.,  0.
+  assign  shape ,c2, 3,  0., 0., 1.,  0.
+  assign  orient,c2, 1,  1., 0., 0.,  0.
+  assign  orient,c2, 2,  0., 1., 0.,  0.
+  assign  orient,c2, 3,  0., 0., 1.,  0.
+
+  assign  char,  c3, fuzzy
+  assign  fuzzy, c3, 0.5
+  assign  cont,  c3, dom.alk.c.stru
+  assign  shape ,c3, 1,  1., 0., 0.,  0.
+  assign  shape ,c3, 2,  0., 1., 0.,  0.
+  assign  shape ,c3, 3,  0., 0., 1.,  0.
+  assign  orient,c3, 1,  1., 0., 0.,  0.
+  assign  orient,c3, 2,  0., 1., 0.,  0.
+  assign  orient,c3, 3,  0., 0., 1.,  0.
+
+  show
+  run
+exit

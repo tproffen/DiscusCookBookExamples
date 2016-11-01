@@ -1,0 +1,18 @@
+#
+four
+  ll   $1 ,   $2, -0.5
+  lr   $1 ,   $2,  2.5
+  ul   $1 ,   $2, -0.5
+  na   151
+  no     1
+  abs    l
+  ord    h
+  lots   box,50,1,1,20,yes
+  set  aver,0.0
+  run
+exit
+output
+  outfile "4h.%1D%1Dl_%2D.inte",$1,$2,$3
+  value inte
+  run
+exit

@@ -1,0 +1,98 @@
+############################################################
+# Plot simulation results of Exercise 4 :
+############################################################
+#
+# After the macro has finished, use one of the following 
+# commands to continue (there is no need to *understand*
+# the plot macro unless you want to alter it ...) :
+#
+# 'plot'            : To view plot on the screen
+# 'save ps,plot.ps' : To save plot to POSTSCRIPT file
+# 'exit'            : To quit the KUPLOT program
+#
+############################################################
+#
+# Ready ??
+#
+wait return
+#
+rese
+load ni,ex_04.four
+load cr,ex_04.plot
+#
+ccal mul,wz,1,100.0/zmax[1]
+#
+ksav 1
+form sx,3.0
+outf cut.h
+run
+#
+load xy,cut.h
+#
+fnam off
+fram off
+font just,cent
+#
+buff 0.07
+#
+nfra 5
+sfra 1,0.00,0.45,0.50,0.90
+sfra 2,0.00,0.00,0.50,0.45
+sfra 3,0.40,0.60,1.00,0.90
+sfra 4,0.40,0.30,1.00,0.60
+sfra 5,0.40,0.00,1.00,0.30
+#
+afra 1
+kfra 1,1
+hcol 1,1,6
+skal
+aver 1.0
+mark 1.0,1.0
+hlin 1,0,0.002,20,%
+achx [h 0]
+achy [0 k]
+tit2 Diffraction pattern
+#
+afra 2
+kfra 2,2
+msiz 2,0.08
+skal -20,20,-20,20
+aver 1.0
+mark 10,10
+grid off
+achx x [l.u.]
+achy y [l.u.]
+tit2 Modulated structure
+#
+afra 3
+kfra 3,1
+hart 1,3
+hcol 1,1,6
+skal 1.5,2.5,2.8,3.2
+mark 0.1,0.1
+hlin 1,0,0.0002,10,%
+achx [h 0]
+achy [0 k]
+tit2 Diffraction pattern (blow up)
+#
+afra 4
+kfra 4,3
+lcol 3,3
+skal -0.2,3.3,0.0,105.0
+mark 1.0,25.0
+achx [h 3]
+achy Intensity
+tit2 Cross section along h at k=3
+#
+afra 5
+cfra 4,5
+kfra 5,3
+skal -0.2,3.3,0.0,0.05
+mark 1.0,0.01
+tit2 Cross section along h at k=3 (blow up)
+#
+sys rm cut.h
+#
+############################################################
+# 
+# Enter your commands now :

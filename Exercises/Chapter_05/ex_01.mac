@@ -1,0 +1,66 @@
+##############################################
+# Exercise 1:
+#  Creating structures with chemical 
+#  short-range order. Call this macro with
+#  the following parameters:
+#
+#  $1: Correlation {10}
+#  $2: Correlation {11}
+#  $3: Correlation {20}
+#  $4: Correlation {30}
+#  $5: kT
+#
+##############################################
+#
+@ran 50,0.2
+#
+mmc
+  set neig,rese
+#
+  set vec, 1,1,1, 1, 0, 0
+  set vec, 2,1,1,-1, 0, 0
+  set vec, 3,1,1, 0, 1, 0
+  set vec, 4,1,1, 0,-1, 0
+  set neig,vec,1,2,3,4
+  set neig,add
+#
+  set vec, 5,1,1, 1, 1, 0
+  set vec, 6,1,1,-1, 1, 0
+  set vec, 7,1,1, 1,-1, 0
+  set vec, 8,1,1,-1,-1, 0
+  set neig,vec,5,6,7,8
+  set neig,add
+#
+  set vec, 9,1,1, 2, 0, 0
+  set vec,10,1,1,-2, 0, 0
+  set vec,11,1,1, 0, 2, 0
+  set vec,12,1,1, 0,-2, 0
+  set neig,vec,9,10,11,12
+  set neig,add
+#
+  set vec,13,1,1, 3, 0, 0
+  set vec,14,1,1,-3, 0, 0
+  set vec,15,1,1, 0, 3, 0
+  set vec,16,1,1, 0,-3, 0
+  set neig,vec,13,14,15,16
+#
+  set mode, 1.0, swchem,all
+  set targ,1,corr,cu,void,$1,0.0,CORR
+  set targ,2,corr,cu,void,$2,0.0,CORR
+  set targ,3,corr,cu,void,$3,0.0,CORR
+  set targ,4,corr,cu,void,$4,0.0,CORR
+  set cyc, 100*n[1]
+  set feed,  5*n[1]
+  set temp,$5
+  run
+exit
+#
+save ex_01.stru
+@plot ex_01
+#
+##############################################
+# Use the macro kex_01.mac in KUPLOT to plot
+# the reults. Enter commands here or 'exit' to
+# quit DISCUS.
+##############################################
+#

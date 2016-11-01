@@ -1,0 +1,10 @@
+do i[1]=-4,4,2
+  do i[2]=-4,4,2
+    ...
+  enddo
+enddo
+do i[1]=-5,3,2
+  do i[2]=-5,3,2
+    ...
+  enddo
+enddo

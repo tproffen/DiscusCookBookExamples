@@ -1,0 +1,25 @@
+set prompt,redirect
+set error,exit
+#
+variable integer,status
+#
+status = -1
+fopen 1,CONTINUE
+fformat 1, i4
+fput 1,status
+fclose 1
+#
+@ref.ex0.diffev.setup
+#
+init
+#
+do while(status.eq.-1)
+  sys discus < ref.ex0.dis.diffev.mac  
+  sys kuplot < ref.ex0.kup.diffev.mac  
+  sys kuplot < ref.ex0.kup.select.mac  
+  compare
+  fopen 1, CONTINUE
+  fget 1,status
+  fclose 1
+enddo
+exit

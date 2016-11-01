@@ -1,0 +1,123 @@
+# dom.urea.make.chain.mac
+#
+variable integer,length
+variable real, c_guest
+length  = 17
+c_guest = 23.713
+#
+read
+  free
+#
+insert c, 0.4314, 0, 0, 2.0
+symm
+  uvw   0,0,1
+  orig  0,0,0,crystal
+  angl  180
+  trans 0,0,1.2716
+  type  proper
+  sel   all
+  incl  1,1
+  power length-1,multiple
+  mode  copy
+  run
+exit
+# Add hydrogens
+r[1] = x[1]+1.092*cosd(109.47/2) 
+r[2] = y[1]+1.092*sind(109.47/2)
+insert h, r[1], r[2], 0.0, 2.1
+r[2] = y[1]-1.092*sind(109.47/2)
+insert h, r[1], r[2], 0.0, 2.1
+sym
+  incl  n[1]-1,n[1]
+  des   all
+  sel   h
+  run
+exit
+# Add terminal Hydrogen
+r[1]=    (x[2]-x[1])
+r[2]=    (y[2]-y[1])
+r[3]=-1.*(z[2]-z[1])
+r[0]= blen(r[1],r[2],r[3])
+r[1] = x[1] + r[1]/r[0]*1.092
+r[2] = y[1] + r[2]/r[0]*1.092
+r[3] = z[1] + r[3]/r[0]*1.092
+insert h,r[1],r[2],r[3],2.1
+#
+# Add terminal Hydrogen
+r[1]=    (x[length-1]-x[length])
+r[2]=    (y[length-1]-y[length])
+r[3]=-1.*(z[length-1]-z[length])
+r[0]= blen(r[1],r[2],r[3])
+r[1] = x[length] + r[1]/r[0]*1.092
+r[2] = y[length] + r[2]/r[0]*1.092
+r[3] = z[length] + r[3]/r[0]*1.092
+insert h,r[1],r[2],r[3],2.1
+#
+i[0] = (length-1)/2 + 1
+trans
+  anew 8.218,0.0,0.0
+  bnew 8.218*cosd(120),8.218*sind(120),0.
+  cnew 0,0,c_guest
+  onew 0,0,z[i[0]]-c_guest/2
+  sel  all
+  incl all
+  show
+  run
+exit
+#
+save
+  outfile dom.alk.guest.complete
+  omit ncell
+  run
+exit
+
+read
+  cell urea.host.cell
+r[33] = lat[3]
+read
+  stru dom.alk.guest.complete
+trans
+  anew 1,0,0
+  bnew 0,1,0
+  cnew 0,0,r[33]/lat[3]
+  onew 0,0,0
+  sel  all
+  incl all
+  run
+exit
+symm
+  uvw  0,0,1
+  angl 30
+  trans 0,0,0
+  orig 0,0,0,crystal
+  type proper
+  mode repl
+  sel  all
+  incl all
+  run
+exit
+save
+  outf dom.alk.a.stru
+  omit ncell
+  run
+exit
+symm
+  angle 120
+  run
+exit
+save
+  outf dom.alk.b.stru
+  omit ncell
+  run
+exit
+symm
+  angle 120
+  run
+exit
+save
+  outf dom.alk.c.stru
+  omit ncell
+  run
+exit
+#
+@dom.urea.alkane.fourier.mac

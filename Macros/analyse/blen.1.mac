@@ -1,0 +1,8 @@
+chem
+  set blen,1.5,3.5
+  set bin,401
+#
+  blen cu,cu,cu_cu.blen
+  blen cu,au,cu_au.blen
+  blen au,au,au_au.blen
+exit

@@ -1,0 +1,23 @@
+r[1] = 50.00/lat[1]
+r[2] = 50.00/lat[2]
+r[3] = 50.00/lat[3]
+trans
+  anew r[1],  0.0,  0.0
+  bnew  0.0, r[2],  0.0
+  cnew  0.0,  0.0, r[3]
+  onew  0.0,  0.0,  0.0
+  sel all
+  incl all
+  run
+exit
+#
+save
+  outf "STRU/temp.%4D.%4D",kid,indiv
+    omit ncell
+    omit  gene
+    omit  scat
+    omit  adp
+    run
+  exit
+read
+  stru "STRU/temp.%4D.%4D",kid,indiv

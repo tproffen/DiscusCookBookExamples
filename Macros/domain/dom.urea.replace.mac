@@ -1,0 +1,70 @@
+# dom.urea.replace.mac
+#
+domain
+#
+rese
+mode   pseudo
+input  $1.list
+assign char,  a10, fuzzy
+assign fuzzy, a10, 3.0
+assign cont,  a10, dom.alk.a.stru
+assign shape ,a10,1, 1., 0., 0., 0.
+assign shape ,a10,2, 0., 1., 0., 0.
+assign shape ,a10,3, 0., 0., 1., 0.
+assign orient,a10,1, 1., 0., 0., 0.
+assign orient,a10,2, 0., 1., 0., 0.
+assign orient,a10,3, 0., 0., 1., 0.
+
+assign char,  a11, fuzzy
+assign fuzzy, a11, 3.0
+assign cont,  a11, dom.alk.a.stru
+assign shape ,a11,1, 1., 0., 0., 0.
+assign shape ,a11,2, 0., 1., 0., 0.
+assign shape ,a11,3, 0., 0., 1., 0.
+assign orient,a11,1, 1., 0., 0., 0.
+assign orient,a11,2, 0., 1., 0., 0.
+assign orient,a11,3, 0., 0., 1., 0.
+
+assign char,  b10, fuzzy
+assign fuzzy, b10, 3.0
+assign cont,  b10, dom.alk.b.stru
+assign shape ,b10,1, 1., 0., 0., 0.
+assign shape ,b10,2, 0., 1., 0., 0.
+assign shape ,b10,3, 0., 0., 1., 0.
+assign orient,b10,1, 1., 0., 0., 0.
+assign orient,b10,2, 0., 1., 0., 0.
+assign orient,b10,3, 0., 0., 1., 0.
+
+assign char,  b01, fuzzy
+assign fuzzy, b01, 3.0
+assign cont,  b01, dom.alk.b.stru
+assign shape ,b01,1, 1., 0., 0., 0.
+assign shape ,b01,2, 0., 1., 0., 0.
+assign shape ,b01,3, 0., 0., 1., 0.
+assign orient,b01,1, 1., 0., 0., 0.
+assign orient,b01,2, 0., 1., 0., 0.
+assign orient,b01,3, 0., 0., 1., 0.
+
+assign char,  c11, fuzzy
+assign fuzzy, c11, 3.0
+assign cont,  c11, dom.alk.c.stru
+assign shape ,c11,1, 1., 0., 0., 0.
+assign shape ,c11,2, 0., 1., 0., 0.
+assign shape ,c11,3, 0., 0., 1., 0.
+assign orient,c11,1, 1., 0., 0., 0.
+assign orient,c11,2, 0., 1., 0., 0.
+assign orient,c11,3, 0., 0., 1., 0.
+
+assign char,  c01, fuzzy
+assign fuzzy, c01, 3.0
+assign cont,  c01, dom.alk.c.stru
+assign shape ,c01,1, 1., 0., 0., 0.
+assign shape ,c01,2, 0., 1., 0., 0.
+assign shape ,c01,3, 0., 0., 1., 0.
+assign orient,c01,1, 1., 0., 0., 0.
+assign orient,c01,2, 0., 1., 0., 0.
+assign orient,c01,3, 0., 0., 1., 0.
+
+show
+run
+exit

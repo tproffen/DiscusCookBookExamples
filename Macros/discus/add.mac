@@ -1,0 +1,6 @@
+# Simple macro at add two numbers
+#
+variable real,result
+#
+result=$1+$2
+echo "The sum is %f",result

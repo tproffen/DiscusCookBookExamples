@@ -1,0 +1,15 @@
+fourier
+  ll -2, -2,  0
+  lr  2, -2,  0
+  ul -2,  2,  0
+  na 201
+  no 201 
+  abs h
+  ord k
+  run
+exit
+output
+  outf $1.inte
+  value inte
+  run
+exit

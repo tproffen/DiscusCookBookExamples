@@ -1,0 +1,25 @@
+do indiv=1,naver #
+ stack
+  create
+ exit
+#
+ do hh = hmin, hmax
+  do kk = kmin, kmax
+   four
+    ll   hh ,   kk, -0.5
+    lr   hh ,   kk,  2.5
+    ul   hh ,   kk, -0.5
+   exit
+#
+   stack
+    four
+   exit
+#
+   output
+    outfile "INDI/growth.%1D%1Dl_%4.2F_%4D",hh,kk,prob,indiv
+    value   inte
+    run
+   exit
+  enddo
+ enddo
+enddo

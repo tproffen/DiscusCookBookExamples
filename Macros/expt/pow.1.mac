@@ -1,0 +1,28 @@
+read
+stru demo.stru
+#
+variable real,step
+#
+step=1.0/50.0
+#
+powder
+  set calc,complete
+  set temp,ignore
+  set wvle,1.0
+  set delt,0.0
+  set lpcor,neutron
+  neutron
+#
+  set axis,tth
+  set tthmin, 9.00
+  set tthmax,74.00
+  set dtth,   0.02
+#
+  set dh,step
+  set dk,step
+  set dl,step
+#
+  show
+  run
+exit
+@output powder.dat,tth

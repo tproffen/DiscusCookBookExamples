@@ -1,0 +1,16 @@
+read
+  cell $1.cell
+#
+axisx = 1
+axisy = (eqx-eqy/2.)/(eqx/2.-eqy)*axisx
+do while(abs(axisy-nint(axisy)).gt.0.01)
+  axisx = axisx + 1
+  axisy = (eqx-eqy/2.)/(eqx/2.-eqy)*axisx
+enddo
+#
+r[1] = max(    eqx+axisx,    eqx-axisx)
+r[2] = max(-1.*eqx+axisx,-1.*eqx-axisx)
+dimx = int(max(r[1],r[2])+1)
+r[1] = max(    eqy+axisy,    eqy-axisy)
+r[2] = max(-1.*eqy+axisy,-1.*eqy-axisy)
+dimy = int(max(r[1],r[2])+1)

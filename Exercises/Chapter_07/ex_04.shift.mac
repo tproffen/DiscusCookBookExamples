@@ -1,0 +1,23 @@
+#
+# ex_04.shift.mac
+#
+############################################################
+#
+# Since the pseudo atoms are initially sorted at positions 
+# 00z, we shift the B and C atoms to the correct x,y position
+#
+############################################################
+#
+symmetry
+   uvw    0,0,1
+   angle  0.0
+   trans  $2,$3,0.0
+   type   proper
+   mode   repl
+   power  1
+   des    all
+   sel    $1
+   incl   all
+   show
+   run
+exit

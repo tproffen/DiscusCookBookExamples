@@ -1,0 +1,94 @@
+############################################################
+# Plot simulation results of Exercise  8.2 :
+############################################################
+#
+if($0.ne.5) then
+  echo
+  echo "usage:"
+  echo "@kex_01 <diameter>, { xray | neutron }, <thickness>, <relaxation>, { constant | linear }"
+  echo
+  wait return
+  continue kuplot
+endif
+############################################################
+#
+# After the macro has finished, use one of the following
+# commands to continue (there is no need to *understand*
+# the plot macro unless you want to alter it ...) :
+# 
+#
+# 'plot'            : To view plot on the screen
+# 'save ps,plot.ps' : To save plot to POSTSCRIPT file
+# 'exit'            : To quit the KUPLOT program
+#
+############################################################
+#
+# Ready ??
+#
+wait return
+#
+rese
+load xy, "DATA/relaxed_%6.1F_%6.1F_%4.2F_$5_$2.tth",$1,$3,$4
+skal
+mark
+aver 
+achx 2\gH
+achy Intensity
+mark 10
+fnam off
+fset 3
+grid off
+font just,cent
+tit1 relaxed Silicon nanoparticle
+tit2 "Diameter : %6.1f \A ; Powder pattern; Radiation: $2",$1
+plot
+wait return
+#
+rese
+load xy, "DATA/relaxed_%6.1F_%6.1F_%4.2F_$5_$2.gr",$1,$3,$4
+skal
+mark
+aver 
+achx r [\A]
+achy G(r)
+mark 
+fnam off
+fset 3
+grid off
+font just,cent
+tit1 relaxed Silicon nanoparticle
+tit2 "Diameter : %6.1f \A ; PDF; Radiation: $2",$1
+plot
+wait return
+#
+skal 0,10
+plot
+wait return
+#
+rese
+variable real,rcore
+variable real,radius
+load cr, "PLOT/relaxed_%6.1F_%6.1F_%4.2F_$5.plot",$1,$3,$4
+rcore  = ($1/2.0 - $3)/5.407
+radius = ($1/2.0     )/5.407
+alloc outer,361
+alloc inner,361
+do i[0]=1,361
+  x[n[1]-1,i[0]] = rcore *cosd(i[0])
+  y[n[1]-1,i[0]] = rcore *sind(i[0])
+  x[n[1]  ,i[0]] = radius*cosd(i[0])
+  y[n[1]  ,i[0]] = radius*sind(i[0])
+enddo
+skal
+aver 1
+tit1 relaxed Silicon nanoparticle; $5 mode
+tit2 "Diameter : %6.1f \A ; Shell: %6.1f ; Relaxation %4.2f",$1,$3,$4
+achx [1 0 0]
+achy [0 1 0]
+mark 1,1
+grid on
+plot
+#
+############################################################
+#
+echo Enter your commands now :

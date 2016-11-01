@@ -1,0 +1,6 @@
+do i[1]=-4,4
+  do i[3]=-4,4,2
+    i[2]=i[3]-mod(abs(i[3]),2)
+    ...
+  enddo
+enddo

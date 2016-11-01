@@ -1,0 +1,19 @@
+#
+#  ex_04.shrink.mac
+#
+############################################################
+#
+#  The sorted structure is created with pseudo atoms, A,B,C
+#  one layer apart. In order to compare the 4H structure to
+#  the other stacking fault sequencces, distances along 
+#  [001] are cur in half. This gives the same metric.
+#
+############################################################
+#
+shear
+    matrix 1,0,0, 0,1,0, 0,0,0.5
+    orig   0,0,0,crystal
+    sel    all
+    incl   all
+    run
+exit

@@ -1,0 +1,101 @@
+##############################################
+# Exercise 3:
+#  Coordination
+##############################################
+#
+variable integer,maxneig
+maxneig = 12
+#
+##############################################
+# Reading the structure file
+##############################################
+#
+read
+  stru mystery.stru
+#
+# Add (maxneig+1) dummy atoms and remove again
+#
+do i[0]=1,maxneig+1
+  replace 1,Cu,0.01*i[0]
+enddo
+replace 1,1
+#
+##############################################
+# Reset r[i] counters
+##############################################
+#
+variable integer,loop
+#
+do loop=0,maxneig+1
+  r[loop]=0.0
+enddo
+#
+##############################################
+# Loop over all atom and find environment
+# of Copper
+##############################################
+#
+variable integer,count
+#
+set prompt,on,off
+do i[1]=1,n[1]
+  if (m[i[1]].eq.1) then
+    chem
+      env atom,i[1],1.2*lat[1]
+    exit
+#
+    count=0
+    do i[2]=0,res[0]
+      if (m[res[i[2]]].ne.0) then
+        count=count+1
+      endif
+    enddo
+#
+    if(count.le.maxneig) then
+      r[count]=r[count]+1
+      m[i[1]]=count+1
+    else
+      r[maxneig+1] = r[maxneig+1] + 1
+      m[i[1]]      = maxneig + 2
+    endif
+  endif
+#
+  if (mod(i[1],250).eq.0) then
+    echo "Done with %d atoms ..",i[1]
+  endif
+#
+enddo
+set prompt,off,off
+#
+##############################################
+# Write the output
+##############################################
+#
+do loop=0,maxneig
+  echo "Coordination  %3d: %8.0f Cu atoms",loop,r[loop]
+enddo
+echo "Coordination >%3d: %8.0f Cu atoms",maxneig,r[maxneig+1]
+wait return
+#
+set prompt,off,on
+##############################################
+# Check amounts of new (colour) atom types.
+##############################################
+#
+echo CU(1) has zero neighbors
+echo CU(2) has one  neighbor 
+echo CU(i) has i-1  neighbors 
+echo
+chem
+  elem
+exit
+wait return
+#
+@plot ex_03
+#
+set prompt,on,on
+##############################################
+# Enter commands here or 'exit' to
+# quit DISCUS.
+##############################################
+#

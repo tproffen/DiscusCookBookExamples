@@ -1,0 +1,22 @@
+#  powder.mac
+#
+powder
+  $3
+  set axis,q
+  set calc,debye 
+  set disp,off
+  set delta,0.0
+  set qmin,0.7500
+  set qmax,7.1000
+  set dq,  0.0005
+  set temp,ign  
+  set wvle,1.5
+  set four,four
+  set lpcor,none
+  run
+exit
+output
+  outf "DATA/$1_%6.1F_%6.1F_%4.2F_$6_$3.tth",$2,$4,$5
+  form powder,tth
+  run
+exit

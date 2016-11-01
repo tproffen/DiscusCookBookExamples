@@ -1,0 +1,8 @@
+#
+#  removes all output created by the solutions
+#  Use with caution!
+#
+system rm -f *.cif
+system rm -f *.new
+system rm -f *.plot
+system rm -f *.stru

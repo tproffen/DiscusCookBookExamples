@@ -1,0 +1,36 @@
+#
+# Do basic setup
+#
+plot
+  ext all
+  uvw 0,0,1
+  thick 1.0
+  sel cu
+  outfile $1.plot
+  set 1,3, 6,1.0
+exit
+#
+# Define setup for all colored atoms, maxmimum color is 14
+#
+do i[0]=1,maxneig+2
+  i[100] = mod(i[0]-1,14)+1
+  plot
+    set 2,3, i[100],1.0
+  exit
+enddo
+#
+# Define setup for standard atom with 6 neighbors
+#
+if(maxneig.ge.7) then
+  plot
+    set 7,3, 6,1.0
+  exit
+endif
+#
+# Do actual plot
+#
+plot
+  show
+  run
+exit
+#

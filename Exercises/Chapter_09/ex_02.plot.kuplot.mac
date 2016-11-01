@@ -1,0 +1,9 @@
+plot
+  prog kuplot
+  uvw 0,0,1
+  ext all
+  thick 1.0
+  sel all
+  outf "PLOT/$1_%6.1F_%6.1F_%4.2F_$5.plot",$2,$3,$4
+  run
+exit

@@ -1,0 +1,29 @@
+read
+  cell cmm2.cell,1,1,1
+@plot sym_orig.plot
+#
+# Only the part below is shown in the book
+#
+symm
+#
+  uvw 0,0,1
+  angl 30.0
+  orig 0,0,0,mol
+  trans 0,0,0
+  type proper
+  power 1,single
+  mode repl,new
+#
+  msel 1
+  minc 1,1
+#
+  run
+exit
+@plot sym_orig.plot
+@plot sym_orig.plot
+@plot sym_orig.plot
+@plot sym_orig.plot
+@plot sym_orig.plot
+@plot sym_orig.plot
+#
+@plot sym_orig.plot

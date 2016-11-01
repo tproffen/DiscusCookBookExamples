@@ -1,0 +1,77 @@
+#  ex_04.stack.sort.mac
+#
+############################################################
+#
+# Does the actual sorting to achive a good 4H structure
+#
+############################################################
+#
+mmc
+  rese
+  set neig, rese
+  set vec,  1,  1,1,  0, 0, 1
+  set vec,  2,  1,1,  0, 0,-1
+  set vec,  3,  1,1,  0, 0, 2
+  set vec,  4,  1,1,  0, 0,-2
+  set vec,  5,  1,1,  0, 0, 3
+  set vec,  6,  1,1,  0, 0,-3
+  set vec,  7,  1,1,  0, 0, 4
+  set vec,  8,  1,1,  0, 0,-4
+  set vec,  9,  1,1,  0, 0, 8
+  set vec, 10,  1,1,  0, 0,-8
+#
+  set neig, vec,  1, 2
+  set neig, add
+  set neig, vec,  1, 2
+  set neig, add
+  set neig, vec,  1, 2
+  set neig, add
+  set neig, vec,  3, 4
+  set neig, add
+  set neig, vec,  3, 4
+  set neig, add
+  set neig, vec,  3, 4
+  set neig, add
+  set neig, vec,  5, 6
+  set neig, add
+  set neig, vec,  5, 6
+  set neig, add
+  set neig, vec,  5, 6
+  set neig, add
+  set neig, vec,  7, 8
+  set neig, add
+  set neig, vec,  7, 8
+  set neig, add
+  set neig, vec,  7, 8
+  set neig, add
+  set neig, vec,  9,10
+  set neig, add
+  set neig, vec,  9,10
+  set neig, add
+  set neig, vec,  9,10
+#
+  set mode, 1.0, swchem,all
+#
+  set target, 1,corr,al,be, -1.,0.0,CORR  
+  set target, 2,corr,al,co, -1.,0.0,CORR  
+  set target, 3,corr,co,be, -1.,0.0,CORR  
+  set target, 4,corr,al,be,  0.,0.0,CORR  
+  set target, 5,corr,al,co, -1.,0.0,CORR  
+  set target, 6,corr,co,be,  0.,0.0,CORR  
+  set target, 7,corr,al,be, -1.,0.0,CORR  
+  set target, 8,corr,al,co, +1.,0.0,CORR  
+  set target, 9,corr,co,be, -1.,0.0,CORR  
+  set target,10,corr,al,be, +1.,0.0,CORR  
+  set target,11,corr,al,co, +1.,0.0,CORR  
+  set target,12,corr,co,be, +1.,0.0,CORR  
+  set target,13,corr,al,be, +1.,0.0,CORR   
+  set target,14,corr,al,co, +1.,0.0,CORR  
+  set target,15,corr,co,be, +1.,0.0,CORR  
+#
+  set temp, 2.0
+  set cycl, n[1]*200
+  set feed, n[1]*  1
+  show
+  run
+exit
+#

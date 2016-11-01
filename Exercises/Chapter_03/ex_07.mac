@@ -1,0 +1,30 @@
+############################################################
+# EXERCISE 7
+#
+# Creating ZrO2-CaO model structure
+#
+############################################################
+# First we read the asymmetric unit from a file and expand
+# the crystal to 10x10x10 unit cells
+############################################################
+#
+read
+cell zro2.cll,10,10,10
+#
+############################################################
+# Now we need to dope the crystal with CaO corresponding to
+# 15 atom %. So we replace 15% of Zr with Ca and remove 7.5%
+# of the oxygens for charge balance.
+############################################################
+#
+replace zr,ca,all,0.15
+replace o,void,all,0.075
+#
+############################################################
+# Now we check the composition
+############################################################
+#
+chem
+  elem
+exit
+#

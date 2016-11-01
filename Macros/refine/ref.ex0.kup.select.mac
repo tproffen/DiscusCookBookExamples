@@ -1,0 +1,5 @@
+set prompt,redirect
+set error,exit
+#@kup_backup compare
+@ref.ex0.kup.backup best
+exit

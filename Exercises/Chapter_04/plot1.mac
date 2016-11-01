@@ -1,0 +1,9 @@
+plot
+  ext all
+  sel all
+  thick 9999.
+  set 1,2,3,1.00
+  dese void
+  outfile "ex_01_%d.plot",$1
+  run
+exit

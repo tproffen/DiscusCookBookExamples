@@ -1,0 +1,42 @@
+@variables.znse
+#
+# Read the parameters from DIFFEV/Trials
+fget 2
+do i[3] = 1,parameters
+  fget 2,r[200+i[3]]
+enddo
+#
+read
+stru CELL/znse_wurtzite.cell
+lat[1]   = r[201]
+lat[2]   = r[201]
+lat[3]   = r[202]
+z[1]     = r[203]
+b[1]     = r[204]
+b[2]     = r[204]
+p_stack  = r[205]
+p_ab     = r[206]
+p_cc     = r[207]
+p_qmax      = 30.00
+p_delta     = r[208]
+p_gamma     = r[209]
+p_qalp      = r[210]
+p_qsig      = r[211]
+p_srat      = r[212]
+p_density   = r[213]
+p_scale     = r[214]
+p_b1        = r[215]
+p_b2        = r[216]
+p_b3        = r[217]
+
+save
+  outfile STRU/znse_wurtzite.cell
+  run
+exit
+@makelayers.znse znse_wurtzite
+#
+do indiv=1,nindiv
+  @shape.ellipsoid znse_wurtzite
+  @trans.for.pdf
+  @pdf kid,indiv
+enddo

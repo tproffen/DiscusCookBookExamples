@@ -1,0 +1,34 @@
+#  dom.perov.mac
+#
+variable integer,dimen
+variable real,ratio
+#
+ratio = 1.0025
+dimen = 50
+#
+@dom.perov.make
+#
+read
+  cell dummy.perov.cell,dimen,dimen,dimen
+#
+replace d100,d010,all,1./3.
+replace d100,d001,all,1./2.
+chem
+  elem
+  set mode,period,quick
+exit
+#
+@plot.dummy.sphere dom.perov.random
+#
+@dom.perov.sort
+@plot.dummy.sphere dom.perov.sorted
+@dom.perov.relax
+@plot.dummy.sphere dom.perov.relaxed
+@dom.perov.fourier dom.perov.relaxed
+save
+  outf dom.perov.relaxed.list
+  write ncell
+  run
+exit
+@dom.perov.replace dom.perov.relaxed
+@dom.perov.fourier dom.perov.final

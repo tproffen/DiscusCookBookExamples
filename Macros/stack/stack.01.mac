@@ -1,0 +1,25 @@
+# stack.01.mac
+#
+read
+  cell  hexagonal.cell, 1, 1, 1
+#
+stack
+  layer  hexagonal.cell
+  layer  hexagonal.cell
+  trans  1,1, 1./3.,-1./3., 1./2
+  trans  1,2,-1./3., 1./3., 1./2
+  trans  2,1, 1./3.,-1./3., 1./2
+  trans  2,2,-1./3., 1./3., 1./2
+  distr  matrix
+  crow   1,    0.00, 1.00
+  crow   2,    1.00, 0.00
+  number 12
+#
+  aver   0.00, 0.00, 1.00
+  modul  1.00, 0.00, 0.00, 0.00, 1.00, 0.00
+  set    modulus,off
+  set    trans,fixed
+#
+  create
+  run
+exit

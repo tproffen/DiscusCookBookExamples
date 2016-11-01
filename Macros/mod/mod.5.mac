@@ -1,0 +1,44 @@
+read
+  cell cell.cll,100,100,1
+#
+varible integer,loop
+varible integer,dmax
+varible real,dia
+varible real,dox
+varible real,doy
+#
+dmax=10
+#
+do loop=1,dmax
+  dia=15.0+gran(10.0,f)
+  dox=nint(40.0-80.0*(ran(0)))
+  doy=nint(40.0-80.0*(ran(0)))
+#
+  domain
+    reset
+    mode pseudo
+    input domain_origin.pseudo
+    assign char,d1,sphere
+    assign fuzzy,d1,1.5
+    assign content,d1,domain_wave.stru
+#
+    assign shape ,d1,1, dia, 0.0, 0.0, dox
+    assign shape ,d1,2, 0.0, dia, 0.0, doy
+    assign shape ,d1,3, 0.0, 0.0, 1.0, 0.0
+#
+    assign orient,d1,1, 1.0, 0.0, 0.0, 0.0
+    assign orient,d1,2, 0.0, 1.0, 0.0, 0.0
+    assign orient,d1,3, 0.0, 0.0, 1.0, 0.0
+    show
+    run
+  exit
+enddo
+#
+boundary hkl, 1, 0, 0, 0.5*100*lat[1]
+boundary hkl,-1, 0, 0, 0.5*100*lat[1]
+boundary hkl, 0, 1, 0, 0.5*100*lat[1]
+boundary hkl, 0,-1, 0, 0.5*100*lat[1]
+#
+save domain_many.stru
+@four domain_many
+@plot domain_many

@@ -1,0 +1,26 @@
+#
+fourier
+  ll -4,-4, 0
+  lr  4,-4, 0
+  ul -4, 4, 0
+  na 161
+  no 161
+  abs h
+  ord k
+  temp  igno
+  disp  off
+#  scat a10,c
+#  scat a11,c
+#  scat b10,c
+#  scat b01,c
+#  scat c11,c
+#  scat c01,c
+  show
+  run
+exit
+outp
+  outf $1.hk0
+  value inte
+  form stan
+  run
+exit

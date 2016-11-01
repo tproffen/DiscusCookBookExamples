@@ -1,0 +1,20 @@
+chem
+  set neig,rese
+  set vec, 1,1,1, 1, 0, 0
+  set vec, 2,1,1,-1, 0, 0
+  set neig,vec,1,2
+  set neig,add
+#
+  set vec, 3,1,1, 0, 1, 0
+  set vec, 4,1,1, 0,-1, 0
+  set neig,vec,3,4
+  set neig,add
+#
+  set vec, 5,1,1, 0, 0, 1
+  set vec, 6,1,1, 0, 0,-1
+  set neig,vec,5,6
+#
+  disp cu,cu,cu_cu.disp
+  disp cu,au,cu_au.disp
+  disp au,au,au_au.disp
+exit

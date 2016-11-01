@@ -1,0 +1,15 @@
+read
+cell cell.cll,100,100,1
+#
+wave
+  func sinus
+  acco
+  trans
+  len 25.0
+  vect 1,0,0
+  amp 0.5
+  osci 0,1,0
+  phase 0.0
+  sel zr
+  run
+exit

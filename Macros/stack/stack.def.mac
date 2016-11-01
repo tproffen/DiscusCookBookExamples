@@ -1,0 +1,50 @@
+# stack.def.mac
+#
+variable integer, dimen
+variable integer, nstart
+variable integer, itype
+variable integer, indiv
+variable real   , prob
+#
+dimen = 1000
+prob  =  0.04
+#
+do indiv = 1,200
+  read
+    lcell, base.$1.cell, 1, 1, dimen/2
+#
+  do i[1]=1,n[1]-1
+    if(ran(0).lt.prob) then
+      itype   = m[i[1]]+1
+      m[i[1]] = mod(itype-1,2) + 1
+    endif
+  enddo
+  save
+    outf origin.list
+    run
+  exit
+#
+  read
+    cell  hexagonal.cell, 1, 1, 1
+#
+  stack
+    layer  hexagonal.cell
+    layer  hexagonal.cell
+    trans  1,1, 1./3.,-1./3., 1./2
+    trans  1,2,-1./3., 1./3., 1./2
+    trans  2,1, 1./3.,-1./3., 1./2
+    trans  2,2,-1./3., 1./3., 1./2
+#
+    distr  file,origin.list
+    number dimen
+#
+    aver   0.00, 0.00, 1.00
+    modul  1.00, 0.00, 0.00, 0.00, 1.00, 0.00
+    set    modulus,on
+    set    trans,fixed
+#
+    create
+  exit
+#
+  @stack.h0l.individual $1,1,0,prob, indiv
+enddo

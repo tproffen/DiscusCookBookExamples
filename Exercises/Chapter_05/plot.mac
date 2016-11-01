@@ -1,0 +1,12 @@
+#
+plot
+  ext all
+  uvw 0,0,1
+  thick 1.0
+  set 1,3, 6,1.0
+  show
+  sel cu
+  outfile $1.plot
+  run
+exit
+#

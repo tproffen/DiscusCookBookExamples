@@ -1,0 +1,132 @@
+############################################################
+# EXERCISE 4.4
+#
+# Simulate the CaF2 structure. Create a crystal limited to
+# 0 <= x,y,z < 1 and a crystal limited to 0 <= x,y,z <=1.
+# Determine the respective composition and symmetry.
+#
+############################################################
+# We read the data file caf2.cll which contains the 
+# relevant information (space group, unit cell dimensions, 
+# and atom positions). Have a look at the file.
+############################################################
+#
+read
+cell caf2.cll
+#
+############################################################
+# By reading this unit cell, DISCUS has automatically 
+# interpreted the space group information and expanded the 
+# asymmetric unit to the content of one unit cell, limited 
+# to 0 <= x,y,z < 1 and we are ready to look at this crystal.
+# We will use the command "show atom,all", which lists all
+# Atoms in the crystal.
+# 
+############################################################
+#
+show atom,all
+#
+# Ready to continue ?
+wait return
+#
+############################################################
+#
+# For such a small crystal it was easy to count off the 
+# number of atoms. For big crystals we will leave the 
+# counting to the program and use the "chemistry" menu of
+# DISCUS to obtain the composition.
+############################################################
+#
+chem
+elem
+exit
+# Ready to continue ?
+wait return
+#
+############################################################
+#
+# Lets display the atoms again to determine the symmetry.
+#
+############################################################
+#
+show atom,all
+wait return
+############################################################
+#
+# This cluster of atoms shows three mirror planes (110),
+# (101), and (011) as well as one 3-fold axis along [111].
+# The F-centering vectors are present, yet the result of the
+# centering operation is limited to modulo(1.)
+# None of the other symmetry elements of space group Fm-3m
+# are present.
+#
+############################################################
+#
+# We will read the crystal agin, expanding it initially to
+# a crystal of 3 x 3 x 3 unit cells.
+#
+############################################################
+#
+read
+cell caf2.cll,3,3,3
+#
+############################################################
+#
+# Lets cut off all atoms outside the limit 0 <= x,y,z <= 1.
+# We will run a loop over all atoms that are present in the
+# crystal ( 1 to n[1]), removing those whose
+# coordinates fall outside the range.
+#
+############################################################
+#
+do i[1]=1,n[1]
+  if(x[i[1]].lt.0.0 .or. 1.0.lt.x[i[1]]) then
+    remove i[1]
+  endif
+  if(y[i[1]].lt.0.0 .or. 1.0.lt.y[i[1]]) then
+    remove i[1]
+  endif
+  if(z[i[1]].lt.0.0 .or. 1.0.lt.z[i[1]]) then
+    remove i[1]
+  endif
+enddo
+#
+############################################################
+#
+# Lets check the chemistry
+#
+############################################################
+#
+chem
+  elem
+exit
+wait return
+#
+############################################################
+#
+# This time the chemical formula comes out to Ca 14 F 8, 
+# quite different from Ca 4 F 8 or Ca 14 F 28.
+# Our simulated crystal contains lots of 'empty' atoms, which
+# are at the positions originally occupied.
+# The "remove" command merely replaces the atoms in our 
+# mempory by voids, which we have to delete explicitely.
+# Before looking at the atoms, lets delete the voids.
+#
+############################################################
+#
+purge
+show atom,all
+wait return
+############################################################
+#
+# This cluster of atoms shows almost the full Fm-3m symmetry.
+# Whats still missing ? There is no translational symmetry,
+# except for the F-centering vectors within the unit cell.
+# Only those symmetry elements of Fm-3m are present, that 
+# run through the unit cell. The four fold axes,for example,
+# are missing at each of the eight corners etc.
+#
+############################################################
+# That's it. 
+############################################################
+#

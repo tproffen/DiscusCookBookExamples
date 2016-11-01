@@ -1,0 +1,21 @@
+#
+four
+  xray
+  wvle 1.0
+  lots off
+  ll -3.0,-3.0, 0.0
+  lr  3.0,-3.0, 0.0
+  ul -3.0, 3.0, 0.0
+  na 121
+  no 121
+  show
+run
+#
+exit
+output
+  format stan
+  value int
+  outfile $1.four
+  run
+#
+exit

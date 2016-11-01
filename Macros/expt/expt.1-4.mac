@@ -1,0 +1,9 @@
+# This reads the structure and runs macros 1-4 from the EXPT chapter
+
+read
+  stru demo.stru
+#
+@expt.1
+@expt.2
+@expt.3
+@expt.4

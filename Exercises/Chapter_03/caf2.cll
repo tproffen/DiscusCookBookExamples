@@ -1,0 +1,6 @@
+title asymmetric unit for CaF2
+spcgr Fm-3m
+cell 5.46, 5.46, 5.46, 90.0, 90.0, 90.0
+atoms
+ca  0.0,   0.0,   0.0,   0.1
+f   0.25,  0.25,  0.25,  0.2 

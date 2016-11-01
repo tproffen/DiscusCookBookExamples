@@ -1,0 +1,7 @@
+#
+@stack.makelayers wurtzite
+#
+read
+  lcell wurtzite.cell
+#
+@stack.wurtzite.run  wurtzite, 0.50

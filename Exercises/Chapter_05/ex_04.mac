@@ -1,0 +1,91 @@
+##############################################
+# Exercise 4:
+#  Chemical ordering AND distortions
+##############################################
+#
+##############################################
+# Making random, undistorted starting 
+# structure ..
+##############################################
+#
+@ran3d 20,0.3
+#
+##############################################
+# Setting variables
+##############################################
+#
+# Desired correlation in {100}
+#
+variable real,c100
+c100=0.5
+#
+# Desired correlation in {110}
+#
+variable real,c110
+c110=0.0
+#
+# Desired distortion in {100}
+#
+variable real,ep
+ep=0.05
+#
+variable real,eCC
+variable real,eCA
+variable real,eAA
+#
+eCC= 1.0        *lat[1]
+eCA=(1.0+ep)    *lat[1]
+eAA=(1.0+2.0*ep)*lat[1]
+#
+##############################################
+# Running MMC to create chemical SRO
+##############################################
+#
+mmc
+  reset
+  @neig
+#
+  set mode, 1.0, swchem,all
+  set targ,1,corr,cu,au,c100,0.0,CORR
+  set targ,2,corr,cu,au,c110,0.0,CORR
+  set cyc, 200*n[1]
+  set feed,  5*n[1]
+  set temp,0.01
+  run
+exit
+#
+save ex_04_occ.stru
+@plot ex_04_occ
+@four ex_04_occ
+#
+##############################################
+# Running MMC to create distortions
+##############################################
+#
+mmc
+  reset
+  @neig
+  set targ,1,spring,cu,au,eCA,100.
+  set targ,1,spring,cu,cu,eCC,100.
+  set targ,1,spring,au,au,eAA,100.
+  set mode,1.0,shift,all
+  set move,cu,0.02,0.02,0.02
+  set move,au,0.02,0.02,0.02
+#
+  set cyc, 100*n[1]
+  set feed,  5*n[1]
+  set temp,0.1
+  run
+exit
+#
+save ex_04_disp.stru
+@plot ex_04_disp
+@four ex_04_disp
+@blen ex_04_disp
+#
+##############################################
+# Use the macro kex_04.mac in KUPLOT to plot
+# the reults. Enter commands here or 'exit' to
+# quit DISCUS.
+##############################################
+#

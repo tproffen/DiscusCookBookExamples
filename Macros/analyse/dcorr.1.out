@@ -1,0 +1,7 @@
+Calculating correlations
+ Atom type: A =   cu B =   au
+
+ Neig.  Displacement A     Displacement B   # pairs  correlation
+ ---------------------------------------------------------------
+   1   1.00  0.00  0.00   1.00  0.00  0.00   157474    0.3013
+   2   1.00  0.00  0.00   0.00  1.00  0.00   157474    0.0223

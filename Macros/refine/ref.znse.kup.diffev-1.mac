@@ -1,0 +1,64 @@
+variable integer,generation
+variable integer,member
+variable integer,children
+variable integer,parameters
+variable integer,kid
+variable integer,nindiv
+variable integer, indiv
+nindiv = 25
+#
+fopen 1,GENERATION
+fget  1,generation,member,children,params
+fclose 1
+#
+do kid=1,children
+  fopen 2,"DIFFEV/Trials.%4D",kid
+  fget  2,generation,member,children,params
+  fget  2,i[1]
+  fget  2
+  do i[3] = 1,parameters
+    fget 2,r[200+i[3]]
+  enddo
+  fclose 2
+  sys "cp INDI/indi.%4D.0001 
+       ..           CALC/calc.%4D",kid,kid
+  do indiv=2,nindiv
+    rese
+    load xy,"CALC/calc.%4D",kid
+    load xy,"INDI/indi.%4D.%4D",kid,indiv
+    kcal add,1,2
+    ksav 3
+      outf "CALC/calc.%4D",kid
+    run
+  enddo 
+  rese
+  load xy,"CALC/calc.%4D",kid
+  ccal mul,wy,1,1./nindiv
+  ksav 1
+    outf "CALC/calc.%4D",kid
+  run
+#
+  load xy, DATA/null.tth
+  spline 1,2
+  skal xmin[2],xmax[2]
+  ksav 3
+    outfile "TEMP/calc.%4D",kid
+    run
+#
+  rese
+  load xy, DATA/znse-mn.limited
+  load xy,"TEMP/calc.%4D",kid
+#
+  fit 1
+    func ba,2,5
+    para 1,1,r[208]
+    para 2,1,r[209]
+    para 3,1,r[210]
+    para 4,1,r[211]
+    para 5,1,r[212]
+    urf  10
+    cycle 100
+    run
+    show
+  exit
+

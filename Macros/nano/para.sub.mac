@@ -1,0 +1,5 @@
+# Create the radius for an 
+# individual ZnS sphere
+#
+radius_sub = logn(ab_shell,si_shell)
+radius_sub = min(radius_sub,ab_core)

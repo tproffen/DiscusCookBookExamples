@@ -1,0 +1,16 @@
+# parameter 13 omitted!
+diff_cr[1]  = 0.9
+diff_f[1]   = 0.81
+diff_lo[1]  = 0.2
+diff_k[1]   = 1.0
+#
+refine      none
+refine      1,2,3,4,5,6,7
+#
+donor      random
+selection  compare
+#
+trialfile  DIFFEV/Trials
+restrial   DIFFEV/Results
+logfile    DIFFEV/Parameter
+summary    DIFFEV/Summary

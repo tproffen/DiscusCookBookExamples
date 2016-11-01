@@ -1,0 +1,7 @@
+title ZrO2 cubic structure
+spcgrp Fm-3m
+cell   5.14, 5.14, 5.14, 90.0,90.0,90.0
+atoms
+Zr   0.00, 0.00, 0.00,   0.40
+O    0.25, 0.25, 0.25,   0.60
+

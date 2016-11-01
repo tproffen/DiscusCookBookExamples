@@ -1,0 +1,7 @@
+#
+#  removes all output creates by the solution
+#  Use with caution!
+#
+system rm -f *.domain
+system rm -f *.plot
+system rm -f *.pseudo*

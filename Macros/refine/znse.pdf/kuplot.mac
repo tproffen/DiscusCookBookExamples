@@ -1,0 +1,6 @@
+rese
+load xy, DATA/PD32ZS56.DAT
+load xy, INDI/indi.0001.0001
+skal
+mark
+plot

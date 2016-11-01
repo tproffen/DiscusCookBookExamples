@@ -1,0 +1,32 @@
+set prompt,redirect
+set error,exit
+#
+variable integer,repeat
+#
+repeat = -1
+fopen 1,REPEAT
+fformat 1, i4
+fput 1,repeat
+fclose 1
+#
+#@cleanup
+#
+@diffev_setup
+#
+init
+#
+#
+# Force at least the Generation zero
+#
+repeat = -1
+#
+do while(repeat.eq.-1)
+  sys /usr/local/bin/discus < nano.znse.mac  
+  sys /usr/local/bin/kuplot < kup.diffev.mac  
+  sys /usr/local/bin/kuplot < kup.select.mac  
+  compare
+  fopen  1, REPEAT
+  fget   1, repeat
+  fclose 1
+enddo
+exit

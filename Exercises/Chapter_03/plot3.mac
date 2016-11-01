@@ -1,0 +1,9 @@
+plot
+  prog cif
+  ext all
+  sel all
+  thick 9999.
+  dese void
+  outfile $1.cif
+  run
+exit

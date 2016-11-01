@@ -1,0 +1,12 @@
+read
+  free  1.0, 1.0, 1.0, 90.0, 90.0, 90.0
+#
+variable integer,loop
+variable real,ypos
+#
+do loop=0,$1
+  ypos=1.414*loop
+  insert zr,0.0,ypos,0.0,0.1
+enddo
+#
+save row.stru

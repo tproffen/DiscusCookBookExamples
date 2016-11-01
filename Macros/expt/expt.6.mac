@@ -1,0 +1,48 @@
+read             
+cell ni.cll,3,3,3
+#                
+pdf              
+  set rang,5.5,0.02
+  set qsig,0.0     
+  set rad,xray     
+#                
+  set qmax,0.0     
+  set therm,off    
+  calc             
+  save pdf,therm.1.pdf      
+#            
+  set qmax,35.0
+  set therm,off
+  calc         
+  save pdf,therm.2.pdf  
+#                   
+  set qmax,0.0        
+  set therm,gauss     
+  calc                
+  save pdf,therm.3.pdf
+#                   
+  set qmax,0.0        
+  set therm,gauss     
+  set delt,0.01
+  calc                
+  save pdf,therm.4.pdf
+#                 
+exit         
+therm        
+#            
+pdf          
+  set qmax,0.0 
+  set therm,off
+  calc         
+  save pdf,therm.5.pdf
+  #            
+  set qmax,35.0
+  set therm,off
+  calc         
+  save pdf,therm.6.pdf
+  #              
+  set qmax,35.0  
+  set therm,gauss
+  calc           
+  save pdf,therm.7.pdf
+exit

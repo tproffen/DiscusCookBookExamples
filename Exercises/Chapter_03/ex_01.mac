@@ -1,0 +1,76 @@
+############################################################
+# EXERCISE 1
+#
+# (A) Creating linearly spaced CO2 molecules that are 
+#     located at an angle to the x-axis
+#
+############################################################
+# First we set up a cartesian space defined by orthonormal 
+# vectors of unit length.
+############################################################
+#
+read
+free 1.0, 1.0, 1.0, 90.0, 90.0, 90.0
+#
+############################################################
+# To create the molecules we run a loop over the number of
+# intended molecules. The dummy index is used to calculate
+# the x-position of the carbon atom. To each of these
+# positions we add the vectors [0.9,1.1,0.0] and
+# [-0.9,-1.1,0.0] which will give the positions of the oxygen
+# atoms.
+############################################################
+#
+# The following loop runs ten times from 0 to 9
+do i[1]=0,9
+#
+############################################################
+#
+# The x-position is calculated as dummy index i[1]*3. Since
+# the base length is 1 Angstroem this spaces our molecules
+# 3 Angstroem apart.
+############################################################
+#
+r[1] = 3.0*i[1]
+#
+############################################################
+#
+# A Carbon atom is inserted at this position
+#
+############################################################
+#
+insert c, r[1], 0.0, 0.0,  0.1
+#
+############################################################
+#
+# We add the vectors [0.9,1.1,0.0] and [-0.9,-1.1,0.0] to 
+# the current position and insert an oxygen atom at each
+# vector.
+#
+############################################################
+#
+insert o, r[1]+0.9, 0.0+1.1, 0.0+0.0, 0.2
+insert o, r[1]-0.9, 0.0-1.1, 0.0-0.0, 0.2
+#
+############################################################
+#
+# This is the end of the loop
+#
+############################################################
+# 
+enddo
+#
+############################################################
+#
+# Finally we plot the resulting structure.
+#
+############################################################
+#
+@plot2 ex_01
+#
+############################################################
+# That's it. Use the macro 'kex_01.mac' to display the
+# results of the simulation. Note, that you might have
+# to alter the plotting macro if you have altered e.g.
+# the number of molecules. 
+############################################################

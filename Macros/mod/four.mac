@@ -1,0 +1,20 @@
+seed 12345
+#
+# Fourier
+#
+four
+neut
+wvle 1.0
+ll 0.0,0.0,0.0
+lr 3.5,0.0,0.0
+ul 0.0,3.5,0.0
+na 351
+no 351
+run
+exit
+#
+output
+value inten
+outfile $1.four
+run
+exit

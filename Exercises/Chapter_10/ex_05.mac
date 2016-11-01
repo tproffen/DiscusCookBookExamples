@@ -1,0 +1,64 @@
+##############################################
+# Exercise 5:
+#  Visualizing distortions
+##############################################
+#
+##############################################
+# Reading the structure file
+##############################################
+#
+read
+  stru mystery.stru
+#
+# Add dummy atoms ad remove again
+#
+replace 1,Cu,0.01
+replace 1,1
+#
+##############################################
+# Loop over all atom and find displacement
+# of Copper
+##############################################
+#
+set prompt,on,off
+do i[1]=1,n[1]
+  if (m[i[1]].eq.1) then
+#
+#   Difference vector from 0,0,0
+#
+    r[1]=x[i[1]]-nint(x[i[1]])
+    r[2]=y[i[1]]-nint(y[i[1]])
+    r[3]=z[i[1]]-nint(z[i[1]])
+#
+#   Calculate displacement
+#
+    r[10]=blen(r[1],r[2],r[3])
+#
+    if (r[10].gt.0.25) then
+#
+#   Magnify displacement by x3
+#
+      x[i[1]]=x[i[1]]+2.0*r[1]
+      y[i[1]]=y[i[1]]+2.0*r[2]
+      z[i[1]]=z[i[1]]+2.0*r[3]
+#
+#     Change type to change color
+#
+      m[i[1]]=2
+    endif
+  endif
+#
+  if (mod(i[1],250).eq.0) then
+    echo "Done with %d atoms ..",i[1]
+  endif
+#
+enddo
+set prompt,on,on
+#
+@plot2 ex_05
+#
+##############################################
+# Enter commands here or 'exit' to
+# quit DISCUS.
+##############################################
+#

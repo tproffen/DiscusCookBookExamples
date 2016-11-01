@@ -1,0 +1,49 @@
+pop_gen[1]  =   0
+#
+pop_n[1]    =  20
+pop_c[1]    =  20
+pop_dimx[1] =   2
+#
+# order parameter [100]
+#
+pop_name    1,a100
+type real,1
+pop_xmin[1] =    -1.000
+pop_xmax[1] =     1.000
+pop_smin[1] =    -1.00000
+pop_smax[1] =     1.00000
+pop_sig[1]  =     0.100
+pop_lsig[1] =     0.0100
+adapt   sigma,  1,0.2
+adapt   lsig ,  1,0.02
+#
+# order parameter [110]
+#
+pop_name    2,a110
+type real,2
+pop_xmin[2] =    -1.000
+pop_xmax[2] =     1.000
+pop_smin[2] =    -1.00000
+pop_smax[2] =     1.00000
+pop_sig[2]  =     0.100
+pop_lsig[2] =     0.0100
+adapt   sigma,  2,0.2
+adapt   lsig ,  2,0.02
+#
+diff_cr[1]  = 0.9
+diff_f[1]   = 0.81
+diff_lo[1]  = 0.2
+diff_k[1]   = 1.0
+#
+refine      none
+refine      1,2
+#
+donor      random
+#selection  compare
+selection  best,all
+#
+trialfile  DIFFEV/Trials
+restrial   DIFFEV/Results
+logfile    DIFFEV/Parameter
+summary    DIFFEV/Summary
+#

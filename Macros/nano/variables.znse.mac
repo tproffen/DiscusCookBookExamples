@@ -1,0 +1,19 @@
+#
+variable integer,indiv
+#
+variable real,  p_stack
+variable real,  p_ab
+variable real,  p_cc
+#
+#  Variables for the PDF calculation
+#
+variable real,  p_delta
+variable real,  p_gamma
+variable real,  p_qalp
+variable real,  p_qsig
+variable real,  p_qmax
+variable real,  p_srat
+variable real,  p_diameter
+variable real,  p_shape
+variable real,  p_density
+variable real,  p_scale

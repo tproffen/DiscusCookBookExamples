@@ -1,0 +1,56 @@
+variable  integer,dimx
+variable  integer,dimy
+variable  real,eqx
+variable  real,eqy
+variable  real,axisx
+variable  real,axisy
+variable  real,circum
+variable  real,radius
+variable  real,length
+variable  real,tpi
+#
+tpi = 8.*atan(1.0)
+eqx = $1
+eqy = $2
+eqy = -1.*eqy
+length  = $3
+#
+read
+  cell hexagonal.cell
+#
+vprod eqx,eqy,0.0, 0,0,-1
+r[0] = blen(res[1],res[2],0.0)
+axisx = res[1]/r[0]*length/2.
+axisy = res[2]/r[0]*length/2.
+#
+r[1]=max(abs(    eqx/2+axisx),abs(    eqx/2-axisx))
+r[2]=max(abs(-1.*eqx/2+axisx),abs(-1.*eqx/2-axisx))
+dimx=2*int(max(r[1],r[2])+1)
+r[1]=max(abs(    eqy/2+axisy),abs(    eqy/2-axisy))
+r[2]=max(abs(-1.*eqy/2+axisy),abs(-1.*eqy/2-axisy))
+dimy=2*int(max(r[1],r[2])+1)
+#
+read
+  cell hexagonal.cell,dimx,dimy,1
+#
+circum = blen(eqx,eqy,0.0)
+radius = circum/tpi
+#
+@trans2cart
+#
+boundary  hkl, 1, 0, 0, circum*0.5+0.1
+boundary  hkl,-1, 0, 0, circum*0.5-0.1
+boundary  hkl, 0, 1, 0, length*0.5+0.1
+boundary  hkl, 0,-1, 0, length*0.5-0.1
+purge
+#
+do i[0]=1,n[1]
+  r[34] = x[i[0]]/circum*tpi
+  x[i[0]] = radius*sin(r[34])
+  z[i[0]] = radius*cos(r[34])
+enddo
+#
+@plot.xbs single,eqx,abs(eqy),length
+@powder   single,eqx,abs(eqy),length
+@trans.for.pdf
+@pdf      single,eqx,abs(eqy),length

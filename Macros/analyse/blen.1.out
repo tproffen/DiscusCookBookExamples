@@ -1,0 +1,9 @@
+Calculating bond-length distibution
+ Allowed range :  1.50 A to  3.50 A / File : all.blen ( 401 pts)
+
+ CU(1) - CU(1) : d = 2.919 +- 0.417 A (Min = 2.235, Max = 3.500)
+                                      (Pairs =          1295708)
+ CU(1) - AU(2) : d = 2.876 +- 0.464 A (Min = 2.163, Max = 3.500)
+                                      (Pairs =           554554)
+ AU(2) - AU(2) : d = 2.845 +- 0.502 A (Min = 2.083, Max = 3.500)
+                                      (Pairs =           241432)

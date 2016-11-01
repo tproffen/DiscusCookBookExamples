@@ -1,0 +1,44 @@
+#
+# kex_03.mac
+#
+############################################################
+#
+if($0.ne.1) then
+  echo
+  echo " usage:"
+  echo " @kex_02 {"hex" | "cub"}"
+  echo
+  wait return
+  continue kuplot
+endif
+#
+############################################################
+#
+#  This macro displays the result of exercise 03.
+#  The individual hkL rods are displayed. First in an 
+#  overview and then in detail with a fit to determine
+#  the position and width.
+#
+############################################################
+#
+rese
+variable real,prob
+variable integer,naver
+variable integer,hmin
+variable integer,hmax
+variable integer,kmin
+variable integer,kmax
+variable integer,hh
+variable integer,kk
+#
+#  read the parameters that ex_03 has created. This saves
+#  us from remembering the parameters...
+#
+@ex_03.setup.mac
+#
+do hh = hmin, hmax
+  do kk = kmin, kmax
+    @k_stack_def_xxL hh,kk,prob,$1
+    wait return
+  enddo
+enddo

@@ -1,0 +1,105 @@
+set prompt,redirect
+set error, exit
+#
+variable integer,generation
+variable integer,member
+variable integer,children
+variable integer,parameters
+variable integer,kid
+#
+@setup
+#
+fopen 1,GENERATION
+fget  1,generation,member,children,parameters
+fclose 1
+#
+do kid=1,children
+#
+  fopen 2,"DIFFEV/Trials.%4D",kid
+  fget  2,generation,member,children,parameters
+  fget  2,i[1]
+  fget 2
+  do i[3] = 1,parameters
+    fget 2,r[200+i[3]]
+  enddo
+#
+  sys "cp INDI/indi.%4D.0001 CALC/calc.%4D",kid,kid
+  do i[11]=2,nindiv
+    rese
+    load xy,"CALC/calc.%4D",kid
+    load xy,"INDI/indi.%4D.%4D",kid,i[11]
+    kcal add,1,2
+    ksav 3
+      outf "CALC/calc.%4D",kid
+    run
+  enddo 
+  rese
+  load xy,"CALC/calc.%4D",kid
+  ccal mul,wy,1,1./nindiv
+  ksav 1
+    outf "CALC/calc.%4D",kid
+  run
+#
+  rese
+#
+  load xy, "CALC/calc.%4D",kid
+  load xy, DATA/null.tth
+  spline 1,2
+  skal xmin[2],xmax[2]
+  ksav 3
+    outfile "TEMP/calc.%4D",kid
+    run
+#
+  rese
+#
+  load xy, DATA/znse-mn.limited
+  load xy,"TEMP/calc.%4D",kid
+#
+  fit 1
+    func ba,2,5
+    para 1,1,r[208]
+    para 2,1,r[209]
+    para 3,1,r[210]
+    para 4,1,r[211]
+    para 5,1,r[212]
+    urf  10
+    cycle 100
+    run
+    show
+  exit
+#
+  ksav 3
+    outf "TEMP/calc.%4D",kid
+    run
+#
+  do i[0]=1, 5
+    r[207+i[0]] = p[i[0]]
+  enddo
+#
+  rval 1,3,one
+  fopen 1, "DIFFEV/Results.%4D",kid
+  fformat 1,i5
+  fformat 2,f15.9
+  fput 1,kid,res[2]
+  fclose all
+#
+  fopen 1, "DIFFEV/Trials.%4D",kid
+  fput 1,'# generation members children parameters'
+  fformat 1,i8
+  fformat 2,i10
+  fformat 3,i10
+  fformat 4,i10
+  fput 1,generation,member,children,parameters
+  fput 1,'# current member'
+  fformat 1,i5
+  fput 1,kid
+  fput 1,'# parameter list'
+  fformat 1,e20.10
+  do i[0]=1,parameters
+    echo " wrote Parameter %3d ; %20.10f",i[0],r[200+i[0]]
+    fput 1,r[200+i[0]]
+  enddo
+  fclose 1
+#
+enddo
+exit

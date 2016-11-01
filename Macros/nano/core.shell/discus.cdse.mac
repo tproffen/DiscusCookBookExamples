@@ -1,0 +1,90 @@
+@variables.cdse
+@setup
+indiv_start = 1
+#
+# Read the parameters: DIFFEV/Trials
+#
+fget 2
+do i[3] = 1,parameters
+  fget 2,r[200+i[3]]
+enddo
+stack_core  = r[205]
+stack_shell = r[213]
+#
+ab_core     = r[206]
+cc_core     = r[207]
+ab_shell    = r[214]
+si_shell    = r[215]
+#
+num_shell   = r[208]
+#
+p_b1        = r[216]
+p_b2        = r[217]
+p_b3        = r[218]
+#
+p_srat      = r[220]
+p_density   = r[221]
+p_scale     = r[222]
+p_delta     = r[223]
+p_gamma     = r[224]
+p_qalp      = r[225]
+p_qsig      = r[226]
+#
+read
+stru CELL/cdse_wurtzite.cell
+lat[1] = r[201]
+lat[2] = r[201]
+lat[3] = r[202]
+z[1]   = r[203]
+b[1]   = r[204]
+b[2]   = r[204]
+save
+  outfile "STRU/cdse_wurtzite.%4D.cell",kid
+  run
+exit
+@makelayers.cdse cdse_wurtzite,ab_core,lat[1]
+#
+read
+stru CELL/zns_wurtzite.cell
+lat[1] = r[209]
+lat[2] = r[209]
+lat[3] = r[210]
+z[1]   = r[211]
+b[1]   = r[212]
+b[2]   = r[212]
+save
+  outfile "STRU/zns_wurtzite.%4D.cell",kid
+  run
+exit
+@makelayers.cdse zns_wurtzite, 2.*ab_shell,lat[1]
+#
+do indiv=indiv_start,nindiv
+#
+  @shape.core  cdse_wurtzite 
+  do i[12]=1,num_shell
+    @para.sub
+    @shape.sub   zns_wurtzite
+  enddo 
+  @shape.shell cdse_wurtzite,zns_wurtzite 
+  @insert.sub
+  @insert.core
+  @powder kid,indiv
+  @trans.for.pdf
+  @pdf kid,indiv
+  chem
+    elem
+  exit
+  r[12] = res[2]*n[1]
+  r[13] = res[3]*n[1]
+  r[14] = res[4]*n[1]
+  r[15] = res[5]*n[1]
+  r[16] = (res[2]+res[3])/(res[4]+res[5])
+  fopen 1,"INDI/content.%4D.%4D",kid,indiv
+  fformat 1,i6
+  fformat 2,i6
+  fformat 3,i6
+  fformat 4,i6
+  fformat 5,f8.4
+  fput 1,r[12],r[13],r[14],r[15],r[16]
+  fclose 1
+enddo

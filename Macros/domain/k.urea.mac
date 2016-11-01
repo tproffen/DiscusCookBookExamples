@@ -1,0 +1,81 @@
+# k.urea.mac
+
+############################################################
+#
+#  Plots the domain structures that are produced by
+#  dom.urea.mac
+#
+############################################################
+#
+rese
+load cr, dom.urea.final.plot
+buff 0.05,0.05,0.12,0.05
+#
+skal  2,5, 2,5
+mark 100,100
+aver 1
+angle 120
+msize 1,0.1
+achx 
+achy
+fnam off
+plot
+#
+############################################################
+# To obtain a postscript file remove the leading '#' from
+# the next line
+#save ps,dom_urea_xy0.ps
+#
+wait return
+#
+############################################################
+#
+rese
+load cr, dom.urea.ordered.plot
+buff 0.05,0.05,0.12,0.05
+#
+skal  -25,25,-25,25
+aver 1
+angle 120
+msiz 1,0.2
+fset 0
+fnam off
+plot
+#
+############################################################
+# To obtain a postscript file remove the leading '#' from
+# the next line
+#save ps,dom_urea_ordered.ps
+#
+wait return
+#
+############################################################
+#
+rese
+load ni, dom.urea.final.hk0
+buff 0.05,0.05,0.12,0.12
+#
+skal -4,4,-4,4
+aver 1
+angle 60
+fset 3
+mark 1,1
+achx [H 0 0]
+achy [0 K 0]
+tit1 Fourier transform of Urea/Alkane
+tit2 host guest structure
+font size,1,18
+font size,2,18
+font size,3,18
+font size,4,18
+hlin 1,1e6, 1e6, 10
+hart 1,2
+cmap gray
+fnam off
+plot
+#
+############################################################
+# To obtain a postscript file remove the leading '#' from
+# the next line
+#save ps,dom_urea_ordered_f.ps
+

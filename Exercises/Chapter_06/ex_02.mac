@@ -1,0 +1,66 @@
+############################################################
+# EXERCISE 2
+############################################################
+# First we read (as in the other examples) the content
+# of the unit cell from the file 'cell.cll' and expand
+# it to a model crystal of 100x100x1 unit cells. In our
+# case we have only a ZR atom on (0,0,0). Have a look at
+# the file 'cell.cll'.
+############################################################
+read
+cell cell.cll,100,100,1
+#
+############################################################
+# First we create as in the example for the density wave
+# a sinusiodal density wave which replaces ZR by vacancies.
+# These are later replaced by ZR at the position of the
+# second site. This ensures that only one of the two sites
+# is occupied. 
+############################################################
+#
+wave
+  dens
+  func sinus
+  plow 0.0
+  phigh 1.0
+  phase 0.0
+  dese all
+  repl zr,void
+  len 50.0
+  vect 1,0,0
+  run
+exit
+#
+############################################################
+# Next we loop over all atoms and replace the vacancies
+# created by the density wave that was just created by
+# ZR atoms and add (0 0.25 0) to the current position, i.e.
+# add 0.25 to the y-coordinate. The DISCUS users guide
+# explains the syntax and variables used below in more 
+# detail.
+############################################################
+#
+do i[1]=1,n[1]
+  if (m[i[1]].eq.0) then
+    m[i[1]]=1
+    y[i[1]]=y[i[1]]+0.25
+  endif
+enddo
+#
+############################################################
+# The macros 'four' and 'plot' used for all simulations
+# in this chapter calculate the diffraction pattern and
+# export the created structure for plotting. Calculating
+# the Fourier transform can take a couple of minutes 
+# depending on the computer the simulation is run on.
+############################################################
+#
+@four ex_02
+@plot ex_02
+#
+############################################################
+# That's it. Use the macro 'kex_02.mac' to display the
+# results of the simulation. Note, that you might have
+# to alter the plotting macro if you have altered e.g.
+# the wave length of the density wave in this macro.
+############################################################

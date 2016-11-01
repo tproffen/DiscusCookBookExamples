@@ -1,0 +1,13 @@
+# stack.sort.fourier.setup.mac
+#
+fourier
+  ll  1, 0, -0.5
+  lr  1, 0,  2.5
+  ul  1, 0, -0.5
+  na  901
+  no    1
+  abs   l
+  ord   h
+  lots  off
+  set   aver,0.0
+exit

@@ -1,0 +1,24 @@
+variable integer,dimen
+dimen =  50
+#
+# Read the parameters from DIFFEV/Trials
+#
+fopen 2,"DIFFEV/Trials.%4D",kid
+fget  2
+fget  2
+fget  2
+fget  2
+fget  2
+do i[3] = 1,parameters
+  fget 2,r[200+i[3]]
+enddo
+fclose 2
+#
+read
+   cell  CELL/fec.cell, dimen,dimen,1
+#
+replace fe,c,all,0.25
+therm
+#
+@ref.ex0.sort.mac r[201],r[202]
+@ref.ex0.fourier kid

@@ -1,0 +1,26 @@
+plot
+   prog  kuplot
+   outf  $1.plot
+   ext   all
+   uvw   0,0,1
+   abs   1,0,0
+   ord   0,1,0
+   thick 100.00
+   vect  0,0,0
+   sel   all
+   des   void
+   set    C, 3, 6, 1
+   set    O, 3, 6, 1
+   set    N, 3, 6, 1.0
+   set    H, 3, 6, 0.5
+   run
+#
+   outf  $1.0yz.plot
+   uvw   1,0,0
+   abs   1,2,0
+   ord   0,0,1
+   vect  0,0,0
+   thick 0.6
+   show
+   run
+exit

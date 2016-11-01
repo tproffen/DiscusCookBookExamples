@@ -1,0 +1,46 @@
+List of the main macros to run simulations described in chapter 8,
+Domains
+################################################################################
+
+Macros k.*.mac are the corresponding KUPLOT macros to create a plot of
+the structure and/or intensity distribution
+
+################################################################################
+
+
+dom.cube.mac             Simple cube shaped domain
+                         k.simple
+
+dom.tilt.mac             Cube shaped domain, filled with tilted structure
+                         k.simple
+
+dom.discus.mac           Creates fuzzy domain that spells out DISCUS
+                         k.simple
+
+dom.shear.mac            Sheared domain
+                         k.simple
+
+dom.lattice.mac          Grid of planar domains
+                         k.simple
+
+dom.domain.mac           Simple cube shaped domain, alternative algorithm
+                         k.simple
+
+dom.triangle.mac         Triangular shaped domains of different sizes
+                         k.triangle
+
+dom.spheres.mac          Short range order between two domain types
+                         k.spheres
+
+dom.perov.mac            Perovskite type domains
+                         k.perov
+
+dom.urea.make.chain.mac  Makes a single Alkane chain and calculates the Fourier
+                         k.alkane
+
+dom.urea.mac             Distribution of alkane molecules in urea channels
+                         k.urea
+
+dom.urea.stack.mac       Distribution of alkane chains along a single channel
+                         k.urea.stack
+

@@ -1,0 +1,52 @@
+read
+  stru dom.alk.guest.complete
+#
+trans
+  anew  1,0,0
+  bnew  0,1,0
+  cnew  0,0,11.017/lat[3]
+  onew  0,0,0
+  sel   all
+  incl  all
+  run
+exit
+#
+fourier
+  ll -6,0,-11
+  lr  6,0,-11
+  ul -6,0, 11
+  na 121
+  no 181
+  abs h
+  ord l
+  temp  igno
+  disp  off
+  show
+  run
+exit
+outp
+  outf dom.alk.h0l
+  value inte
+  form stan
+  run
+exit
+#
+fourier
+  ll 0,-6,-11
+  lr 0, 6,-11
+  ul 0,-6, 11
+  na 121
+  no 181
+  abs k
+  ord l
+  temp  igno
+  disp  off
+  show
+  run
+exit
+outp
+  outf dom.alk.0kl
+  value inte
+  form stan
+  run
+exit

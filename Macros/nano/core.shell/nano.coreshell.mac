@@ -1,0 +1,29 @@
+#  nano.coreshell.mac
+#
+############################################################
+#
+#  Main macro for the simulation of 
+#  Core/Shell nanoparticles
+#
+############################################################
+#
+variable integer,generation
+variable integer,member
+variable integer,children
+variable integer,parameters
+variable integer,kid
+#
+@setup
+#
+fclose all
+fopen 1,GENERATION
+fget  1,generation,member,children,parameters
+fclose 1
+#
+kid = 1
+  fopen 2,"DIFFEV/Trials.%4D",kid
+  fget  2,generation,member,children,parameters
+  fget  2,i[1]
+  @discus.cdse kid
+  fclose 2
+#

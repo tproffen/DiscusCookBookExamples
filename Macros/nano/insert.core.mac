@@ -1,0 +1,21 @@
+read
+  stru "STRU/zns_wurtzite.%4D.%4D.loaded",kid,indiv
+#
+domain
+  rese
+  assign character,si, fuzzy
+  assign content,si, "STRU/cdse_wurtzite.%4D.%4D.core",kid,indiv
+  assign fuzzy  ,si, 2.55
+  assign orient ,si, 1,  1.0, 0.0, 0.0,  0.0
+  assign orient ,si, 2,  0.0, 1.0, 0.0,  0.0
+  assign orient ,si, 3,  0.0, 0.0, 1.0,  0.0
+  assign shape  ,si, 1,  1.0, 0.0, 0.0,  0.0
+  assign shape  ,si, 2,  0.0, 1.0, 0.0,  0.0
+  assign shape  ,si, 3,  0.0, 0.0, 1.0,  0.0
+  inputfile  CELL/position.core
+  mode       pseudoatoms
+  show
+  run
+exit
+#
+purge

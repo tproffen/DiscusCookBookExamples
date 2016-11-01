@@ -1,0 +1,30 @@
+# domain.cube.mac
+#
+read
+cell dom.guest.cube.cell,7,7,1
+save
+  outf dom.guest.cube.stru
+  run
+exit
+#
+read
+cell dom.host.cube.cell,7,7,1
+#
+domain
+  rese
+  mode   pseudo
+  input  dom.cube.pseudo
+  assign char,si,cube
+  assign fuzzy,si,0.5
+  assign cont, si,dom.guest.cube.stru
+  assign shape ,si,1,  1. , 0. , 0. ,  0. 
+  assign shape ,si,2,  0. , 1. , 0. ,  0. 
+  assign shape ,si,3,  0. , 0. , 1. ,  0. 
+  assign orient,si,1,  1. , 0. , 0. ,  0. 
+  assign orient,si,2,  0. , 1. , 0. ,  0. 
+  assign orient,si,3,  0. , 0. , 1. ,  0. 
+  show
+  run
+exit
+#
+@plot.two dom.cube

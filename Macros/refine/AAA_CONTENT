@@ -1,0 +1,31 @@
+The macros for chapter "Refining disordered structures" 
+are organised into subdirctories.
+
+The line underneath the short description of the refinement topic gives
+the program to use (discus/diffev) and the main macro that should be 
+used to start the refinement.
+
+For each DIFFEV refinement, the corresponding subdirectories
+contain 3 KUPLOT macros that display information about the current refinement:
+
+kpara.mac    Development of the R-value/ a parameter versus the generation
+kpar_par.mac R-value versus parameter value for a given generation or
+             Correlation between two parameter values for a given generation
+ksingle.mac  Displays the current calculated data in comparision to the 
+             experimental data.
+
+================================================================================
+
+RMC          Reverse Monte Carlo Refinement of short range order 
+             in CuAu
+             discus: rmc1.mac
+
+EXAMPLO0     Short range ordered structure
+             diffev: ref.ex0.diffev.mac
+
+ZNSE.POWDER  Refinement of the ZnSe nanoparticle based on X-ray powder data
+             diffev: diffev.mac
+
+ZNSE.PDF     Refinement of the ZnSe nanoparticle based on X-ray PDF data
+             diffev: diffev.mac
+

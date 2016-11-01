@@ -1,0 +1,5 @@
+#
+#  removes all output creates by the solution
+#  Use with caution!
+#
+system rm -f *.plot

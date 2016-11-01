@@ -1,0 +1,18 @@
+rese
+variable real,prob
+variable integer,naver
+variable integer,hmin
+variable integer,hmax
+variable integer,kmin
+variable integer,kmax
+variable integer,hh
+variable integer,kk
+#
+@ex_03.setup.mac
+#
+do hh = hmin, hmax
+  do kk = kmin, kmax
+    @k_stack_def_xxL hh,kk,prob,$1
+    wait return
+  enddo
+enddo

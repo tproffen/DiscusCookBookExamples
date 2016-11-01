@@ -1,0 +1,108 @@
+############################################################
+# Plot simulation results of Exercise 3 :
+############################################################
+#
+# After the macro has finished, use one of the following 
+# commands to continue (there is no need to *understand*
+# the plot macro unless you want to alter it ...) :
+#
+# 'plot'            : To view plot on the screen
+# 'save ps,plot.ps' : To save plot to POSTSCRIPT file
+# 'exit'            : To quit the KUPLOT program
+#
+############################################################
+#
+# Ready ??
+#
+wait return
+#
+rese
+load ni,ex_03.four
+load cr,ex_03.plot
+#
+ccal mul,wz,1,100.0/zmax[1]
+#
+ksav 1
+form sy,1.0
+outf bragg.k
+run
+#
+ksav 1 
+form sy,1.0+0.2/sqrt(2.0)
+outf sat.k
+run
+#
+@cut 1
+#
+load xy,bragg.k
+load xy,bessel.b0.xy
+load xy,sat.k
+load xy,bessel.b1.xy
+#
+fnam off
+fram off
+font just,cent
+#
+buff 0.07
+#
+nfra 5
+sfra 1,0.00,0.45,0.50,0.90
+sfra 2,0.00,0.00,0.50,0.45
+sfra 3,0.40,0.60,1.00,0.90
+sfra 4,0.40,0.30,1.00,0.60
+sfra 5,0.40,0.00,1.00,0.30
+#
+afra 1
+kfra 1,1
+skal
+aver 1.0
+mark 1.0,1.0
+hlin 1,0.0,1.0,20,%
+achx [h 0]
+achy [0 k]
+tit2 Diffraction pattern
+#
+afra 2
+kfra 2,2
+msiz 2,0.15
+skal 0.0,20.0,0.0,20.0
+aver 1.0
+mark 5,5
+grid on
+achx x [l.u.]
+achy y [l.u.]
+tit2 Modulated structure
+#
+afra 3
+kfra 3,3
+lcol 3,3
+skal -0.2,3.3,0.0,105.0
+mark 1.0,25.0
+achx [h h]
+achy Intensity 
+tit2 Intensity along <11>
+cfra 3,4,5
+#
+afra 4
+kfra 4,4,5
+lcol 4,3
+lcol 5,6
+ltyp 5,2
+achx [1 k]
+tit2 Bragg-intensity along k
+sann 1,"J(0)^2",2.0,60.0
+#
+afra 5
+kfra 5,6,7
+lcol 6,3
+lcol 7,6
+ltyp 7,2
+achx [1.141 k]
+tit2 Satellite-intensity along k
+sann 1,"J(1)^2",2.0,50.0
+#
+sys rm dens.xy bragg.k sat.k
+#
+############################################################
+# 
+# Enter your commands now :

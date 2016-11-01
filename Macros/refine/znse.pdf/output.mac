@@ -1,0 +1,6 @@
+  output 
+    form powder,tth
+    value inte
+    outf "INDI/indi.%4D.%4D"  ,$1,$2
+    run
+  exit

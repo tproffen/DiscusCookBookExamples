@@ -1,0 +1,100 @@
+############################################################
+# EXERCISE 2
+#
+# Creating elliptical domain 45 degrees rotated in ab plane.
+#
+############################################################
+# First we create a structure file with a pseudo atom that
+# marks the origin of the desired domain. Metric must
+# match the one of the host stucture.
+############################################################
+#
+read
+free 5.0,5.0,5.0, 90.0,90.0,90.0
+insert OO, 3.0,4.0,0.0, 0.1
+#
+save ex_02.pseudo
+#
+############################################################
+# Now we read a unit cell for domain and make structure 
+# large enough to make this domain. Note that in 
+# this example, the lattice parameter of the domain is
+# half of the lattice parameter of the host.
+############################################################
+#
+read
+cell domain.cll,40,40,40
+#
+save ex_02.domain
+#
+############################################################
+# Now we read a unit cell file and make the host structure,
+# large enough to contain the ellipsoidal domain.
+############################################################
+#
+read
+cell cubic.cll,25,25,25
+#
+############################################################
+# Now we enter the DOMAIN module and set things up
+############################################################
+#
+domain
+  reset
+  mode pseudo
+#
+# ----------------------------------------------------------
+# Assigning file with pseudo atoms defining domain positions
+# ----------------------------------------------------------
+#
+  input ex_02.pseudo
+#
+# ----------------------------------------------------------
+# Assigning this spherical domain to pseudo atom OO
+# ----------------------------------------------------------
+#
+  assign char,OO,sphere
+  assign fuzzy,OO,0.5
+#
+# ----------------------------------------------------------
+# Setting domain content
+# ----------------------------------------------------------
+#
+  assign cont,OO,ex_02.domain
+#
+# ----------------------------------------------------------
+# Defining the shape - 4x8x10 unit cells rotated
+# ----------------------------------------------------------
+#
+  assign shape,OO,1, 4.0*cosd(45.), 8.0*sind(45.), 0.0,  0.0
+  assign shape,OO,2,-4.0*sind(45.), 8.0*cosd(45.), 0.0,  0.0
+  assign shape,OO,3, 0.0,           0.0,          10.0,  0.0
+#
+# ----------------------------------------------------------
+# Defining the orientation : a'=0.5a, ..
+# ----------------------------------------------------------
+#
+  assign orient,OO,1, 0.5, 0.0, 0.0,  0.0
+  assign orient,OO,2, 0.0, 0.5, 0.0,  0.0
+  assign orient,OO,3, 0.0, 0.0, 0.5,  0.0
+#
+# ----------------------------------------------------------
+# Show settings and then insert domains
+# ----------------------------------------------------------
+#
+  show
+  run
+#
+exit
+#
+############################################################
+# Now we export the result for display
+############################################################
+#
+@plot ex_02
+#
+############################################################
+# That's it. Use the macro 'kex_02.mac' to display the
+# results of the simulation. Enter 'exit' to end DISCUS.
+############################################################
+#

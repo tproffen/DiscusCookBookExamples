@@ -1,0 +1,8 @@
+#
+#  wrap.mac
+#
+do i[0]=1,n[1]
+  r[34] = x[i[0]]/circum*tpi
+  x[i[0]] = radius*sin(r[34])
+  z[i[0]] = radius*cos(r[34])
+enddo

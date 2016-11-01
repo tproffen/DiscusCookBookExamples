@@ -1,0 +1,32 @@
+read
+  stru cuau.random.stru
+#
+pdf
+  set range,14.5,0.01 
+  set therm,gaus
+  set delta,0.3
+  set bound,periodic
+  set rad,xray
+#
+  set disp,n[1]
+  set cyc,n[1]
+  set fran,1.0,14.5
+  des all
+  sel cu,au
+  data cuau.c110.pdf
+  show all
+exit
+#
+variable real,sigma
+variable integer,loop
+#
+do loop=1,25
+  sigma=0.0125-loop*0.0005 
+  pdf
+    set sigm,sigma
+    set mode,swchem
+    run
+    save stru,cuau.rmc.stru
+    save pdf,cuau.rmc.pdf
+  exit
+enddo

@@ -1,0 +1,49 @@
+#  pdf.mac
+############################################################
+#
+# Transforms the structure into a large unit cell size
+#
+############################################################
+#
+#r[1] = diameter*1.1.00/lat[1]
+#r[2] = diameter*1.1.00/lat[3]
+#r[3] = diameter*1.1.00/lat[3]
+#trans
+#  anew r[1],  0.0,  0.0
+#  bnew  0.0, r[2],  0.0
+#  cnew  0.0,  0.0, r[3]
+#  onew  0.0,  0.0,  0.0
+#  sel all
+#  incl all
+#  run
+#exit
+chem
+  set cryst,1,1,1,n[1]
+exit
+#
+pdf
+#
+    ides all
+    jdes all
+    isel all
+    jsel all
+#
+    set bound,crystal,3D
+    set delta, 0.0
+    set dens,  0.48860885
+    set gamma, 0.0
+    set qalp,  0.0
+    set qsig,  0.0
+    set qmax,  30.000
+    set rad,   $3
+    set range, $2*1.1,0.02
+    set srat,  1.00  ,3.5
+    set weig,  1.00   
+    set therm, gauss    
+#
+    set finite,sphere,$2
+#
+    show
+    calc
+    save pdf,"DATA/$1.%6.1F.$3.gr",$2
+exit

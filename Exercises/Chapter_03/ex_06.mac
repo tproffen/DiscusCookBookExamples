@@ -1,0 +1,258 @@
+############################################################
+# EXERCISE 6
+#
+#    Rotate the SiO4 tetrahedron of Olivine around the 
+#    Si-O(2) Bond
+#
+############################################################
+# First, we read a single unit cell of olivine from file
+# olivine.cell. To distinguish the different oxygen atoms
+# we use the Debye-Waller factor, which is set to 1,2, and
+# 3 respectivly.
+############################################################
+#
+read
+cell olivine.cll
+#
+############################################################
+# Lets list the content of the asymmetric unit that was read.
+############################################################
+#
+asym
+wait return
+#
+############################################################
+# Scattering types are assigned to the six atoms in the
+# asymmetric unit. The O(2) is assigned as type 5.
+#
+# We will now list the complete content of the unit cell. 
+# There are 28 atoms in the unit cell. The silicon atoms
+# are atoms number 5 through 8, the oxygen atoms are atoms
+# number 13 through 28. The O(2) atoms are atoms 17 through
+# 20. DISCUS assigns each atom found in the asymmetric unit
+# a separate scattering curve. O(2) is the fifth atom in the
+# asymmetric unit, and DISCUS lists this as "O(5)".
+#
+############################################################
+#
+wait return
+show atom,all
+wait return
+#
+############################################################
+# To find the respective Si-O(2) bonds we will look at the
+# environment of each silicon.
+############################################################
+#
+find env,o,x[5],y[5],z[5],1.0,1.8
+show env
+wait return
+#
+find env,o,x[6],y[6],z[6],1.0,1.8
+show env
+wait return
+#
+find env,o,x[7],y[7],z[7],1.0,1.8
+show env
+wait return
+#
+find env,o,x[8],y[8],z[8],1.0,1.8
+show env
+wait return
+#
+############################################################
+# There are only three oxygen atoms listed for each of the 
+# four silicon atoms. The missing fourth oxygen atom is within
+# an adjacent unit cell. To find all four neighbors and to
+# calculate the Si-O(2) vector, we must expand the crystal to
+# a larger size.
+############################################################
+#
+read
+cell olivine.cll,3,3,3
+wait return
+#
+@plot3 ex_06_before
+#
+############################################################
+# The following loop runs over all silicon atoms in the unit
+# cell at 0,0,0.
+# DISCUS has expanded the crystal to a block of 3 by 3 by 3
+# unit cells centered around the origin. The first unit cell
+# is at -1,-1,-1, the last at 1,1,1. The unit cells are stored
+# in consecutive order with the loop over x being the fastest
+# loop. Let N1,N2,N3 be the number of unit cells along the
+# x,y, and z axis, respectively, and M1,M2,M3 the origin of 
+# the unit cell at lowest x,y,z coordinates. 
+# The number of a unit cell at i,j,k is calculated as:
+# (k-M3)*N1*N2 +(j-M2)*N1 +(i-M1)
+# Multiplying this number by the number of atoms per unit
+# cell and adding the index of the atom within the unit cell
+# gives the location of the atom in the structure array.
+# the unit cells 
+############################################################
+#
+i[11]=0
+i[12]=0
+i[13]=0
+i[0]=(i[13]+1)*3*3 + (i[12]+1)*3 + i[11]+1
+eval i[0]
+eval i[0]*n[3]+5
+i[14]=i[0]*n[3]+5
+show atom,i[14]
+#
+############################################################
+# The unit cell at 0,0,0 is number 13, with 28 atoms per unit
+# cell and the first silicon being the fifth atom per unit cell
+# we calculate the index 369 for this atom.
+############################################################
+#
+wait return
+#
+############################################################
+# In this loop over the four si positions in the unit cell, we
+# locate the nearest O(2) (scattering type number 5). The 
+# vectors Si-O(2) are stored for later use in the variable
+# r[] as r[11],r[12],r[13],  r[14],r[15],r[16], 
+# r[17],r[18],r[19] and r[20],r[21],r[22].
+############################################################
+# 
+i[7]=11
+do i[1]=i[14],i[14]+3
+  find env,5,x[i[1]],y[i[1]],z[i[1]],1.0,1.8
+  show atom,i[1]
+  show env
+  r[i[7]  ]=x[env[1]]-x[i[1]]
+  r[i[7]+1]=y[env[1]]-y[i[1]]
+  r[i[7]+2]=z[env[1]]-z[i[1]]
+  eval r[i[7]  ]
+  eval r[i[7]+1]
+  eval r[i[7]+2]
+  wait return
+  i[7]=i[7]+3
+enddo
+#
+############################################################
+# As expected for space group Pbnm the four Si-O(2) vectors
+# are related by the two fold axis parallel to [001] and the
+# mirror planes normal to [100] and [010] yielding:
+#     [-0.137,-0.142, 0.000], [-0.137, 0.142, 0.000],
+#     [ 0.137, 0.142, 0.000], [ 0.137,-0.142, 0.000]
+############################################################
+#
+wait return
+#
+############################################################
+# The following loop is introduced just to demonstrate that
+# our numbering algorithm works fine.
+# Omit if you increase the crystal size
+############################################################
+#
+wait return
+#
+do i[13]=-1,1
+  do i[12]=-1,1
+    do i[11]=-1,1
+      i[0]=(i[13]+1)*3*3 + (i[12]+1)*3 + i[11]+1
+      i[14]=i[0]*n[3]+5
+      show atom,i[14],i[14]+3
+    enddo
+  enddo
+enddo
+#
+wait return
+#
+############################################################
+# Now we will set up the symmetry operation.
+# To show the effect, we will choose the setup for our Si
+# atom in unit cell at 0,0,0, which is atom number 369
+# The dummy index for the direction of the symmetry axis
+# is set to 11 to get the correct direction.
+############################################################
+#
+i[7]  =  11
+i[14] = 369
+#
+wait return
+#
+############################################################
+#
+symm
+  uvw r[i[7]  ],r[i[7]+1],r[i[7]+2]
+  angle 3.0
+  origin x[i[14]],y[i[14]],z[i[14]]
+  mode repl
+  type proper
+  sel o
+  incl env
+#
+############################################################
+# After entering the symmetry menu we define:
+# uvw   : the direction of the symmetry axis
+# angle : the amount by which we want to rotate
+# origin: the origin of the symmetry axis, here the position
+#         of the silicon atom
+# mode  : replace the atom or create a copy? Here we replace
+# type  : either a proper or improper rotation, i.e. without
+#         or with an inversion
+# sel   : select the atom types to which to apply the operation
+# incl  : include which atom number, here the environment of 
+#         the silicon atom
+# No we have a look at the setup
+############################################################
+#
+wait return
+#
+show
+exit
+#
+wait return
+#
+############################################################
+# Now comes the working part of the macro.
+# The loop runs over all unit cells along z(Index i[13]),
+# y(Index i[12), and y(Index i[14]). In the innermost loop
+# the index of the first silicon atom in each unit cell is
+# calculated and the dummy index for the directions of the
+# Si-O(2) vectors reset to 11.
+# The next loop runs over the four Si atoms in each unit 
+# cell (dummy index i[1]). Within this loop the oxygen 
+# neighbors are found and the direction and origin of the
+# symmetry operation are updated. All other definitions for
+# the symmetry operation remain the same and we do not have
+# to repeat them.
+# The "run" command instructs the symmetry operation to
+# operate.
+# After leaving the symmetry menu, we increment the dummy
+# index for the symmetry axis direction.
+############################################################
+#
+wait return
+#
+do i[13]=-1,1
+  echo " At z = %d",i[13]
+  do i[12]=-1,1
+    do i[11]=-1,1
+      i[0]=(i[13]+1)*3*3 + (i[12]+1)*3 + i[11]+1
+      i[14]=i[0]*n[3]+5
+      i[7]=11
+      do i[1]=i[14],i[14]+3
+        find env,o,x[i[1]],y[i[1]],z[i[1]],1.0,1.8
+        symm
+          uvw r[i[7]  ],r[i[7]+1],r[i[7]+2]
+          origin x[i[1]],y[i[1]],z[i[1]]
+          run
+        exit
+        i[7]=i[7]+3
+      enddo
+    enddo
+  enddo
+enddo
+#
+@plot3 ex_06_after
+#
+############################################################
+# We have exported the two structures as CIF files for
+# plotting ..
+############################################################
+#

@@ -1,0 +1,5 @@
+title Dummy structure in C2/m
+spcgr C2/m
+cell   5.00 8.00 13.00  90.0 100.0 90.0
+atoms
+ZR     0.1000  0.2000  0.3000  0.1

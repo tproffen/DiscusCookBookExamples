@@ -1,0 +1,102 @@
+############################################################
+# EXERCISE 1
+#
+# Creating spherical domain.
+#
+############################################################
+# First we create a structure file with a pseudo atom that
+# marks the origin of the desired domain. Metric must
+# match the one of the host stucture.
+############################################################
+#
+read
+free 5.0,5.0,5.0, 90.0,90.0,90.0
+insert OO, 3.0,4.0,0.0, 0.1
+#
+save ex_01.pseudo
+#
+############################################################
+# Now we read a unit cell for domain and make structure 
+# large enough to make 5 unit cell domain. Note that in 
+# this example, the lattice parameter of the domain is
+# half of the lattice parameter of the host.
+############################################################
+#
+read
+cell domain.cll,20,20,20
+#
+save ex_01.domain
+#
+############################################################
+# Now we read a unit cell file and make the host structure,
+# large enough to contain the domain of size 5 unit cells.
+############################################################
+#
+read
+cell cubic.cll,20,20,20
+#
+############################################################
+# Now we enter the DOMAIN module and set things up
+############################################################
+#
+domain
+  reset
+  mode pseudo
+#
+# ----------------------------------------------------------
+# Assigning file with pseudo atoms defining domain positions
+# ----------------------------------------------------------
+#
+  input ex_01.pseudo
+#
+# ----------------------------------------------------------
+# Assigning this spherical domain to pseudo atom OO
+# ----------------------------------------------------------
+#
+  assign char,OO,sphere
+  assign fuzzy,OO,0.5
+#
+# ----------------------------------------------------------
+# Setting domain content
+# ----------------------------------------------------------
+#
+  assign cont,OO,ex_01.domain
+#
+# ----------------------------------------------------------
+# Defining the shape - 5 unit cells in xyz direction
+# ----------------------------------------------------------
+#
+  assign shape,OO,1, 5.0, 0.0, 0.0,  0.0
+  assign shape,OO,2, 0.0, 5.0, 0.0,  0.0
+  assign shape,OO,3, 0.0, 0.0, 5.0,  0.0
+#
+# ----------------------------------------------------------
+# Defining the orientation - here a'=a/2,b'=b/2 and c'=c/2
+# because the domain lattice parameter is half of the one
+# of the host structure.
+# ----------------------------------------------------------
+#
+  assign orient,OO,1, 0.5, 0.0, 0.0,  0.0
+  assign orient,OO,2, 0.0, 0.5, 0.0,  0.0
+  assign orient,OO,3, 0.0, 0.0, 0.5,  0.0
+#
+# ----------------------------------------------------------
+# Show settings and then insert domains
+# ----------------------------------------------------------
+#
+  show
+  run
+#
+exit
+#
+############################################################
+# Now we export the result for display
+############################################################
+#
+@plot ex_01
+#
+############################################################
+# That's it. Use the macro 'kex_01.mac' to display the
+# results of the simulation. Enter 'exit' to end DISCUS.
+############################################################
+#

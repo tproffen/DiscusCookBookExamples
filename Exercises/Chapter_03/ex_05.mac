@@ -1,0 +1,179 @@
+############################################################
+# EXERCISE 5
+#
+# Transform low cristobalite into a C-centered cell
+#
+############################################################
+#
+# We read the unit cell from file "cristobalite.cll", which
+# looks like:
+# 
+# title Low-T Cristobalite
+# spcgr P41212
+# cell 4.998,  4.998,  7.024,  90.0,  90.0,  90.0
+# atoms
+# si   0.2942,  0.2943,  0.0000,   0.1
+# o    0.2403,  0.0933,  0.1731,   0.2
+#
+wait return
+############################################################
+read
+cell cristobalite.cll
+#
+############################################################
+#
+# As a check, the program lists the space group and the metric
+# and we are ready to transform the unit cell.
+#
+wait return
+#
+trans
+#
+############################################################
+#
+# Now we are in the transformation menu and have to define
+# the transformation matrix. The exercise listed the new
+# axes in terms of the old axes. 
+#
+wait return
+#
+anew 1,1,0
+bnew -1,1,0
+cnew 0,0,1
+onew 0.25,0.25,0.0
+#
+############################################################
+#
+# These commands defined the new axes as:
+# x*a(old) + y*b(old) + z*c(old)
+#
+wait return
+#
+sel all
+incl all
+#
+############################################################
+#
+# We select all atom types and all atoms of our crystal.
+#
+wait return
+#
+show
+#
+############################################################
+#
+# The 'show' command listed the transformation matrices
+# old ==> new and new ==> old for the base vectors, atom
+# coordinates and reciprocal space base vectors. All atom
+# types (voids, Si, and O) are selected as well as all
+# atoms in the crystal.
+#
+wait return
+#
+run
+#
+############################################################
+#
+# The run command performed the transformation, no output is
+# listed.
+#
+wait return
+exit
+#
+save 
+outf cristobalite.new
+#
+############################################################
+#
+# After leaving the transformation menu we are ready to save
+# the new structure to file "cristobalite.new"
+wait return
+#
+run
+exit
+#
+############################################################
+#
+# Edit this file to check the positions of the atoms and the
+# new generators. The file looks like this:
+# (The generators have been reformatted to fit to the screen)
+#
+wait return
+#
+# title Low-T Cristobalite
+# spcgr P1              
+# cell    7.068240    7.068240    7.024000   90.000000   90.000000   90.000000
+# gene -1.0, 0.0, 0.0,-0.50, 0.0,-1.0, 0.0, 0.00, 0.0, 0.0, 1.0, 0.50,  1
+# gene  0.0,-1.0, 0.0, 0.25, 1.0, 0.0, 0.0, 0.25, 0.0, 0.0, 1.0, 0.25,  1
+# gene  0.0, 1.0, 0.0, 0.25, 1.0, 0.0, 0.0, 0.25, 0.0, 0.0,-1.0, 0.25,  1
+# gene  1.0, 0.0, 0.0, 0.50, 0.0, 1.0, 0.0, 0.50, 0.0, 0.0, 1.0, 0.00,  1
+# ncell        1,       1,       1,        16
+# atoms 
+# SI          0.044250        0.000050        0.000000       0.1000
+# SI          0.455750       -0.000050        0.500000       0.1000
+# SI          0.249950        0.294250        0.250000       0.1000
+# SI          0.250050       -0.294250        0.750000       0.1000
+# SI          0.250050        0.294250        0.250000       0.1000
+# SI          0.249950       -0.294250        0.750000       0.1000
+# SI          0.044250       -0.000050        0.000000       0.1000
+# SI          0.455750        0.000050        0.500000       0.1000
+# O          -0.083200       -0.073500        0.173100       0.2000
+# O           0.583200        0.073500        0.673100       0.2000
+# O           0.323500        0.166800        0.423100       0.2000
+# O           0.176500       -0.166800        0.923100       0.2000
+# O           0.176500        0.166800        0.076900       0.2000
+# O           0.323500       -0.166800        0.576900       0.2000
+# O          -0.083200        0.073500        0.826900       0.2000
+# O           0.583200       -0.073500        0.326900       0.2000
+wait return
+#
+############################################################
+#
+# Space group P41 21 2 uses three generators:
+# 2  (  0,   0, 1/2)  0,0,z       -1.00, 0.00, 0.00,   0.00
+#                                  0.00,-1.00, 0.00,   0.00
+#                                  0.00, 0.00, 1.00,   0.50
+#
+# 4  (  0,   0, 1/4)  0,1/2,z      0.00,-1.00, 0.00,   0.50
+#                                  1.00, 0.00, 0.00,   0.50
+#                                  0.00, 0.00, 1.00,   0.25
+#
+# 2  (  0, 1/2,   0)  1/4,y,1/8   -1.00, 0.00, 0.00,   0.50
+#                                  0.00, 1.00, 0.00,   0.50
+#                                  0.00, 0.00,-1.00,   0.25
+#
+wait return
+#
+############################################################
+#
+# these are changed to:
+# 2  (  0,   0, 1/2)  -1/4,0,z    -1.00, 0.00, 0.00,  -0.50
+#                                  0.00,-1.00, 0.00,   0.00
+#                                  0.00, 0.00, 1.00,   0.50
+#
+# 4  (  0,   0, 1/4)  0,1/4,0      0.00,-1.00, 0.00,   0.25
+#                                  1.00, 0.00, 0.00,   0.25
+#                                  0.00, 0.00, 1.00,   0.25
+#
+# 2  (  0, 1/2,   0)  x,x,1/8      0.00, 1.00, 0.00,   0.25
+#                                  1.00, 0.00, 0.00,   0.25
+#                                  0.00, 0.00,-1.00,   0.25
+wait return
+#
+# Additionally, the primitive translation a (or b) is 
+# transformed into a C-centering translation:
+#
+# t  (1/2, 1/2,   0)               1.00, 0.00, 0.00,   0.50
+#                                  0.00, 1.00, 0.00,   0.50
+#                                  0.00, 0.00, 1.00,   0.00
+wait return
+#
+# The two original Atoms in the asymmetric unit are
+# transformed from:
+#
+# si   0.2942,  0.2943,  0.0000,   0.1
+# o    0.2403,  0.0933,  0.1731,   0.2
+# to
+#
+# SI   0.0442,  0.0000,  0.0000,   0.1
+# O   -0.0832, -0.0735,  0.1731,   0.2

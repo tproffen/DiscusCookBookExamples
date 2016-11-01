@@ -1,0 +1,9 @@
+title Water in Cmm2
+spcgr Cmm2
+cell  10.0,10.0,10.0, 90.0,90.0,90.0
+atoms
+molecule
+molecule gene, -1,0,0,0, 0,1,0,0, 0,0,1,0
+O   0.00  0.20   0.00   0.1
+H   0.13  0.17   0.00   0.2
+molecule end

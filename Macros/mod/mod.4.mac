@@ -1,0 +1,16 @@
+#
+# $1 : FWHM of Gaussian distribution
+#
+variable real,width
+variable real,abst
+variable real,damp
+variable integer,at
+#
+width=$1
+#
+do at=1,n[1]
+  abst=blen(x[at],y[at],z[at])
+  damp=exp(-4.*ln(2.)*abst**2/width**2)
+  y[at]=nint(y[at])
+  y[at]=y[at]+damp*(y[at]-nint(y[at]))
+enddo

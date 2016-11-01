@@ -1,0 +1,37 @@
+#  dom.triangle.mac
+#
+variable integer,dimen
+dimen =  81
+#
+read
+  cell dom.guest.cube.cell,20,20,1
+boundary hkl,1,1,0,0.2
+purge
+save
+  outf dom.guest.cube.stru
+  run
+exit
+#
+read
+  stru dom.domain.domain
+#
+do i[0]=1,20
+  @dom.triangle.symmetry
+  @dom.triangle.shear
+enddo
+save
+  outf dom.triangle.list
+  write all
+  run
+exit
+#
+read
+  cell  dom.host.cube.cell,dimen,dimen,1
+#
+domain
+  mode domain
+  input dom.triangle.list
+  show
+  run
+exit
+@plot.two dom.triangle

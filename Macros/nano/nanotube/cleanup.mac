@@ -1,0 +1,2 @@
+system rm -f STRU/*
+system rm -f DATA/*

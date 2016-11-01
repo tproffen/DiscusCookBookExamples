@@ -1,0 +1,30 @@
+#  pdf.mac
+#
+pdf
+#
+    ides all
+    jdes all
+    isel all
+    jsel all
+#
+    set bound,crystal,3D
+    set delta, 0.0
+    set dens,  0.00000001
+    set gamma, 0.0
+    set qalp,  0.0
+    set qsig,  0.0
+    set qmax,  30.000
+    set qmax,   0.000
+    set rad,   xray
+    set range, 32.08,0.02
+    set srat,  1.00  ,3.5
+    set weig,  1.00   
+    set therm, gauss    
+#
+    set finite,poly
+    set poly  ,0.0,0.0,0.0,0.0
+#
+    show
+    calc
+    save pdf,"DATA/$1_%4D_%4D_%6.1F.gr",nint($2), nint($3), $4
+exit

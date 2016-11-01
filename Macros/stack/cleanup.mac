@@ -1,0 +1,12 @@
+set error,live
+#
+system rm -f INDIVIDUAL/*
+system rm -f SUM/*
+system rm -f STRU/stack.sorted.????.stru
+system rm -f layer.?
+system rm -f *.inte
+system rm -f origin.list
+system rm -f stack.sort.????
+system rm -f stack.sorted.stru
+system rm -f wurtzite.layer
+system rm -f wurtzite.rotated

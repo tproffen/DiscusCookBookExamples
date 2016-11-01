@@ -1,0 +1,21 @@
+plot
+  prog kuplot
+  ext all
+  vec 0,0,0
+  uvw 0,0,1
+  abs 1,0,0
+  ord 0,1,0
+  set 1,3,6,1.0
+  sel all
+#
+  thick 1.0
+  type crystal
+  outfile crystal.dat
+  run
+#
+  thick 9999.0
+  type projection
+  outfile density.dat
+  run
+#
+exit

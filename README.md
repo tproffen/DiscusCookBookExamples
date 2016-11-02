@@ -7,9 +7,7 @@ written  by R.B.Neder and Th. Proffen. The [DISCUS Suite](https://tproffen.githu
 ## Contents
 
 * `Macros/` :
-  Contains all macro files used in the book. Find
-  the macros in the directory corresponding to the
-  chapter it was used in.
+  Contains all macro files used in the book. Macros are organized by chapters.
 
 * `Exercises/` :
   Contains solution macro files to most exercises.

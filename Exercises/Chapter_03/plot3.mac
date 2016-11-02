@@ -4,6 +4,7 @@ plot
   sel all
   thick 9999.
   dese void
+  prog kuplot
   outfile $1.cif
   run
 exit

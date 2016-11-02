@@ -2,6 +2,7 @@
 # Do basic setup
 #
 plot
+  prog kuplot
   ext all
   uvw 0,0,1
   thick 1.0

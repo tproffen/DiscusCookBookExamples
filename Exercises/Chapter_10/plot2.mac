@@ -8,6 +8,7 @@ plot
   set 2,3, 1,1.0
   show
   sel cu,void
+  prog kuplot
   outfile $1.plot
   run
 exit

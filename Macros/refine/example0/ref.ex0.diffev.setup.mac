@@ -46,4 +46,6 @@ trialfile  DIFFEV/Trials
 restrial   DIFFEV/Results
 logfile    DIFFEV/Parameter
 summary    DIFFEV/Summary
+lastfile   DIFFEV/Current
+backup CALC/calc, FINAL/final
 #

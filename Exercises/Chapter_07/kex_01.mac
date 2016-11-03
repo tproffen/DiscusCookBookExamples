@@ -12,6 +12,7 @@
 #
 ############################################################
 #
+system mkdir -p SUM
 rese
 variable real,prob
 variable integer,naver

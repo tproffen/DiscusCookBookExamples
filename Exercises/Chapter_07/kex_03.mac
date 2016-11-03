@@ -6,7 +6,7 @@
 if($0.ne.1) then
   echo
   echo " usage:"
-  echo " @kex_02 {"hex" | "cub"}"
+  echo " @kex_02 { hex  |  cub }"
   echo
   wait return
   continue kuplot
@@ -21,6 +21,7 @@ endif
 #
 ############################################################
 #
+system mkdir -p SUM
 rese
 variable real,prob
 variable integer,naver

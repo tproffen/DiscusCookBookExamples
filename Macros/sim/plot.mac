@@ -1,0 +1,14 @@
+plot
+   program kuplot
+   uvw  0,0,1
+   abs  1,0,0
+   ord  0,1,0
+   vect 0,0,0
+   thick  1000
+   sel  all
+   ext all
+   set O, 3, 1, 1.0
+   set H, 3, 6, 0.5
+   outf  $1
+   run
+exit 

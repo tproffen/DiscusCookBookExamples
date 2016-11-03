@@ -19,11 +19,4 @@ symm
 #
   run
 exit
-@plot sym_orig.plot
-@plot sym_orig.plot
-@plot sym_orig.plot
-@plot sym_orig.plot
-@plot sym_orig.plot
-@plot sym_orig.plot
-#
-@plot sym_orig.plot
+@plot sym_rot.plot

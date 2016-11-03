@@ -26,6 +26,8 @@ skal -60,50,-25,25
 mark 20,10
 fset 2
 aver 50.0/110.0
+tit1
+tit2
 achx
 achy
 fnam off

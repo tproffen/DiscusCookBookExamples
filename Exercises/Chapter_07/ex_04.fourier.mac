@@ -15,7 +15,7 @@ four
   no     1
   abs    l
   ord    h
-  lots   box,50,1,1,20,yes
+  lots   box,1,1,50,20,yes
   set  aver,0.0
   run
 exit

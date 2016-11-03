@@ -33,6 +33,7 @@ endif
 #  The variables are written into file 'ex_03.setup.mac',
 #  to be used in the plot macro
 #
+system mkdir -p INDI
 variable real,prob
 variable integer,layers
 variable integer,naver

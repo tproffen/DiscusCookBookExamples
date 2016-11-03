@@ -11,6 +11,10 @@
 #  $5: initial kT
 #
 ##############################################
+if($0.ne.5) then
+   echo Use as: @ex01.mac <corr_10>, <corr_11>, <corr_20>, <corr_30>, <temp>
+   continue discus
+endif
 #
 @ran 50,0.2
 #

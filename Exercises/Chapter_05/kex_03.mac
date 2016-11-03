@@ -1,6 +1,8 @@
 reset
 load xy,ex_03_kT*_cc.blen
 #
+tit1
+tit2 Bond length distribution versus tempeature
 achx Bond length (\A)
 achy Probability
 skal 2.0,3.0

@@ -10,6 +10,8 @@ fset 2
 font just,center
 skal -25.9,24.9,-25.9,24.9
 mark 5,5
+tit1
+tit2 Sorted structure
 achx x (l.u.)
 achy y (l.u.)
 aver 1.0

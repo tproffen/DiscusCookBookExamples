@@ -100,7 +100,7 @@ adapt   lsig ,  ipar,0.02
 #
 ipar =  7
 pop_name    ipar,cc_size
-pop_xmin[ipar] =   15.000
+pop_xmin[ipar] =   13.000
 pop_xmax[ipar] =   50.000
 pop_smin[ipar] =   13.00000
 pop_smax[ipar] =   18.00000
@@ -266,4 +266,6 @@ trialfile  DIFFEV/Trials
 restrial   DIFFEV/Results
 logfile    DIFFEV/Parameter
 summary    DIFFEV/Summary
+lastfile   DIFFEV/Current
 #
+backup TEMP/calc, FINAL/final

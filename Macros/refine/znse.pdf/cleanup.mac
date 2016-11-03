@@ -10,9 +10,11 @@ sys rm -f DIFFEV/Parameter*
 sys rm -f DIFFEV/Summary*
 sys rm -f DIFFEV/Trials*
 sys rm -f DIFFEV/Results*
+sys rm -f DIFFEV/*
 sys rm -f FINAL/*
 sys rm -f INDI/*
 sys rm -f TEMP/*
 sys rm -f STRU/*
 sys rm -f CALC/calc.*
 sys rm -f *.bs
+sys rm -f *.cif

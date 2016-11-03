@@ -1,7 +1,7 @@
 #
 ################################################################################
 #
-# kpar_par.mac
+# kpar_par_90.mac
 #
 ################################################################################
 #
@@ -22,6 +22,14 @@ variable integer,member
 variable integer,children
 variable integer,parameters
 variable integer,kid
+variable integer,ipar1
+variable integer,ipar2
+variable character,axis_x
+variable character,axis_y
+variable character,string
+variable character,parname1
+variable character,parname2
+variable character,parfile
 fclose all
 #
 rese
@@ -33,6 +41,9 @@ fopen 1,GENERATION
 fget  1,generation,member,children,parameters
 fclose 1
 #
+@k_get_name ipar1, parname1, $2
+@k_get_name ipar2, parname2, $3
+#
 if($1.eq.-1) then
   i[0] = generation - 1
 else
@@ -42,7 +53,14 @@ endif
 # Find member with lowest R-value
 #
 rese
-load st, DIFFEV/Parameter, i[0],$2 +2,   2
+parfile='Parameter'
+if($1.eq.-1) then   ! If in last generation
+   fexist DIFFEV/Current.0001
+   if(res[1].eq.1) then
+      parfile = 'Current'
+   endif
+endif
+load st, "DIFFEV/%c.0000",parfile, i[0],  1,   2
 r[0] =y[1,1]
 i[10]=1
 do i[1]=2,np[1]
@@ -55,10 +73,36 @@ enddo
 #  load actual parameter sets
 #
 rese
-load st, DIFFEV/Parameter, i[0],$2 +2,$3+2
+if(ipar2.eq.-1) then
+  load st, "DIFFEV/%c.%4D",parfile, 0, i[0], 1, 2
+else
+  load st, "DIFFEV/%c.%4D",parfile,ipar2, i[0], 3, 2
+endif
+if(ipar1.eq.-1) then
+  load st, "DIFFEV/%c.%4D",parfile, 0, i[0], 1, 2
+else
+  load st, "DIFFEV/%c.%4D",parfile,ipar1, i[0], 3, 2
+endif
+alloc points, np[1]
+do i[0]=1,np[1]
+  x[3,i[0]] = x[2,i[0]]
+  y[3,i[0]] = x[1,i[0]]
+enddo
 alloc minimum,1
-x[2,1] = x[1,i[10]]
-y[2,1] = y[1,i[10]]
+x[4,1] = x[3,i[10]]
+y[4,1] = y[3,i[10]]
+#
+!fopen 1, DIFFEV/Parameter.name
+!do i[0]=-1,parameters
+!  fget 1, string
+!  if(ipar2.eq.i[0]) then
+!    axis_x = "%c",string
+!  endif
+!  if(ipar2.eq.i[0]) then
+!    axis_y = "%c",string
+!  endif
+!enddo
+!fclose 1
 #
 tit1 Correlation between parameters
 if($1.eq.-1) then
@@ -69,28 +113,43 @@ endif
 #
 # create pretty plot
 #
-tit2 "Generation %4d; Parameter Nr. %d / %d",i[0],$2,$3
+tit2 "Generation %4d; Parameter Nr. %d %c / %d %c",i[0],ipar1, parname1, ipar2, parname2
 #
-ltyp 1,0
-mtyp 1,3
-lcol 1,1
-mcol 1,1
+ltyp 3,0
+mtyp 3,3
+lcol 3,1
+mcol 3,1
 #
-r[0] = (ymax[1]-ymin[1])*0.05
-r[1] = ymin[1]-r[0]
+r[0] = (ymax[3]-ymin[3])*0.05
+r[1] = ymin[3]-r[0]
 #
 #
-ltyp 1,0
-mtyp 1,3
-lcol 1,1
-mcol 1,1
+ltyp 3,0
+mtyp 3,3
+lcol 3,1
+mcol 3,1
+msiz 3, 0.8
+if($2.eq.0 .and. $3.ne.0) then
+   msiz 3, 0.8, x
+elseif($2.ne.0 .and. $3.eq.0) then
+   msiz 3, 0.8, y
+elseif($2.ne.0 .and. $3.ne.0) then
+   msiz 3, 0.8, 2
+endif
 #
-ltyp 2,0
-mtyp 2,3
-lcol 2,3
-mcol 2,3
+ltyp 4,0
+mtyp 4,3
+lcol 4,3
+mcol 4,3
+msiz 4, 0.2
 #
-if($2.gt.0) then
+  r[10] = xmin[3]
+  r[11] = xmax[3]
+  skal     xmin[3]         ,    xmax[3]         ,ymin[3]-r[0],ymax[3]+r[0]
+  kfra 1,3,4
+fexist "DIFFEV/Trials.%4D", 1
+if(res[1].eq.1) then
+if(ipar2.gt.0) then
 #
   alloc trials,children
   do i[0]=1,children
@@ -100,32 +159,40 @@ if($2.gt.0) then
     fget  1
     fget  1
     fget  1
-    do i[1] = 1, $2-1
+    do i[1] = 1, ipar2-1
       fget 1
     enddo
     fget 1, x[n[1],i[0]]
-    y[n[1],i[0]] = ymin[1] - r[0]
+    y[n[1],i[0]] = ymin[3] - r[0]
     fclose 1
   enddo
   r[10] = min(xmin[1],xmin[3])
   r[11] = max(xmax[1],xmax[3])
+  if(r[10].eq.r[11]) then
+    r[10] = r[10]-0.01
+    r[11] = r[11]+0.01
+  endif
 #
-  ltyp 3,0
-  mtyp 3,3
-  lcol 3,3
-  mcol 3,6
+  ltyp 5,0
+  mtyp 5,3
+  lcol 5,3
+  mcol 5,6
+  skal min(xmin[3],xmin[5]),max(xmax[3],xmax[5]),ymin[3]-r[0],ymax[3]+r[0]
 #
-  kfra 1,1,2,3
+  kfra 1,3,4,5
 else
-  r[10] = xmin[1]
-  r[11] = xmax[1]
-  kfra 1,1,2
+  r[10] = xmin[3]
+  r[11] = xmax[3]
+  skal     xmin[3]         ,    xmax[3]         ,ymin[3]-r[0],ymax[3]+r[0]
+  kfra 1,3,4
+endif
 endif
 #
-skal xmin[1],xmax[1],ymin[1]-r[0],ymax[1]+r[0]
 mark
 fnam off
+achx "%c    ",parname1 !axis_x
+achy "%c    ",parname2 !axis_y
 #
 plot
-show data,2
+show data,4
 set prompt,on

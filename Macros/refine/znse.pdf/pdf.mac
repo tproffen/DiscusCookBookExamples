@@ -18,7 +18,7 @@ pdf
     set therm, gauss    
 #
     set weig,  p_scale
-    set finite,poly
+    set finite,poly, p_ab*2
     set poly  ,p_b1,p_b2,p_b3
 #
     show

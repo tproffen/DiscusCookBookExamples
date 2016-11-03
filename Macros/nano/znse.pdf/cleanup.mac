@@ -8,3 +8,4 @@
 sys rm -f INDI/*
 sys rm -f STRU/*
 sys rm -f *.bs
+sys rm -f *.cif

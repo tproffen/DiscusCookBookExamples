@@ -19,4 +19,4 @@ save
   run
 exit
 #
-@plot.xbs single_particle.bs
+@plot.cif single_particle.cif

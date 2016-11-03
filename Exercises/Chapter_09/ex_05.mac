@@ -34,6 +34,9 @@ endif
 #    space    distance between successive layers
 #    tpi      2*3.1415
 #
+system mkdir -p DATA
+system mkdir -p PLOT
+#
 variable  integer,dimx
 variable  integer,dimy
 variable  real,eqx
@@ -146,7 +149,7 @@ read
 #
 @ex_05.powder       spiral,eqx,-1*eqy,layers,length
 @ex_05.pdf          spiral,eqx,-1*eqy,layers,length
-@ex_05.plot.xbs     spiral,eqx,-1*eqy,layers,length
+@ex_05.plot.cif     spiral,eqx,-1*eqy,layers,length
 #
 #  For the kuplot plot we go back to cartesian axes
 #

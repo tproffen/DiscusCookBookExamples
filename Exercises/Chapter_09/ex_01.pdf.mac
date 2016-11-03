@@ -30,7 +30,7 @@ pdf
 #
     set bound,crystal,3D
     set delta, 0.0
-    set dens,  0.48860885
+    set dens,  0.048860885
     set gamma, 0.0
     set qalp,  0.0
     set qsig,  0.0

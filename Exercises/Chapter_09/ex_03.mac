@@ -31,6 +31,9 @@ endif
 #    length   length of nanotube
 #    tpi      2*3.1415
 #
+system mkdir -p DATA
+system mkdir -p PLOT
+#
 variable  integer,dimx
 variable  integer,dimy
 variable  real,eqx
@@ -145,7 +148,7 @@ read
 #
 @ex_03.powder       boronnitride,eqx,-1*eqy,length
 @ex_03.pdf          boronnitride,eqx,-1*eqy,length
-@ex_03.plot.xbs     boronnitride,eqx,-1*eqy,length
+@ex_03.plot.cif     boronnitride,eqx,-1*eqy,length
 #
 #  For the kuplot plot we go back to cartesian axes
 #

@@ -24,6 +24,9 @@ endif
 # unit cells. 
 ############################################################
 #
+system mkdir -p DATA
+system mkdir -p PLOT
+#
 variable real,diameter
 variable integer,dimen
 #
@@ -58,7 +61,7 @@ purge
 #
 # Finally we plot the particle 
 #
-@ex_01.plot.xbs silicon,diameter
+@ex_01.plot.cif silicon,diameter
 #
 ############################################################
 # That's it. Use the macro 'kex_01.mac' to display the

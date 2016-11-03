@@ -43,6 +43,9 @@ endif
 # unit cells. 
 ############################################################
 #
+system mkdir -p DATA
+system mkdir -p PLOT
+#
 variable real,diameter
 variable real,rcore
 variable real,relax
@@ -124,7 +127,7 @@ endif
 #
 # Finally we plot the particle 
 #
-@ex_02.plot.xbs relaxed,diameter,$3,$4,$5
+@ex_02.plot.cif relaxed,diameter,$3,$4,$5
 @ex_02.plot.kuplot relaxed,diameter,$3,$4,$5
 #
 ############################################################

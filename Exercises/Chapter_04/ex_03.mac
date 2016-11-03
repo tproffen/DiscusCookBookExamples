@@ -6,8 +6,9 @@
 #
 if ($0.le.0) then
   echo "Specify structure: "
-  echo "  @ex_03 ni for @ex_03 lmo"
-else
+  echo "  @ex_03 ni or @ex_03 lmo"
+  continue discus
+endif
 #
 ############################################################
 # Now we read the cell and expand it to the desired
@@ -40,7 +41,6 @@ pdf
 #
   exit
 #
-endif
 #
 ############################################################
 # That's it. Use the macro 'kex_03.mac file' to display the

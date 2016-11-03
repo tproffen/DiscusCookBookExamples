@@ -19,7 +19,7 @@ pdf
     set weig,  1.00
     set therm, gauss
 #
-    set finite,poly
+    set finite,poly, length
     set poly  ,0.0,0.0,0.0,0.0
 #
     show

@@ -12,7 +12,7 @@ trans
 exit
 #
 save
-  outf "STRU/temp.stru"
+  outf STRU/temp.stru
     omit ncell
     omit  gene
     omit  scat
@@ -20,4 +20,4 @@ save
     run
   exit
 read
-  stru "STRU/temp.stru"
+  stru STRU/temp.stru

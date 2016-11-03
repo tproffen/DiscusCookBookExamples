@@ -1,3 +1,7 @@
+system mkdir -p DATA
+system mkdir -p PLOT
+system mkdir -p STRU
+#
 variable  integer,dimx
 variable  integer,dimy
 variable  real,eqx
@@ -50,7 +54,7 @@ do i[0]=1,n[1]
   z[i[0]] = radius*cos(r[34])
 enddo
 #
-@plot.xbs single,eqx,abs(eqy),length
+@plot.cif single,eqx,abs(eqy),length
 @powder   single,eqx,abs(eqy),length
 @trans.for.pdf
 @pdf      single,eqx,abs(eqy),length

@@ -1,0 +1,16 @@
+plot
+  prog   cif
+  outf   "PLOT/$1.%4D.%4D.%6.1F.cif",nint($2), nint(abs($3)), $4
+  uvw    0, 0, 1
+  ord    0, 1, 0
+  abs    1, 0, 0
+  ext    all
+  ext    x,-100,100
+  ext    y,-100,100
+  ext    z,-100,100
+  vect   0.0,0.0,0.0
+  thick  1000 
+  sel    all
+  show 
+  run
+exit

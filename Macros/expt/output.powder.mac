@@ -1,0 +1,5 @@
+output
+  format powder, $2
+  outfile $1
+  run
+exit

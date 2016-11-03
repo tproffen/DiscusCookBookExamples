@@ -25,4 +25,4 @@ powder
   show
   run
 exit
-@output powder.dat,tth
+@output.powder powder.dat,tth

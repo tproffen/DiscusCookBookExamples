@@ -10,6 +10,8 @@ fset 2
 font just,center
 skal -10.5,9.5,-10.5,9.5
 mark 1,1
+tit1 Distortion
+tit2 Structure
 achx x (l.u.)
 achy y (l.u.)
 aver 1.0

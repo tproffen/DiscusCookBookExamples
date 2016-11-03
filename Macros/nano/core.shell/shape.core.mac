@@ -19,4 +19,4 @@
     run
   exit
 #
-@plot_xbs_core single_core.bs
+@plot.cif.core single_core.cif

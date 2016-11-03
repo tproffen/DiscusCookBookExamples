@@ -19,4 +19,4 @@ domain
 exit
 #
 purge
-@plot.particle kid,indiv
+@plot.cif.particle kid,indiv

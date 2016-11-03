@@ -34,4 +34,4 @@ save
  omit adp
  run
 exit
-@plot.xbs.shell loaded.shell.bs,kid
+@plot.cif.shell loaded.shell,kid

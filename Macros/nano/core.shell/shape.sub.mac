@@ -21,4 +21,6 @@ save
   run
 exit
 #
-@plot.xbs.shell single_sub,i[12]
+if(n[1].gt.1) then
+@plot.cif.shell single_sub,i[12]
+endif

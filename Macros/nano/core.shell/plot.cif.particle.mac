@@ -1,0 +1,12 @@
+plot
+  prog cif
+  uvw  0,0,1
+  abs  1,0,0
+  ord  0,1,0
+  vect 0,0,0
+  thick 100
+  outf "PLOT/particle.%4D.%4D.cif",$2,$2
+  ext all
+  sel all
+  run
+exit

@@ -1,0 +1,15 @@
+plot
+   program kuplot
+   uvw  0,0,1
+   abs  1,0,0
+   ord  0,1,0
+   vect 0,0,0
+   thick  1000
+   sel  all
+   ext all
+   set Co, 3, 1, 1.0
+   set Al, 3, 6, 1.0
+   set Be, 3, 2, 1.0
+   outf  "$1.%4D",$2
+   run
+exit 

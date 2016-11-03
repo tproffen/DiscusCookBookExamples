@@ -1,3 +1,4 @@
+system mkdir -p INDI
 do indiv=1,naver #
  stack
   create

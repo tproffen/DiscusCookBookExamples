@@ -14,14 +14,16 @@ variable integer,children
 variable integer,parameters
 variable integer,kid
 #
-@setup
+@setup.mac
 #
 fclose all
 fopen 1,GENERATION
 fget  1,generation,member,children,parameters
 fclose 1
 #
+kid = 1
 do kid = 1,children
+#############################
   fopen 2,"DIFFEV/Trials.%4D",kid
   fget  2,generation,member,children,parameters
   fget  2,i[1]

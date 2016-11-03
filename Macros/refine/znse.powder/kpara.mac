@@ -7,10 +7,17 @@
 #
 ############################################################
 #
+variable integer, loop
+variable integer, ipar
+variable integer, generation
+variable integer, member
+variable integer, children
+variable integer, parameter
+variable character, parname
 if($0.ne.1) then
   echo
   echo "Usage:"
-  echo "@ksingle <parameter>"
+  echo "@kpara <parameter>"
   echo
   echo For the R-value parameter should be zero
   echo
@@ -19,11 +26,13 @@ if($0.ne.1) then
 endif
 #
 rese
-i[0]=$1
-load sc, DIFFEV/Summary, 1, 1,(i[0]-1)*4 + 6
-load sc, DIFFEV/Summary, 1, 1,(i[0]-1)*4 + 7
-load sc, DIFFEV/Summary, 1, 1,(i[0]-1)*4 + 8
-load sc, DIFFEV/Summary, 1, 1,(i[0]-1)*4 + 9
+#
+@k_get_name.mac ipar, parname, $1
+i[0]= 0
+load sc, "DIFFEV/Summary.%4D",ipar, 1, 1,(i[0]-1)*4 + 6
+load sc, "DIFFEV/Summary.%4D",ipar, 1, 1,(i[0]-1)*4 + 7
+load sc, "DIFFEV/Summary.%4D",ipar, 1, 1,(i[0]-1)*4 + 8
+load sc, "DIFFEV/Summary.%4D",ipar, 1, 1,(i[0]-1)*4 + 9
 do i[0]=1,np[1]
   dy[1,i[0]] = y[4,i[0]]
 enddo
@@ -44,13 +53,13 @@ etyp 1,2
 kfra 1, 1,2,3
 skal
 mark
-tit1 Refinement of ZnSe powder data
-if($1.eq.0)then
+tit1 Refinement of ZnSe PDF data
+if(ipar.eq.0)then
   tit2 R-value
   achy R-value
 else
-  tit2 "Parameter No. %d",$1
-  achy "Parameter No. %d",$1
+  tit2 "Parameter No. %d %c",ipar, parname
+  achy "Parameter No. %d %c",ipar, parname
 endif
 achx Generation
 fnam off

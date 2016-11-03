@@ -1,6 +1,13 @@
 set prompt,redirect
 set error,exit
 #
+system mkdir -p DIFFEV
+system mkdir -p CALC
+system mkdir -p INDI
+system mkdir -p STRU
+system mkdir -p TEMP
+system mkdir -p FINAL
+
 variable integer,repeat
 #
 repeat = -1
@@ -23,7 +30,7 @@ repeat = -1
 do while(repeat.eq.-1)
   sys /usr/local/bin/discus < nano.znse.mac  
   sys /usr/local/bin/kuplot < kup.diffev.mac  
-  sys /usr/local/bin/kuplot < kup.select.mac  
+#  sys /usr/local/bin/kuplot < kup.select.mac  
   compare
   fopen  1, REPEAT
   fget   1, repeat

@@ -1,0 +1,35 @@
+# Macro to run all book and exercise macros
+# This just checks if they run - not if the result is sensible (for now)
+
+set wait,off
+
+# Exercises - CHAPTER 3
+cd Exercises/Chapter_03
+@ex_01
+@ex_02
+@ex_03
+@ex_04
+@ex_05
+@ex_06
+@ex_07
+@cleanup
+cd ../..
+
+# Exercises - CHAPTER 4
+cd Exercises/Chapter_04
+@ex_01
+@ex_02
+@ex_03 lmo
+@ex_03 ni
+@cleanup
+cd ../..
+
+# Exercises - CHAPTER 5
+cd Exercises/Chapter_05
+@ex_01 0.5,-0.5,0.5,-0.5,0.25
+@ex_02 0.5,-0.5,0.5,-0.5,0.25
+@ex_03
+@ex_04
+@cleanup
+cd ../..
+

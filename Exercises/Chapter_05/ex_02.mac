@@ -1,3 +1,4 @@
+discus
 ##############################################
 # Exercise 2:
 #  Using MC with simulated annealing.
@@ -12,8 +13,8 @@
 #
 ##############################################
 if($0.ne.5) then
-   echo Use as: @ex01.mac <corr_10>, <corr_11>, <corr_20>, <corr_30>, <temp>
-   continue discus
+   echo Use as: @ex02.mac <corr_10>, <corr_11>, <corr_20>, <corr_30>, <temp>
+   continue suite
 endif
 #
 @ran 50,0.2
@@ -37,28 +38,25 @@ mmc
   set vec, 2,1,1,-1, 0, 0
   set vec, 3,1,1, 0, 1, 0
   set vec, 4,1,1, 0,-1, 0
-  set neig,vec,1,2,3,4
-  set neig,add
+  set neig,vec,1,2,3,4,number:next
 #
   set vec, 5,1,1, 1, 1, 0
   set vec, 6,1,1,-1, 1, 0
   set vec, 7,1,1, 1,-1, 0
   set vec, 8,1,1,-1,-1, 0
-  set neig,vec,5,6,7,8
-  set neig,add
+  set neig,vec,5,6,7,8,number:next
 #
   set vec, 9,1,1, 2, 0, 0
   set vec,10,1,1,-2, 0, 0
   set vec,11,1,1, 0, 2, 0
   set vec,12,1,1, 0,-2, 0
-  set neig,vec,9,10,11,12
-  set neig,add
+  set neig,vec,9,10,11,12,number:next
 #
   set vec,13,1,1, 3, 0, 0
   set vec,14,1,1,-3, 0, 0
   set vec,15,1,1, 0, 3, 0
   set vec,16,1,1, 0,-3, 0
-  set neig,vec,13,14,15,16
+  set neig,vec,13,14,15,16,number:next
 #
   set mode, 1.0, swchem,all
   set targ,1,corr,cu,void,$1,0.0,CORR
@@ -89,9 +87,11 @@ enddo
 save ex_02.stru
 @plot ex_02
 #
+exit
+#
 ##############################################
-# Use the macro kex_02.mac in KUPLOT to plot
-# the reults. Enter commands here or 'exit' to
-# quit DISCUS.
+# Plotting from suite level
 ##############################################
 #
+@kex_02 
+wait return

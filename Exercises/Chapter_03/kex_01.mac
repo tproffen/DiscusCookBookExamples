@@ -1,20 +1,12 @@
+kuplot
 ############################################################
 # Plot simulation results of Exercise  4.1 :
 ############################################################
 #
-# After the macro has finished, use one of the following
-# commands to continue (there is no need to *understand*
-# the plot macro unless you want to alter it ...) :
-#
-# 'plot'            : To view plot on the screen
-# 'save ps,plot.ps' : To save plot to POSTSCRIPT file
-# 'exit'            : To quit the KUPLOT program
+# There is no need to *understand* the plot macro unless 
+# you want to alter it ...) :
 #
 ############################################################
-#
-# Ready ??
-#
-wait return
 #
 rese
 load cr,ex_01.plot
@@ -28,7 +20,10 @@ fset 2
 grid on
 font just,cent
 tit2 Linear row of CO2 Molecules
+plot
+#
+wait return
 #
 ############################################################
-#
-# Enter your commands now :
+exit
+

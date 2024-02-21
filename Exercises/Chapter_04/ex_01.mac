@@ -1,7 +1,8 @@
+discus
 ############################################################
 # EXERCISE 1
 #
-# Creating diffraction patterns for different modl sizes.
+# Creating diffraction patterns for different model sizes.
 ############################################################
 #
 ############################################################
@@ -10,12 +11,12 @@
 #
 wait input
 #
-variable integer,size
-size=res[1]
+variable integer,atoms
+atoms=res[1]
 #
-if (size.lt.2 .or. size.gt.1000) then
-  echo "Invalid model size, try again !
-  exit
+if (atoms.lt.2 .or. atoms.gt.1000) then
+  echo "Invalid model size, setting to 10"
+  atoms=10
 endif
 #
 ############################################################
@@ -24,7 +25,7 @@ endif
 ############################################################
 #
 read
-  cell p.cll,size,1,1
+  cell p.cll,atoms,1,1
 #
 ############################################################
 # Now we calculate the scattering intensity
@@ -44,16 +45,18 @@ exit
 #
 output
   value inten
-  outfile "ex_01_%d.four",size
+  outfile "ex_01_%d.four",atoms
   run
 exit
 ############################################################
 # Plotting the structure
 ############################################################
 #
-@plot1 size
-#
+@plot1 atoms
+exit
+
 ############################################################
-# That's it. Use the macro 'kex_01.mac size' to display the
-# results of the simulation.
+# Plotting the result from suite level
 ############################################################
+@kex_01 atoms
+wait return

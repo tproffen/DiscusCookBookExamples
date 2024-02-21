@@ -1,3 +1,4 @@
+discus
 ############################################################
 # EXERCISE 6
 #
@@ -255,4 +256,4 @@ enddo
 # We have exported the two structures as CIF files for
 # plotting ..
 ############################################################
-#
+exit

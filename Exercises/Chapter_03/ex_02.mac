@@ -1,3 +1,4 @@
+discus
 ############################################################
 # EXERCISE 2
 #
@@ -61,10 +62,9 @@ enddo
 ############################################################
 #
 @plot1 ex_02
+exit
 #
 ############################################################
-# That's it. Use the macro 'kex_02.mac' to display the
-# results of the simulation. Note, that you might have
-# to alter the plotting macro if you have altered e.g.
-# the number of molecules. 
-############################################################
+# Plotting from suite level
+@kex_02
+wait return

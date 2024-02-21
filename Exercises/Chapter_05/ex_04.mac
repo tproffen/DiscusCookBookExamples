@@ -1,3 +1,4 @@
+discus
 ##############################################
 # Exercise 4:
 #  Chemical ordering AND distortions
@@ -83,9 +84,10 @@ save ex_04_disp.stru
 @four ex_04_disp
 @blen ex_04_disp
 #
+exit
 ##############################################
-# Use the macro kex_04.mac in KUPLOT to plot
-# the reults. Enter commands here or 'exit' to
-# quit DISCUS.
+# Plotting
 ##############################################
 #
+@kex_04
+wait return

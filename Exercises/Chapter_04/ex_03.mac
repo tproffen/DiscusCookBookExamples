@@ -1,3 +1,4 @@
+discus
 ############################################################
 # EXERCISE 3
 #
@@ -7,7 +8,7 @@
 if ($0.le.0) then
   echo "Specify structure: "
   echo "  @ex_03 ni or @ex_03 lmo"
-  continue discus
+  continue suite
 endif
 #
 ############################################################
@@ -41,8 +42,9 @@ pdf
 #
   exit
 #
-#
+exit
 ############################################################
-# That's it. Use the macro 'kex_03.mac file' to display the
-# results of the simulation.
+# Plotting the result - from suite level
 ############################################################
+@kex_03 $1
+wait return

@@ -1,20 +1,7 @@
+kuplot
 ############################################################
 # Plot simulation results of Exercise  4.2 :
 ############################################################
-#
-# After the macro has finished, use one of the following
-# commands to continue (there is no need to *understand*
-# the plot macro unless you want to alter it ...) :
-#
-# 'plot'            : To view plot on the screen
-# 'save ps,plot.ps' : To save plot to POSTSCRIPT file
-# 'exit'            : To quit the KUPLOT program
-#
-############################################################
-#
-# Ready ??
-#
-wait return
 #
 rese
 load cr,ex_02.plot
@@ -28,7 +15,7 @@ fset 2
 grid on
 font just,cent
 tit2 Sinusoidal row of atoms
+plot
 #
 ############################################################
-#
-# Enter your commands now :
+exit

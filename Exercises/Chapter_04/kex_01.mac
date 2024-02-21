@@ -1,23 +1,10 @@
+kuplot
 ############################################################
 # Plot simulation results of Exercise  1:
 ############################################################
 #
-# After the macro has finished, use one of the following
-# commands to continue (there is no need to *understand*
-# the plot macro unless you want to alter it ...) :
 #
-# 'plot'            : To view plot on the screen
-# 'save ps,plot.ps' : To save plot to POSTSCRIPT file
-# 'exit'            : To quit the KUPLOT program
-#
-############################################################
-#
-# Enter the model size at the prompt
-#
-wait input
-#
-variable real,atoms
-atoms=res[1]
+atoms=$1
 #
 rese
 load cr,"ex_01_%d.plot",atoms
@@ -53,7 +40,9 @@ achx [h 0 0] (r.l.u.)
 achy Intensity
 skal xmin[2],xmax[2],ymin[2],0.2*ymax[2]
 tit2 Enlarged y-scale (x 5)
+plot
+#
+wait return
 #
 ############################################################
-#
-# Enter your commands now :
+exit

@@ -1,3 +1,4 @@
+kuplot
 reset
 load xy,ex_03_kT*_cc.blen
 #
@@ -9,4 +10,4 @@ skal 2.0,3.0
 mark 0.25,250
 #
 plot
-
+exit

@@ -1,3 +1,4 @@
+kuplot
 reset
 #
 load cr,ex_04_occ.plot
@@ -65,3 +66,4 @@ tit1 Structure
 tit2 Cross section
 #
 plot
+exit

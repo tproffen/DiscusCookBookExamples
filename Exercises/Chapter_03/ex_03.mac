@@ -1,3 +1,4 @@
+discus
 ############################################################
 # EXERCISE 3
 #
@@ -37,4 +38,4 @@ save ex_03.stru
 # You can also verify the result, by making the cell file
 # using the space group P2/c and let DISCUS do the work.
 ############################################################
-#
+exit

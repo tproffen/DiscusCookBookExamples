@@ -1,3 +1,4 @@
+discus
 ##############################################
 # Exercise 3:
 #  BOndlength distribution as function of kT.
@@ -51,9 +52,11 @@ mmc
 exit
 @blen ex_03_kT0.1
 #
+exit
+#
 ##############################################
-# Use the macro kex_03.mac in KUPLOT to plot
-# the reults. Enter commands here or 'exit' to
-# quit DISCUS.
+# Plotting from suite level
 ##############################################
 #
+@kex_03
+wait return

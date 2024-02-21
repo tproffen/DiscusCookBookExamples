@@ -1,3 +1,4 @@
+discus
 ##############################################
 # Exercise 2:
 #  Determining correlations
@@ -21,7 +22,7 @@ chem
 exit
 #
 ##############################################
-# Enter commands here or 'exit' to
-# quit DISCUS.
+# Exit back to suite level
 ##############################################
 #
+exit

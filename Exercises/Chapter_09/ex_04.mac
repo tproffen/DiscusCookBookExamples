@@ -1,3 +1,4 @@
+discus
 ############################################################
 # EXERCISE NANOPARTICLES  4
 #
@@ -6,12 +7,8 @@
 ############################################################
 #
 if($0.ne.3) then
-  echo
-  echo " Usage:"
-  echo " @ex_04.mac <m>, <n>, <length>"
-  echo
-  wait return
-  continue discus
+  echo " Usage: @ex_04.mac <m>, <n>, <length>"
+  continue suite
 endif
 #
 ############################################################
@@ -141,3 +138,10 @@ read
 @ex_04.plot.kuplot  single,eqx,-1*eqy,length
 @ex_04.plot.cif     single,eqx,-1*eqy,length
 ############################################################
+exit    # back to suite
+############################################################
+# Plotting
+############################################################
+@kex_04 $1, $2, $3
+wait return
+

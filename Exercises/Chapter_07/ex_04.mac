@@ -1,3 +1,4 @@
+discus
 ############################################################
 # EXERCISE STACKING FAULTS  4
 #
@@ -76,7 +77,10 @@ fourier
 exit
 @ex_04.fourier 1,0,i[0]
 #
+exit              # Back to suite level
 ############################################################
-# That's it. Use the macro 'kex_04.mac' to display the
-# results of the simulation.
+# Plotting
 ############################################################
+@kex_04
+wait return
+

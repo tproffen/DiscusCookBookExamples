@@ -1,11 +1,4 @@
-#
-# kex_04.mac
-#
-############################################################
-#
-#  usage:
-#  @kex_04
-#
+kuplot
 ############################################################
 #
 #  This macro displays the result of exercise 04. 
@@ -53,3 +46,5 @@ tit2
 grid on
 #
 plot
+# 
+exit    # Back to suite level

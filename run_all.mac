@@ -33,3 +33,52 @@ cd Exercises/Chapter_05
 @cleanup
 cd ../..
 
+# Exercises - CHAPTER 6
+cd Exercises/Chapter_06
+@ex_01
+@ex_02
+@ex_03
+@ex_04 20
+@ex_05 20
+@cleanup
+cd ../..
+
+# Exercises - CHAPTER 7
+cd Exercises/Chapter_07
+@ex_01 0.25
+@ex_02 0.25
+@ex_03 0.25, hex
+@ex_03 0.25, cub
+@ex_04
+@cleanup
+cd ../..
+
+# Exercises - CHAPTER 8
+cd Exercises/Chapter_08
+@ex_01
+@ex_02
+@ex_03
+@cleanup
+cd ../..
+
+# Exercises - CHAPTER 9
+cd Exercises/Chapter_09
+@ex_01 25, neutron
+@ex_02 20, neutron, 1.5, 0.1, linear
+@ex_03 7, 7, 30
+@ex_04 7, 7, 30
+@ex_05 6, 6, 4, 40
+@cleanup
+cd ../..
+
+# Exercises - CHAPTER 10
+cd Exercises/Chapter_10
+@ex_01
+@ex_02
+@ex_03
+@ex_04
+@ex_05
+@cleanup
+cd ../..
+
+

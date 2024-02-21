@@ -1,20 +1,7 @@
+kuplot
 ############################################################
 # Plot simulation results of Exercise 3 :
 ############################################################
-#
-# After the macro has finished, use one of the following 
-# commands to continue (there is no need to *understand*
-# the plot macro unless you want to alter it ...) :
-#
-# 'plot'            : To view plot on the screen
-# 'save ps,plot.ps' : To save plot to POSTSCRIPT file
-# 'exit'            : To quit the KUPLOT program
-#
-############################################################
-#
-# Ready ??
-#
-wait return
 #
 rese
 load ni,ex_03.four
@@ -102,7 +89,7 @@ tit2 Satellite-intensity along k
 sann 1,"J(1)^2",2.0,50.0
 #
 sys rm dens.xy bragg.k sat.k
+plot
 #
-############################################################
+exit
 # 
-# Enter your commands now :

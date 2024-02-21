@@ -1,13 +1,13 @@
 discus
 ############################################################
-# EXERCISE STACKING FAULTS  1
+# EXERCISE STACKING FAULTS  2
 #
 #   Simulate a closed packed structure with growth faults
 #
 ############################################################
 #
 if($0.ne.1) then
-  echo " Usage: @ex_01.mac <probability>"
+  echo " Usage: @ex_02.mac <probability>"
   continue suite
 endif
 #
@@ -53,9 +53,9 @@ naver  =    50
 hmin   = 0
 hmax   = 4
 kmin   = 0
-kmax   = 4
+kmax   = 0
 fclose all
-fopen  1, ex_01.setup.mac
+fopen  1, ex_02.setup.mac
 fput   1,'prob  = ',prob
 fput   1,'naver = ',naver
 fput   1,'hmin  = ',hmin
@@ -153,6 +153,6 @@ exit   ! Back to suite level
 ############################################################
 # Plotting
 ############################################################
-@kex_01
+@kex_02 $1
 wait return
 

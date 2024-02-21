@@ -1,3 +1,4 @@
+discus
 ##############################################
 # Exercise 3:
 #  Coordination
@@ -95,7 +96,12 @@ wait return
 #
 set prompt,on,on
 ##############################################
-# Enter commands here or 'exit' to
-# quit DISCUS.
-##############################################
 #
+exit    # back to suite level
+##############################################
+# Plotting
+##############################################
+@kex_03
+wait return
+
+

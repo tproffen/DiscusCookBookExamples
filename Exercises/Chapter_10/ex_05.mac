@@ -1,3 +1,4 @@
+discus
 ##############################################
 # Exercise 5:
 #  Visualizing distortions
@@ -57,8 +58,10 @@ set prompt,on,on
 #
 @plot2 ex_05
 #
+exit    # back to suite level
 ##############################################
-# Enter commands here or 'exit' to
-# quit DISCUS.
+# Plotting
 ##############################################
-#
+@kex_05
+wait return
+

@@ -1,31 +1,13 @@
+kuplot
 ############################################################
 # Plot simulation results of Exercise  8.3 :
 ############################################################
 #
 if($0.ne.3) then
-  echo
-  echo "usage:"
-  echo "@kex_03.mac <m>, <n>, <length>"
-  echo
-  wait return
-  continue kuplot
+  echo "Usage: @kex_03.mac <m>, <n>, <length>"
+  continue suite
 endif
 ############################################################
-#
-# After the macro has finished, use one of the following
-# commands to continue (there is no need to *understand*
-# the plot macro unless you want to alter it ...) :
-# 
-#
-# 'plot'            : To view plot on the screen
-# 'save ps,plot.ps' : To save plot to POSTSCRIPT file
-# 'exit'            : To quit the KUPLOT program
-#
-############################################################
-#
-# Ready ??
-#
-wait return
 #
 fset 3
 rese
@@ -95,4 +77,4 @@ fset 3
 #
 ############################################################
 #
-echo Enter your commands now :
+exit    # back to suite level

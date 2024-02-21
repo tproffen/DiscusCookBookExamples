@@ -1,3 +1,4 @@
+discus
 ############################################################
 # EXERCISE 2
 #
@@ -71,12 +72,12 @@ domain
   assign shape,OO,3, 0.0,           0.0,          10.0,  0.0
 #
 # ----------------------------------------------------------
-# Defining the orientation : a'=0.5a, ..
+# Defining the orientation : 
 # ----------------------------------------------------------
 #
-  assign orient,OO,1, 0.5, 0.0, 0.0,  0.0
-  assign orient,OO,2, 0.0, 0.5, 0.0,  0.0
-  assign orient,OO,3, 0.0, 0.0, 0.5,  0.0
+  assign orient,OO,1, 1.0, 0.0, 0.0,  0.0
+  assign orient,OO,2, 0.0, 1.0, 0.0,  0.0
+  assign orient,OO,3, 0.0, 0.0, 1.0,  0.0
 #
 # ----------------------------------------------------------
 # Show settings and then insert domains
@@ -93,8 +94,10 @@ exit
 #
 @plot ex_02
 #
-############################################################
-# That's it. Use the macro 'kex_02.mac' to display the
-# results of the simulation. Enter 'exit' to end DISCUS.
-############################################################
+exit            # back to suite level
 #
+############################################################
+# Plotting
+############################################################
+@kex_02
+wait return

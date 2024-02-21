@@ -1,3 +1,4 @@
+discus
 ############################################################
 # EXERCISE STACKING FAULTS  3
 #
@@ -6,12 +7,8 @@
 ############################################################
 #
 if($0.ne.2) then
-  echo
-  echo " Usage:"
-  echo " @ex_03.mac <probability>,{ hex  |  cub }"
-  echo
-  wait return
-  contiue discus
+  echo " Usage: @ex_03.mac <probability>,{ hex  |  cub }"
+  continue suite
 endif
 #
 ############################################################
@@ -162,7 +159,11 @@ eval n[1]
   enddo
 enddo
 #
+exit      # Back to suite
+#
 ############################################################
-# That's it. Use the macro 'kex_03.mac' to display the
-# results of the simulation.
+# Plotting
 ############################################################
+@kex_03 $2
+wait return
+

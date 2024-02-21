@@ -1,3 +1,4 @@
+discus
 ############################################################
 # EXERCISE NANOPARTICLES  2
 #
@@ -5,16 +6,10 @@
 #    PDF and the powder pattern.
 #
 ############################################################
-#  echo " @ex_02.mac <diameter>, { xray | neutron }, 
-#  <thickness>, <relaxation>, { constant | linear }"
 #
 if($0.ne.5) then
-  echo
-  echo " Usage:"
-  echo " @ex_02.mac <diameter>, { xray | neutron }, <thickness>, <relaxation>, { constant | linear }"
-  echo
-  wait return
-  continue discus
+  echo " Usage: @ex_02.mac <diameter>, { xray | neutron }, <thickness>, <relaxation>, { constant | linear }"
+  continue suite
 endif
 #
 ############################################################
@@ -130,7 +125,11 @@ endif
 @ex_02.plot.cif relaxed,diameter,$3,$4,$5
 @ex_02.plot.kuplot relaxed,diameter,$3,$4,$5
 #
+exit     # back to suite level
+#
 ############################################################
-# That's it. Use the macro 'kex_02.mac' to display the
-# results of the simulation.
+# Plotting
 ############################################################
+@kex_02 $1,$2,$3,$4,$5
+wait return
+

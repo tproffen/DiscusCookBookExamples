@@ -1,3 +1,9 @@
+kuplot
+############################################################
+#  This macro displays the result of exercise 02. 
+############################################################
+#
+system mkdir -p SUM
 rese
 variable real,prob
 variable integer,naver
@@ -8,11 +14,18 @@ variable integer,kmax
 variable integer,hh
 variable integer,kk
 #
-@ex_03.setup.mac
+#  read the parameters that ex_01 has created. This saves
+#  us from remembering the parameters...
+#
+@ex_02.setup.mac
+#
+#  Display all hkL rods
 #
 do hh = hmin, hmax
   do kk = kmin, kmax
-    @k_stack_def_xxL hh,kk,prob,$1
+    @k_stack_growth_xxL hh,kk,prob
     wait return
   enddo
 enddo
+# 
+exit    ! Back to suite level

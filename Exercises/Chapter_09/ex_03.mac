@@ -1,3 +1,4 @@
+discus
 ############################################################
 # EXERCISE NANOPARTICLES  3
 #
@@ -9,12 +10,8 @@
 ############################################################
 #
 if($0.ne.3) then
-  echo
-  echo " Usage:"
-  echo " @ex_03.mac <m>, <n>, <length>"
-  echo
-  wait return
-  continue discus
+  echo " Usage: @ex_03.mac <m>, <n>, <length>"
+  continue suite
 endif
 #
 ############################################################
@@ -155,3 +152,11 @@ read
 @ex_03.ortho2cart
 @ex_03.plot.kuplot  boronnitride,eqx,-1*eqy,length
 ############################################################
+exit     # back to suite level
+############################################################
+# Plotting
+############################################################
+@kex_03 $1, $2, $3
+wait return
+
+

@@ -1,15 +1,9 @@
-#
-# kex_03.mac
-#
+kuplot
 ############################################################
 #
 if($0.ne.1) then
-  echo
-  echo " usage:"
-  echo " @kex_02 { hex  |  cub }"
-  echo
-  wait return
-  continue kuplot
+  echo " usage: @kex_03 { hex  |  cub }"
+  continue suite
 endif
 #
 ############################################################
@@ -43,3 +37,6 @@ do hh = hmin, hmax
     wait return
   enddo
 enddo
+#
+exit             # Back to suite level
+

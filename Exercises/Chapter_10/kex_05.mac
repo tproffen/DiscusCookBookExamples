@@ -1,3 +1,4 @@
+kuplot
 rese
 orient port
 #
@@ -18,3 +19,4 @@ aver 1.0
 grid on
 #
 plot
+exit     # back to suite level

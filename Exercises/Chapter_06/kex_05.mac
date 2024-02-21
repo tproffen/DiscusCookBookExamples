@@ -1,20 +1,7 @@
+kuplot
 ############################################################
 # Plot simulation results of Exercise 5 :
 ############################################################
-#
-# After the macro has finished, use one of the following 
-# commands to continue (there is no need to *understand*
-# the plot macro unless you want to alter it ...) :
-#
-# 'plot'            : To view plot on the screen
-# 'save ps,plot.ps' : To save plot to POSTSCRIPT file
-# 'exit'            : To quit the KUPLOT program
-#
-############################################################
-#
-# Ready ??
-#
-wait return
 #
 rese
 load ni,ex_05.four
@@ -95,7 +82,6 @@ achx Distance from boundary [A]
 achy Dampening factor
 #
 sys rm cut.h
+plot
 #
-############################################################
-# 
-# Enter your commands now :
+exit

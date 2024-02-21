@@ -1,5 +1,5 @@
 title Primitive cubic structure - Domain
 spcgr P1
-cell  2.5, 2.5, 2.5,  90.0, 90.0, 90.0
+cell  5.0, 5.0, 5.0,  90.0, 90.0, 90.0
 atoms
 Ti    0.0  0.0  0.0   0.10

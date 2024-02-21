@@ -1,3 +1,4 @@
+discus
 ############################################################
 # EXERCISE NANOPARTICLES  5
 #
@@ -6,12 +7,8 @@
 ############################################################
 #
 if($0.ne.4) then
-  echo
-  echo "# Usage:"
-  echo "# @ex_05.mac <m>, <n>, <layers>, <length>"
-  echo
-  wait return
-  continue discus
+  echo "# Usage: @ex_05.mac <m>, <n>, <layers>, <length>"
+  continue suite
 endif
 #
 ############################################################
@@ -156,3 +153,10 @@ read
 @ex_05.ortho2cart
 @ex_05.plot.kuplot  spiral,eqx,-1*eqy,layers,length
 ############################################################
+exit          # back to suite
+############################################################
+# Plotting
+############################################################
+@kex_05 $1, $2, $3, $4
+wait return
+

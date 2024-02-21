@@ -1,20 +1,19 @@
+discus
 ############################################################
 # EXERCISE 5
 ############################################################
-# 
-# Enter the size of the circular domain in unit cells
-# below :
+#  Call this macro with the following parameters:
 #
-wait input
-#
-if (res[1].lt.1 .or. res[1].gt.100) then
-  echo "Invalid domain size, try again !"
-  exit
+#  $1: Domain size ( >=1 and <= 100)
+############################################################
+if($0.ne.1) then
+   echo Use as: @ex_05.mac <domain_size>
+   continue suite
 endif
 #
-variable integer,size
-size=res[1]
-#
+variable integer,dsize
+dsize=$1
+# 
 ############################################################
 # First we create out structure file containing the 
 # modulation as in the example in Chapter 6.
@@ -50,7 +49,7 @@ exit
 r[1]=0.1
 #
 do i[2]=1,n[1]
-  r[3]=0.5*size*lat[1] - 1.0*blen(x[i[2]],y[i[2]],z[i[2]])
+  r[3]=0.5*dsize*lat[1] - 1.0*blen(x[i[2]],y[i[2]],z[i[2]])
   r[2]=0.5+0.5*tanh(r[1]*(r[3] - 3.1415926))
   y[i[2]]=nint(y[i[2]]) + r[2]*(y[i[2]]-nint(y[i[2]]))
 enddo
@@ -77,8 +76,8 @@ domain
   assign char,d1,sphere
   assign fuzzy,d1,0.5
   assign content,d1,ex_05_wave.stru
-  assign shape ,d1,1,size, 0.0, 0.0,  0.0
-  assign shape ,d1,2, 0.0,size, 0.0,  0.0
+  assign shape ,d1,1,dsize, 0.0, 0.0,  0.0
+  assign shape ,d1,2, 0.0,dsize, 0.0,  0.0
   assign shape ,d1,3, 0.0, 0.0, 1.0,  0.0
   assign orient,d1,1, 1.0, 0.0, 0.0,  0.0
   assign orient,d1,2, 0.0, 1.0, 0.0,  0.0
@@ -98,11 +97,10 @@ exit
 @four ex_05
 @plot ex_05
 #
+exit
 ############################################################
-# That's it. Use the macro 'kex_05.mac' to display the
-# results of the simulation. Note, that you might have
-# to alter the plotting macro depending on the wave length
-# of the displacement wave or the size of the microdomain.
+# Plotting
 ############################################################
-#
+@kex_05
+wait return
 

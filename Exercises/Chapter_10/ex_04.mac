@@ -1,3 +1,4 @@
+discus
 ##############################################
 # Exercise 4:
 #  Determining displacements
@@ -21,7 +22,7 @@ chem
 exit
 #
 ##############################################
-# Enter commands here or 'exit' to
-# quit DISCUS.
+# Return to suite level
 ##############################################
-#
+exit
+

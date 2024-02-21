@@ -1,3 +1,4 @@
+discus
 ############################################################
 # EXERCISE 1
 #
@@ -71,14 +72,12 @@ domain
   assign shape,OO,3, 0.0, 0.0, 5.0,  0.0
 #
 # ----------------------------------------------------------
-# Defining the orientation - here a'=a/2,b'=b/2 and c'=c/2
-# because the domain lattice parameter is half of the one
-# of the host structure.
+# Defining the orientation
 # ----------------------------------------------------------
 #
-  assign orient,OO,1, 0.5, 0.0, 0.0,  0.0
-  assign orient,OO,2, 0.0, 0.5, 0.0,  0.0
-  assign orient,OO,3, 0.0, 0.0, 0.5,  0.0
+  assign orient,OO,1, 1.0, 0.0, 0.0,  0.0
+  assign orient,OO,2, 0.0, 1.0, 0.0,  0.0
+  assign orient,OO,3, 0.0, 0.0, 1.0,  0.0
 #
 # ----------------------------------------------------------
 # Show settings and then insert domains
@@ -95,8 +94,12 @@ exit
 #
 @plot ex_01
 #
+exit     # Back to suite level
+#
 ############################################################
-# That's it. Use the macro 'kex_01.mac' to display the
-# results of the simulation. Enter 'exit' to end DISCUS.
+# Plotting
 ############################################################
 #
+@kex_01
+wait return
+

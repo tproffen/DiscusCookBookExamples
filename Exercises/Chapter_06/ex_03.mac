@@ -1,3 +1,4 @@
+discus
 ############################################################
 # EXERCISE 3
 ############################################################
@@ -40,10 +41,10 @@ exit
 @four ex_03
 @plot ex_03
 #
+exit
 ############################################################
-# That's it. Use the macro 'kex_03.mac' to display the
-# results of the simulation. Note, that you might have
-# to alter the plotting macro if you have altered e.g.
-# the wave length of the wave in this macro.
+# Plotting
 ############################################################
+@kex_03
+wait return
 

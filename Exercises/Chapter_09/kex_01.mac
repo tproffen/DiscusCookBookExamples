@@ -1,14 +1,11 @@
+kuplot
 ############################################################
 # Plot simulation results of Exercise  8.1 :
 ############################################################
 #
 if($0.ne.2) then
-  echo
-  echo "usage:"
-  echo "@kex_01 <diameter>, { xray | neutron }"
-  echo
-  wait return
-  continue kuplot
+  echo "usage: @kex_01 <diameter>, { xray | neutron }"
+  continue suite
 endif
 ############################################################
 #
@@ -16,16 +13,7 @@ endif
 # commands to continue (there is no need to *understand*
 # the plot macro unless you want to alter it ...) :
 # 
-#
-# 'plot'            : To view plot on the screen
-# 'save ps,plot.ps' : To save plot to POSTSCRIPT file
-# 'exit'            : To quit the KUPLOT program
-#
 ############################################################
-#
-# Ready ??
-#
-wait return
 #
 rese
 load xy, "DATA/silicon.%6.1F.$2.tth",$1
@@ -59,8 +47,5 @@ font just,cent
 tit1 Silicon nanoparticle
 tit2 "Diameter : %6.1f \A ; PDF; Radiation: $2",$1
 plot
-wait return
 #
-############################################################
-#
-echo Enter your commands now :
+exit    # back to suite level

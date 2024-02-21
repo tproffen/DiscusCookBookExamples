@@ -1,3 +1,4 @@
+kuplot
 rese
 orient port
 #
@@ -17,3 +18,4 @@ achy y (l.u.)
 aver 1.0
 #
 plot
+exit   # back to suite level

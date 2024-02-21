@@ -1,3 +1,4 @@
+discus
 ##############################################
 # Exercise 1:
 #  Information about the structure
@@ -21,7 +22,5 @@ chem
 exit
 #
 ##############################################
-# Enter commands here or 'exit' to
-# quit DISCUS.
-##############################################
 #
+exit       # Back to suite level

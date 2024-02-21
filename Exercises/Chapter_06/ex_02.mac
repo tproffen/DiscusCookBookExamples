@@ -1,3 +1,4 @@
+discus
 ############################################################
 # EXERCISE 2
 ############################################################
@@ -58,9 +59,10 @@ enddo
 @four ex_02
 @plot ex_02
 #
+exit
 ############################################################
-# That's it. Use the macro 'kex_02.mac' to display the
-# results of the simulation. Note, that you might have
-# to alter the plotting macro if you have altered e.g.
-# the wave length of the density wave in this macro.
+# Plotting
 ############################################################
+@kex_02
+wait return
+

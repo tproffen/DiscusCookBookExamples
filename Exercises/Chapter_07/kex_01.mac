@@ -1,15 +1,6 @@
-#
-# kex_01.mac
-#
+kuplot
 ############################################################
-#
-#  usage:
-#  @kex_01
-#
-############################################################
-#
 #  This macro displays the result of exercise 01. 
-#
 ############################################################
 #
 system mkdir -p SUM
@@ -36,3 +27,5 @@ do hh = hmin, hmax
     wait return
   enddo
 enddo
+# 
+exit    ! Back to suite level

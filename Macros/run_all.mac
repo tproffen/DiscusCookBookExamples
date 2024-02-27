@@ -19,5 +19,17 @@ cd sim
 @cleanup
 cd ..
 
+# Modulations - CHAPTER 6
+cd mod
+@mod.1
+@mod.2
+@mod.3
+@mod.4 1.5
+@mod.5
+
+@cleanup
+cd ..
+
+
 exit
 

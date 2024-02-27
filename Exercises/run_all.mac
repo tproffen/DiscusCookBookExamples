@@ -1,10 +1,10 @@
-# Macro to run all book and exercise macros
+# Macro to run all exercise macros
 # This just checks if they run - not if the result is sensible (for now)
 
 set wait,off
 
 # Exercises - CHAPTER 3
-cd Exercises/Chapter_03
+cd Chapter_03
 @ex_01
 @ex_02
 @ex_03
@@ -13,72 +13,72 @@ cd Exercises/Chapter_03
 @ex_06
 @ex_07
 @cleanup
-cd ../..
+cd ..
 
 # Exercises - CHAPTER 4
-cd Exercises/Chapter_04
+cd Chapter_04
 @ex_01
 @ex_02
 @ex_03 lmo
 @ex_03 ni
 @cleanup
-cd ../..
+cd ..
 
 # Exercises - CHAPTER 5
-cd Exercises/Chapter_05
+cd Chapter_05
 @ex_01 0.5,-0.5,0.5,-0.5,0.25
 @ex_02 0.5,-0.5,0.5,-0.5,0.25
 @ex_03
 @ex_04
 @cleanup
-cd ../..
+cd ..
 
 # Exercises - CHAPTER 6
-cd Exercises/Chapter_06
+cd Chapter_06
 @ex_01
 @ex_02
 @ex_03
 @ex_04 20
 @ex_05 20
 @cleanup
-cd ../..
+cd ..
 
 # Exercises - CHAPTER 7
-cd Exercises/Chapter_07
+cd Chapter_07
 @ex_01 0.25
 @ex_02 0.25
 @ex_03 0.25, hex
 @ex_03 0.25, cub
 @ex_04
 @cleanup
-cd ../..
+cd ..
 
 # Exercises - CHAPTER 8
-cd Exercises/Chapter_08
+cd Chapter_08
 @ex_01
 @ex_02
 @ex_03
 @cleanup
-cd ../..
+cd ..
 
 # Exercises - CHAPTER 9
-cd Exercises/Chapter_09
+cd Chapter_09
 @ex_01 25, neutron
 @ex_02 20, neutron, 1.5, 0.1, linear
 @ex_03 7, 7, 30
 @ex_04 7, 7, 30
 @ex_05 6, 6, 4, 40
 @cleanup
-cd ../..
+cd ..
 
 # Exercises - CHAPTER 10
-cd Exercises/Chapter_10
+cd Chapter_10
 @ex_01
 @ex_02
 @ex_03
 @ex_04
 @ex_05
 @cleanup
-cd ../..
+cd ..
 
 

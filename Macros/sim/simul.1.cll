@@ -1,5 +1,5 @@
 title Dummy structure in C2/m
-spcgr C2/m
-cell   5.00 8.00 13.00  90.0 100.0 90.0
-atoms
-ZR     0.1000  0.2000  0.3000  0.1
+spcgr C2/m            , setting:abc
+cell  5.0, 8.0, 13.0, 90.0, 100.0, 90.0
+atoms x,      y,      z,     Biso
+ZR    0.10,   0.20,   0.30,  0.10

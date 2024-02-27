@@ -1,0 +1,6 @@
+#
+#  removes all output created by the solutions
+#  Use with caution!
+#
+system rm -f atom.stru
+system rm -f row.stru

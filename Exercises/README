@@ -1,0 +1,10 @@
+Exercises
+---------
+
+This folder contains all the example solutions for the exercises in the Cookbook.
+They are organized by chapter. Note that there might be other solutions to the
+different exercises that work as well, so consider this as one possible solution.
+
+The file run_all.mac will run all macros in this folder and is primarily used for
+testing.
+

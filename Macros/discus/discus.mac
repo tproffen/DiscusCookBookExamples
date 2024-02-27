@@ -1,0 +1,12 @@
+# Switching between programs
+#
+# Start DISCUS
+discus
+  # DISCUS commands go here
+  # Exit back to the main level
+exit   
+# Start KUPLOT
+kuplot
+   # KUPLOT commands go here
+   # Exit back to main level
+exit

@@ -1,11 +1,11 @@
 read
   cell cell.cll,100,100,1
 #
-varible integer,loop
-varible integer,dmax
-varible real,dia
-varible real,dox
-varible real,doy
+variable integer,loop
+variable integer,dmax
+variable real,dia
+variable real,dox
+variable real,doy
 #
 dmax=10
 #

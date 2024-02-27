@@ -1,0 +1,12 @@
+Macros
+------
+
+This folder contains all macro files shown in the book. They are organized by chapter 
+and the path to the file is shown in the book with each macro (e.g. sim/simul.1.mac).
+Note that there might be cases where the macro needs a structure file loaded which 
+woul be mentioned in the book. The macros will usually assume that you are in the
+DISCUS section when running them.
+
+The file run_all.mac will run all macros in this folder and is primarily used for
+testing.
+

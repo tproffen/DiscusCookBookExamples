@@ -1,0 +1,23 @@
+# Macro to run all book macros
+# This just checks if they run - not if the result is sensible (for now)
+
+set wait,off
+discus
+
+# Exercises - CHAPTER 3
+cd sim
+@simul.1
+@simul.2 7
+@simul.3
+@simul.4
+@simul.5
+@simul.6
+@simul.7
+@simul.8
+@simul.9
+
+@cleanup
+cd ..
+
+exit
+
